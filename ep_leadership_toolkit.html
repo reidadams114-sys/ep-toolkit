@@ -4,7 +4,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>EP Leadership Toolkit</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- System fonts only - no external dependencies -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="EP Toolkit">
+<meta name="theme-color" content="#1a1a2e">
 <style>
   :root {
     --ink: #1a1a2e;
@@ -29,7 +33,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
-    font-family: 'DM Sans', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
     background: var(--canvas);
     color: var(--ink);
     min-height: 100vh;
@@ -57,7 +61,7 @@
     background: radial-gradient(circle, rgba(193,127,58,0.18) 0%, transparent 70%);
   }
   .header-title {
-    font-family: 'Playfair Display', serif;
+    font-family: Georgia, 'Times New Roman', serif;
     font-size: 26px;
     font-weight: 700;
     letter-spacing: -0.3px;
@@ -77,7 +81,7 @@
     border: 1px solid rgba(193,127,58,0.4);
     color: var(--accent-light);
     font-size: 11px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'SF Mono', 'Courier New', Courier, monospace;
     padding: 6px 14px;
     border-radius: 20px;
     letter-spacing: 0.5px;
@@ -130,7 +134,7 @@
     margin-bottom: 6px;
   }
   .section-title {
-    font-family: 'Playfair Display', serif;
+    font-family: Georgia, 'Times New Roman', serif;
     font-size: 22px;
     font-weight: 600;
     color: var(--ink);
@@ -195,7 +199,7 @@
     border: 1px solid var(--border);
     border-radius: var(--radius-sm);
     padding: 10px 14px;
-    font-family: 'DM Sans', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
     font-size: 14px;
     color: var(--ink);
     outline: none;
@@ -218,7 +222,7 @@
     display: inline-flex; align-items: center; gap: 8px;
     padding: 10px 20px;
     border-radius: var(--radius-sm);
-    font-family: 'DM Sans', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
     font-size: 13px;
     font-weight: 600;
     cursor: pointer;
@@ -282,7 +286,7 @@
     border-radius: var(--radius);
     padding: 24px;
     color: rgba(255,255,255,0.85);
-    font-family: 'DM Mono', monospace;
+    font-family: 'SF Mono', 'Courier New', Courier, monospace;
     font-size: 13px;
     line-height: 1.8;
     white-space: pre-wrap;
@@ -297,7 +301,7 @@
     text-transform: uppercase;
     color: var(--accent-light);
     margin-bottom: 12px;
-    font-family: 'DM Sans', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
     font-weight: 600;
   }
   .copy-btn {
@@ -310,7 +314,7 @@
     padding: 4px 10px;
     border-radius: 6px;
     cursor: pointer;
-    font-family: 'DM Sans', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
     transition: all 0.15s;
   }
   .copy-btn:hover { background: rgba(255,255,255,0.18); color: white; }
@@ -394,7 +398,7 @@
   }
   .agenda-block:last-child { border-bottom: none; }
   .agenda-time {
-    font-family: 'DM Mono', monospace;
+    font-family: 'SF Mono', 'Courier New', Courier, monospace;
     font-size: 12px;
     color: var(--accent);
     font-weight: 500;
@@ -454,7 +458,7 @@
     border-radius: 4px;
     font-weight: 600;
     font-size: 13px;
-    font-family: 'DM Mono', monospace;
+    font-family: 'SF Mono', 'Courier New', Courier, monospace;
   }
 
   /* INFO BOX */
@@ -578,19 +582,48 @@
     .nav-tab:hover { color: var(--ink-muted); }
     .nav-tab.active { color: var(--accent); }
   }
+
+  /* EXEC AGENDA TABLE INPUTS */
+  .exec-tbl td { padding: 0; }
+  .exec-tbl td input, .exec-tbl td select {
+    border: none;
+    border-bottom: 1px solid var(--border);
+    border-radius: 0;
+    padding: 10px 8px;
+    font-size: 14px;
+    background: transparent;
+    width: 100%;
+    font-family: inherit;
+    color: var(--ink);
+  }
+  .exec-tbl td input:focus, .exec-tbl td select:focus {
+    border-bottom-color: var(--accent);
+    background: var(--canvas);
+    outline: none;
+  }
+  .exec-tbl tr:last-child td input, .exec-tbl tr:last-child td select { border-bottom: none; }
+  @media (max-width: 820px) {
+    .metrics-3col { grid-template-columns: 1fr 1fr !important; }
+  }
 </style>
 </head>
 <body>
+<script>
+window.onerror = function(msg, src, line) {
+  document.body.innerHTML = '<div style="padding:40px;font-family:sans-serif;"><h2 style="color:#c17f3a;">EP Toolkit</h2><p style="color:#666;margin-top:8px;">Error loading toolkit: ' + msg + '</p><p style="color:#999;font-size:13px;margin-top:4px;">Line ' + line + '</p></div>';
+  return true;
+};
+</script>
 
 <!-- CUSTOM INPUT MODAL (replaces prompt() for iPad Safari compatibility) -->
 <div id="inputModal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:9999;align-items:center;justify-content:center;padding:20px;">
   <div style="background:#fff;border-radius:16px;padding:28px;max-width:400px;width:100%;box-shadow:0 8px 48px rgba(0,0,0,0.2);">
-    <div id="modalTitle" style="font-family:'Playfair Display',serif;font-size:18px;font-weight:600;color:#1a1a2e;margin-bottom:8px;"></div>
+    <div id="modalTitle" style="font-family:Georgia,serif;font-size:18px;font-weight:600;color:#1a1a2e;margin-bottom:8px;"></div>
     <div id="modalDesc" style="font-size:13px;color:#7a7a9a;margin-bottom:16px;"></div>
-    <input type="text" id="modalInput" style="width:100%;padding:12px 14px;border:1.5px solid #e2dfd8;border-radius:8px;font-size:16px;font-family:'DM Sans',sans-serif;color:#1a1a2e;background:#f8f7f2;outline:none;margin-bottom:16px;" />
+    <input type="text" id="modalInput" style="width:100%;padding:12px 14px;border:1.5px solid #e2dfd8;border-radius:8px;font-size:16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#1a1a2e;background:#f8f7f2;outline:none;margin-bottom:16px;" />
     <div style="display:flex;gap:10px;justify-content:flex-end;">
-      <button onclick="modalCancel()" style="padding:10px 20px;border-radius:8px;border:1px solid #e2dfd8;background:#f8f7f2;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;color:#3d3d5c;">Cancel</button>
-      <button onclick="modalConfirm()" style="padding:10px 20px;border-radius:8px;border:none;background:#c17f3a;color:white;font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;">OK</button>
+      <button onclick="modalCancel()" style="padding:10px 20px;border-radius:8px;border:1px solid #e2dfd8;background:#f8f7f2;font-size:14px;font-weight:600;cursor:pointer;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#3d3d5c;">Cancel</button>
+      <button onclick="modalConfirm()" style="padding:10px 20px;border-radius:8px;border:none;background:#c17f3a;color:white;font-size:14px;font-weight:600;cursor:pointer;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;">OK</button>
     </div>
   </div>
 </div>
@@ -604,18 +637,18 @@
 </div>
 
 <div class="nav">
-  <div class="nav-tab active" onclick="showPanel('one-on-one')">① 1:1 Prep</div>
-  <div class="nav-tab" onclick="showPanel('agendas')">② Meeting Agendas</div>
-  <div class="nav-tab" onclick="showPanel('planning')">③ 9-Month Planning</div>
-  <div class="nav-tab" onclick="showPanel('manifesto')">④ Manifesto + Affirmations</div>
+  <div class="nav-tab active" onclick="showPanel('manifesto')">① Manifesto</div>
+  <div class="nav-tab" onclick="showPanel('one-on-one')">② 1:1 Prep</div>
+  <div class="nav-tab" onclick="showPanel('agendas')">③ Meeting Agendas</div>
+  <div class="nav-tab" onclick="showPanel('planning')">④ 9-Month Planning</div>
   <div class="nav-tab" onclick="showPanel('meetings')">⑤ Meeting → Asana</div>
 </div>
 
 <!-- ============================================================ -->
 <!-- PANEL 1: 1:1 PREP -->
 <!-- ============================================================ -->
-<div class="content">
-<div class="panel active" id="panel-one-on-one">
+<div class="content" style="display:block;">
+<div class="panel" id="panel-one-on-one">
 
   <div class="section-eyebrow">Tool One</div>
   <div class="section-title">Weekly 1:1 Prep Generator</div>
@@ -800,140 +833,148 @@
 <!-- PANEL 2: AGENDAS -->
 <!-- ============================================================ -->
 <div class="panel" id="panel-agendas">
-
-  <div class="section-eyebrow">Tool Two</div>
-  <div class="section-title">Meeting Agenda Builder</div>
-  <div class="section-desc">Save and manage agendas for multiple recurring meetings. Each is stored separately and persists across sessions.</div>
-
   <div class="card">
-    <div class="card-header">
-      <div class="card-icon icon-gold">📅</div>
+    <div style="display:flex;align-items:flex-start;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--border);">
+      <div style="display:flex;align-items:center;gap:14px;flex:1;">
+
+        <div>
+          <input type="text" id="ag-meeting-title" value="Executive Team Meeting"
+            style="font-size:20px;font-weight:700;border:none;background:transparent;padding:0;width:100%;color:var(--ink);font-family:Georgia,serif;letter-spacing:-0.3px;"
+            placeholder="Meeting Title">
+          <div style="font-size:12px;color:var(--ink-muted);margin-top:3px;">Church @ The Springs &middot; thesprings.net</div>
+        </div>
+      </div>
+      <div style="flex-shrink:0;">
+        <div class="field" style="margin:0;"><label>Date</label><input type="text" id="ag-date" placeholder="MM/DD/YYYY" style="min-width:140px;"></div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px;">
       <div>
-        <div class="card-title">Meeting Configuration</div>
-        <div class="card-meta">Staff · Leadership Team · Executive Team</div>
+        <div class="card-header"><div class="card-title">Celebrating</div><span style="margin-left:auto;font-size:10px;color:var(--ink-muted);border:1px solid var(--border);border-radius:99px;padding:2px 8px;">wins &amp; moments</span></div>
+        <textarea id="ag-celebrate" rows="5" placeholder="What is God doing?&#10;Staff / volunteer wins&#10;Attendance milestones&#10;Campus highlights"></textarea>
       </div>
-    </div>
-
-    <!-- AGENDA SELECTOR -->
-    <div style="display:flex;align-items:center;gap:8px;margin-bottom:20px;flex-wrap:wrap;">
-      <label style="font-size:12px;font-weight:600;color:var(--ink-muted);text-transform:uppercase;letter-spacing:0.5px;">Agenda:</label>
-      <select id="agendaSelect" onchange="switchAgenda(this.value)" style="font-size:13px;padding:5px 10px;border:1px solid var(--border);border-radius:var(--radius-sm);background:var(--surface);color:var(--ink);flex:1;max-width:300px;"></select>
-      <button class="btn btn-sage" onclick="addAgenda()" style="font-size:12px;padding:5px 12px;">+ New Agenda</button>
-      <button class="btn btn-secondary" onclick="deleteAgenda()" style="font-size:12px;padding:5px 12px;">Delete</button>
-    </div>
-
-    <div class="grid-2">
-      <div class="field">
-        <label>Meeting Type</label>
-        <select id="mtg-type">
-          <option value="staff">All-Staff Meeting</option>
-          <option value="leadership">Leadership Team Meeting</option>
-          <option value="executive">Executive Team Meeting</option>
-          <option value="dept">Department Heads</option>
-        </select>
-      </div>
-      <div class="field">
-        <label>Duration</label>
-        <select id="mtg-duration">
-          <option value="30">30 minutes</option>
-          <option value="45">45 minutes</option>
-          <option value="60" selected>60 minutes</option>
-          <option value="90">90 minutes</option>
-          <option value="120">2 hours</option>
-        </select>
-      </div>
-    </div>
-
-    <div class="field">
-      <label>Meeting Date & Theme (optional)</label>
-      <input type="text" id="mtg-theme" placeholder="e.g. June 3 — Mid-year check-in and fall planning kickoff">
-    </div>
-
-    <div class="field">
-      <label>Topics to Cover (one per line)</label>
-      <textarea id="mtg-topics" style="min-height:120px" placeholder="e.g.
-Budget Q2 review
-Fall series launch update
-New hire announcements
-Ministry health dashboard
-Decision: event calendar conflicts"></textarea>
-    </div>
-
-    <div class="field">
-      <label>Key Decisions Needed</label>
-      <textarea id="mtg-decisions" placeholder="e.g. Approve fall staffing plan, confirm budget reallocation..."></textarea>
-    </div>
-
-    <div class="field">
-      <label>Pre-read or Prep Required?</label>
-      <input type="text" id="mtg-prereads" placeholder="e.g. Q2 financial summary, ministry update one-pager">
-    </div>
-
-    <div class="field">
-      <label>Tone / Context Notes</label>
-      <select id="mtg-tone">
-        <option value="routine">Routine — steady rhythm</option>
-        <option value="energizing">Energizing — celebration and momentum</option>
-        <option value="decisive">Decisive — several important decisions</option>
-        <option value="sensitive">Sensitive — navigating tension or change</option>
-        <option value="visioning">Visioning — future-focused, creative</option>
-      </select>
-    </div>
-
-    <button class="btn btn-primary" onclick="generateAgenda()">⚡ Build Agenda</button>
-  </div>
-
-  <div class="output-box" id="output-agenda">
-    <div class="output-label">— Generated Agenda →</div>
-    <button class="copy-btn" onclick="copyOutput('output-agenda')">Copy</button>
-    <div id="output-agenda-text"></div>
-  </div>
-
-  <div class="divider"></div>
-
-  <div class="card">
-    <div class="card-header">
-      <div class="card-icon icon-sage">🎯</div>
       <div>
-        <div class="card-title">Agenda Design Principles</div>
-        <div class="card-meta">What makes a meeting agenda actually work</div>
+        <div class="card-header"><div class="card-title">Praying For</div><span style="margin-left:auto;font-size:10px;color:var(--ink-muted);border:1px solid var(--border);border-radius:99px;padding:2px 8px;">intercession</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+          <div>
+            <div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);"><span style="font-size:11px;color:var(--ink-muted);min-width:14px;">1</span><input type="text" id="pr1" placeholder="Prayer item" style="border:none;border-radius:0;padding:4px 0;font-size:14px;background:transparent;"></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);"><span style="font-size:11px;color:var(--ink-muted);min-width:14px;">2</span><input type="text" id="pr2" placeholder="Prayer item" style="border:none;border-radius:0;padding:4px 0;font-size:14px;background:transparent;"></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:6px 0;"><span style="font-size:11px;color:var(--ink-muted);min-width:14px;">3</span><input type="text" id="pr3" placeholder="Prayer item" style="border:none;border-radius:0;padding:4px 0;font-size:14px;background:transparent;"></div>
+          </div>
+          <div>
+            <div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);"><span style="font-size:11px;color:var(--ink-muted);min-width:14px;">4</span><input type="text" id="pr4" placeholder="Prayer item" style="border:none;border-radius:0;padding:4px 0;font-size:14px;background:transparent;"></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border);"><span style="font-size:11px;color:var(--ink-muted);min-width:14px;">5</span><input type="text" id="pr5" placeholder="Prayer item" style="border:none;border-radius:0;padding:4px 0;font-size:14px;background:transparent;"></div>
+            <div style="display:flex;align-items:center;gap:8px;padding:6px 0;"><span style="font-size:11px;color:var(--ink-muted);min-width:14px;">6</span><input type="text" id="pr6" placeholder="Prayer item" style="border:none;border-radius:0;padding:4px 0;font-size:14px;background:transparent;"></div>
+          </div>
+        </div>
       </div>
     </div>
-    <ul class="checklist">
-      <li><input type="checkbox"> Every item has a type: <strong>Inform</strong>, <strong>Discuss</strong>, or <strong>Decide</strong></li>
-      <li><input type="checkbox"> Time allocations are honest — don't over-schedule</li>
-      <li><input type="checkbox"> The most important item is #2 (not first, not last)</li>
-      <li><input type="checkbox"> Pre-reads are sent 48 hours in advance minimum</li>
-      <li><input type="checkbox"> Last 5 minutes reserved for action items only</li>
-      <li><input type="checkbox"> Someone is assigned to capture and distribute notes</li>
-      <li><input type="checkbox"> Standing agenda items reviewed quarterly — prune ruthlessly</li>
-    </ul>
-  </div>
 
-  <div class="card">
-    <div class="card-header">
-      <div class="card-icon icon-ink">💡</div>
-      <div>
-        <div class="card-title">Claude Prompt: Meeting Follow-Up</div>
-        <div class="card-meta">Use after any meeting where you have notes</div>
+    <div class="card-header"><div class="card-title">Metrics Snapshot</div><span style="margin-left:auto;font-size:10px;color:var(--ink-muted);border:1px solid var(--border);border-radius:99px;padding:2px 8px;">tap any value to edit</span></div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;">
+      <div style="background:var(--canvas);border-radius:8px;padding:10px 12px;position:relative;">
+        <div style="position:absolute;top:10px;right:10px;"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#639922;"></span></div>
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-muted);margin-bottom:4px;">Weekly Attendance (AWA)</div>
+        <input type="text" id="m-awa" value="4,500" style="font-size:17px;font-weight:600;border:none;background:transparent;padding:0;width:100%;">
+        <div style="font-size:11px;color:var(--ink-muted);">All 4 campuses</div>
       </div>
+      <div style="background:var(--canvas);border-radius:8px;padding:10px 12px;position:relative;">
+        <div style="position:absolute;top:10px;right:10px;"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#639922;"></span></div>
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-muted);margin-bottom:4px;">MTD Giving (General UNR)</div>
+        <input type="text" id="m-mtdg" value="$487,547" style="font-size:17px;font-weight:600;border:none;background:transparent;padding:0;width:100%;">
+        <div style="font-size:11px;color:var(--ink-muted);">Budget $438,047 &nbsp;<span style="color:#639922">+$49,500</span></div>
+      </div>
+      <div style="background:var(--canvas);border-radius:8px;padding:10px 12px;position:relative;">
+        <div style="position:absolute;top:10px;right:10px;"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#639922;"></span></div>
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-muted);margin-bottom:4px;">YTD Giving (General UNR)</div>
+        <input type="text" id="m-ytdg" value="$1,964,896" style="font-size:17px;font-weight:600;border:none;background:transparent;padding:0;width:100%;">
+        <div style="font-size:11px;color:var(--ink-muted);">Budget $1,808,237 &nbsp;<span style="color:#639922">+$156,659</span></div>
+      </div>
+      <hr style="grid-column:1/-1;border:none;border-top:1px solid var(--border);margin:4px 0;">
+      <div style="background:var(--canvas);border-radius:8px;padding:10px 12px;position:relative;">
+        <div style="position:absolute;top:10px;right:10px;"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#E24B4A;"></span></div>
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-muted);margin-bottom:4px;">MTD Total Expenses</div>
+        <input type="text" id="m-mtde" value="$624,985" style="font-size:17px;font-weight:600;border:none;background:transparent;padding:0;width:100%;">
+        <div style="font-size:11px;color:var(--ink-muted);">Budget $494,862 &nbsp;<span style="color:#E24B4A">-$130,123</span></div>
+      </div>
+      <div style="background:var(--canvas);border-radius:8px;padding:10px 12px;position:relative;">
+        <div style="position:absolute;top:10px;right:10px;"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#E24B4A;"></span></div>
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-muted);margin-bottom:4px;">MTD Net</div>
+        <input type="text" id="m-mtdn" value="($137,438)" style="font-size:17px;font-weight:600;color:#E24B4A;border:none;background:transparent;padding:0;width:100%;">
+        <div style="font-size:11px;color:var(--ink-muted);">Budget ($56,816) &nbsp;<span style="color:#E24B4A">-$80,622</span></div>
+      </div>
+      <div style="background:var(--canvas);border-radius:8px;padding:10px 12px;position:relative;">
+        <div style="position:absolute;top:10px;right:10px;"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#E24B4A;"></span></div>
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-muted);margin-bottom:4px;">YTD Net</div>
+        <input type="text" id="m-ytdn" value="($282,275)" style="font-size:17px;font-weight:600;color:#E24B4A;border:none;background:transparent;padding:0;width:100%;">
+        <div style="font-size:11px;color:var(--ink-muted);">Budget ($253,452) &nbsp;<span style="color:#E24B4A">-$28,824</span></div>
+      </div>
+      <hr style="grid-column:1/-1;border:none;border-top:1px solid var(--border);margin:4px 0;">
+      <div style="background:var(--canvas);border-radius:8px;padding:10px 12px;position:relative;">
+        <div style="position:absolute;top:10px;right:10px;"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#EF9F27;"></span></div>
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-muted);margin-bottom:4px;">General Cash (Savings)</div>
+        <input type="text" id="m-cash" value="$79,268" style="font-size:17px;font-weight:600;border:none;background:transparent;padding:0;width:100%;">
+        <div style="font-size:11px;color:var(--ink-muted);">Operating cash on hand</div>
+      </div>
+      <div style="background:var(--canvas);border-radius:8px;padding:10px 12px;position:relative;">
+        <div style="position:absolute;top:10px;right:10px;"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#E24B4A;"></span></div>
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-muted);margin-bottom:4px;">Bank Reserve Shortfall</div>
+        <input type="text" id="m-res" value="($759,691)" style="font-size:17px;font-weight:600;color:#E24B4A;border:none;background:transparent;padding:0;width:100%;">
+        <div style="font-size:11px;color:var(--ink-muted);">Required $838,959</div>
+      </div>
+      <div style="background:var(--canvas);border-radius:8px;padding:10px 12px;position:relative;">
+        <div style="position:absolute;top:10px;right:10px;"><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#EF9F27;"></span></div>
+        <div style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-muted);margin-bottom:4px;">Total Operating Cash</div>
+        <input type="text" id="m-totcash" value="$3,132,649" style="font-size:17px;font-weight:600;border:none;background:transparent;padding:0;width:100%;">
+        <div style="font-size:11px;color:var(--ink-muted);">All accounts combined</div>
+      </div>
+      <div style="grid-column:1/-1;font-size:11px;color:var(--ink-muted);padding:4px 0 0;">Source: April 30, 2026 Financial Statements &middot; Church @ The Springs. Tap any value to edit.</div>
     </div>
-    <div class="prompt-template">
-Here are my raw notes from our <span class="prompt-highlight">[meeting type]</span> on <span class="prompt-highlight">[date]</span>:<br><br>
-<span class="prompt-highlight">[paste notes]</span><br><br>
-Please:<br>
-1. Summarize the 3–5 key decisions or conclusions<br>
-2. Extract all action items with owner and deadline<br>
-3. Flag any items that were raised but left unresolved<br>
-4. Draft a short follow-up email I can send to attendees
-    </div>
-  </div>
 
+    <div class="card-header"><div class="card-title">Agenda Topics</div><span style="margin-left:auto;font-size:10px;color:var(--ink-muted);border:1px solid var(--border);border-radius:99px;padding:2px 8px;">owner + time + purpose required</span></div>
+    <table class="exec-tbl" style="width:100%;border-collapse:collapse;margin-bottom:6px;">
+      <thead><tr>
+        <th style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left;font-weight:600;width:42%">Topic / Discussion Item</th>
+        <th style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left;font-weight:600;width:20%">Owner</th>
+        <th style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left;font-weight:600;width:13%">Time</th>
+        <th style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left;font-weight:600;width:25%">Purpose</th>
+      </tr></thead>
+      <tbody id="ag-agenda-body"></tbody>
+    </table>
+    <button class="btn btn-secondary" style="margin-bottom:14px;font-size:12px;padding:7px 12px;" onclick="addAgRow()">+ Add row</button>
+
+    <div class="card-header"><div class="card-title">Approval Items &amp; Calendar Dates</div><span style="margin-left:auto;font-size:10px;color:var(--ink-muted);border:1px solid var(--border);border-radius:99px;padding:2px 8px;">needs decision</span></div>
+    <table class="exec-tbl" style="width:100%;border-collapse:collapse;margin-bottom:6px;">
+      <thead><tr>
+        <th style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left;font-weight:600;width:50%">Item / Description</th>
+        <th style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left;font-weight:600;width:22%">Date / Deadline</th>
+        <th style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left;font-weight:600;width:28%">Status</th>
+      </tr></thead>
+      <tbody id="ag-approval-body"></tbody>
+    </table>
+    <button class="btn btn-secondary" style="margin-bottom:14px;font-size:12px;padding:7px 12px;" onclick="addApRow()">+ Add row</button>
+
+    <div class="card-header"><div class="card-title">Upcoming Conversations</div><span style="margin-left:auto;font-size:10px;color:var(--ink-muted);border:1px solid var(--border);border-radius:99px;padding:2px 8px;">future agenda items &amp; follow-ups</span></div>
+    <table class="exec-tbl" style="width:100%;border-collapse:collapse;margin-bottom:6px;">
+      <thead><tr>
+        <th style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left;font-weight:600;width:50%">Action</th>
+        <th style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left;font-weight:600;width:25%">Owner</th>
+        <th style="font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:var(--ink-muted);padding:6px 8px;border-bottom:1px solid var(--border);text-align:left;font-weight:600;width:25%">Due Date</th>
+      </tr></thead>
+      <tbody id="ag-ns-body"></tbody>
+    </table>
+    <button class="btn btn-secondary" style="margin-bottom:16px;font-size:12px;padding:7px 12px;" onclick="addNsRow()">+ Add row</button>
+
+    <div style="display:flex;gap:8px;flex-wrap:wrap;padding-top:12px;border-top:1px solid var(--border);">
+      <button class="btn btn-secondary" onclick="clearAgenda()">Clear fields</button>
+      <button class="btn btn-secondary" onclick="saveAgenda()">Save draft</button>
+      <button class="btn btn-primary" onclick="window.print()">Print / PDF</button>
+    </div>
+    <div id="ag-status" style="padding:10px 14px;border-radius:8px;font-size:13px;margin-top:10px;display:none;"></div>
+  </div>
 </div>
 
-<!-- ============================================================ -->
-<!-- PANEL 3: 9-MONTH PLANNING -->
-<!-- ============================================================ -->
 <div class="panel" id="panel-planning">
 
   <div class="section-eyebrow">Tool Three</div>
@@ -1127,7 +1168,7 @@ Please:<br>
 <!-- ============================================================ -->
 <!-- PANEL 4: INTEGRATIONS -->
 <!-- ============================================================ -->
-<div class="panel" id="panel-manifesto">
+<div class="panel active" id="panel-manifesto">
 
   <div class="section-eyebrow">Tool Four</div>
   <div class="section-title">Manifesto &amp; Affirmations</div>
@@ -1524,7 +1565,195 @@ function selectPerson(el, idx) {
   document.getElementById('output-1on1').classList.remove('visible');
 }
 
+
+function copyOutput(id) {
+  const text = document.getElementById(id + '-text').innerText;
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = document.querySelector('#' + id + ' .copy-btn');
+    if (btn) { btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Copy', 2000); }
+  });
+}
+
+function generateOneOnOne() {
+  saveCurrentMeetingFields();
+  const name = document.getElementById('dr-name').value || '[Direct Report]';
+  const dept = document.getElementById('dr-dept').value || '[Department]';
+  const projects = document.getElementById('dr-projects').value || 'Not specified';
+  const blockers = document.getElementById('dr-blockers').value || 'None noted';
+  const energy = document.getElementById('dr-energy').value || 'Unknown';
+  const win = document.getElementById('dr-win').value || 'Not noted';
+  const dev = document.getElementById('dr-dev').value || 'Not specified';
+  const need = document.getElementById('dr-need').value || 'General check-in';
+  const family = document.getElementById('dr-family').value || '';
+  const prompt = `I'm an Executive Pastor at Church @ The Springs (thesprings.net), a 4,500-person multisite church with 4 campuses. I'm preparing for a 1:1 with one of my direct reports. Please generate a focused, coaching-oriented prep brief.
+
+DIRECT REPORT CONTEXT:
+- Name & Role: ${name}
+- Department: ${dept}
+- Active Projects: ${projects}
+- Known Blockers or Friction: ${blockers}
+- Current Energy/Capacity: ${energy}
+- Last Week's Win: ${win}
+- Development Focus: ${dev}
+- What I Need from This Meeting: ${need}
+- Family & Personal Context: ${family || 'Not noted'}
+
+Please generate:
+1. THREE coaching questions I should ask (not status questions — real leadership questions)
+2. Any patterns or concerns I should gently probe based on this context
+3. Two things I should affirm or celebrate specifically
+4. A suggested "leader's agenda" for the last 15 minutes of the meeting
+5. One blind spot I might be missing as their leader
+
+Format it cleanly so I can review it in 3 minutes before walking into the meeting.`;
+  document.getElementById('output-1on1-text').textContent = prompt;
+  document.getElementById('output-1on1').classList.add('visible');
+  document.getElementById('output-1on1').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function clearOneOnOne() {
+  drFields.forEach(fid => { const el = document.getElementById(fid); if (el) el.value = ''; });
+  const meetings = getPersonMeetings(currentPerson);
+  if (meetings[currentMeeting]) { meetings[currentMeeting].fields = {}; savePersonMeetings(currentPerson, meetings); }
+  updateChipLabels();
+  document.getElementById('output-1on1').classList.remove('visible');
+}
+
+function generateAgenda() {
+  saveCurrentAgendaFields();
+  const meetingName = document.getElementById('mtg-type').value || 'Central Team';
+  const dateTime = document.getElementById('mtg-duration').value || 'TBD';
+  const theme = document.getElementById('mtg-theme').value || '';
+  const agendaItems = document.getElementById('mtg-topics').value || '';
+  const vipItems = document.getElementById('mtg-decisions').value || '';
+  const actionItems = document.getElementById('mtg-prereads').value || '';
+  const upcoming = document.getElementById('mtg-tone').value || '';
+  const prompt = `I'm an Executive Pastor at Church @ The Springs (thesprings.net), a 4,500-person multisite church with 4 campuses. Build me a polished, structured meeting agenda in the ChurchOS format.
+
+MEETING: ${meetingName}
+DATE/TIME: ${dateTime}${theme ? '\nTHEME/CONTEXT: ' + theme : ''}
+
+AGENDA ITEMS (Item · Owner · Purpose · Duration):
+${agendaItems || 'Please suggest appropriate agenda items for this meeting type.'}
+
+VIP ITEMS (Item · Owner · Due Date · Action):
+${vipItems || 'None specified'}
+
+IMMEDIATE ACTION LIST (Item · Owner · Due Date):
+${actionItems || 'None specified'}
+
+UPCOMING CONVERSATIONS / FUTURE ITEMS:
+${upcoming || 'None specified'}
+
+Please produce:
+1. A clean formatted agenda organized into: Agenda Items table, VIP Review section, Immediate Action List, and Upcoming Conversations
+2. A one-sentence framing question for any Discuss or Decide items
+3. A brief purpose statement for the top of the agenda (1-2 sentences)
+4. A short pre-meeting note I can send when distributing
+
+Format it mirroring the Central Team Agenda format — clear sections, owners named, purposes labeled (Updates / Troubleshoot / Decisions), durations shown. Every next step must have an owner and due date (ChurchOS standard).`;
+  document.getElementById('output-agenda-text').textContent = prompt;
+  document.getElementById('output-agenda').classList.add('visible');
+  document.getElementById('output-agenda').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+function generatePlan() {
+  saveFields(planFields, 'ep_toolkit_plan');
+  const month = document.getElementById('plan-month').value || 'Current month';
+  const size = document.getElementById('plan-size').value || '4,500 attendance, 4 campuses';
+  const priorities = document.getElementById('plan-priorities').value || 'Not specified';
+  const events = document.getElementById('plan-events').value || 'Not specified';
+  const pain = document.getElementById('plan-pain').value || 'Not specified';
+  const win = document.getElementById('plan-win').value || 'Not specified';
+  const prompt = `I'm an Executive Pastor at Church @ The Springs (thesprings.net), a ${size} multisite church. Please help me build a 9-month strategic planning framework starting from ${month}.
+
+TOP 3 ORGANIZATIONAL PRIORITIES:
+${priorities}
+
+KNOWN MAJOR EVENTS / MILESTONES IN NEXT 9 MONTHS:
+${events}
+
+CURRENT PAIN POINTS:
+${pain}
+
+WHAT "WIN" LOOKS LIKE IN 9 MONTHS:
+${win}
+
+Please generate:
+1. A month-by-month 9-month horizon map organized around Finance, HR, and Ministry
+2. The 2-3 most important decisions I need to make in months 1-2 to set up the rest of the horizon
+3. Key leading indicators I should track monthly in each area
+4. Where I'm most at risk of being reactive instead of strategic
+5. A one-paragraph "letter from the future" — what I would write to myself today if I arrived at month 9 having won`;
+  document.getElementById('output-plan-text').textContent = prompt;
+  document.getElementById('output-plan').classList.add('visible');
+  document.getElementById('output-plan').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+}
+
+
+/* ── EXEC AGENDA ── */
+function addAgRow(t,o,m,p){
+  const tr=document.createElement('tr');
+  tr.innerHTML='<td style="width:42%"><input type="text" value="'+(t||'')+'" placeholder="Topic"></td><td style="width:20%"><input type="text" value="'+(o||'')+'" placeholder="Owner"></td><td style="width:13%"><input type="text" value="'+(m||'')+'" placeholder="10 min"></td><td style="width:25%"><input type="text" value="'+(p||'')+'" placeholder="Inform/Decide/Discuss"></td>';
+  document.getElementById('ag-agenda-body').appendChild(tr);
+}
+function addApRow(i,d,s){
+  const tr=document.createElement('tr');
+  tr.innerHTML='<td style="width:50%"><input type="text" value="'+(i||'')+'" placeholder="Item"></td><td style="width:22%"><input type="text" value="'+(d||'')+'" placeholder="Date"></td><td style="width:28%"><input type="text" value="'+(s||'')+'" placeholder="Pending/Approved/Tabled"></td>';
+  document.getElementById('ag-approval-body').appendChild(tr);
+}
+function addNsRow(a,o,d){
+  const tr=document.createElement('tr');
+  tr.innerHTML='<td style="width:50%"><input type="text" value="'+(a||'')+'" placeholder="Action"></td><td style="width:25%"><input type="text" value="'+(o||'')+'" placeholder="Owner"></td><td style="width:25%"><input type="text" value="'+(d||'')+'" placeholder="Due date"></td>';
+  document.getElementById('ag-ns-body').appendChild(tr);
+}
+function getExecAgendaData(){
+  const metricIds=['awa','mtdg','ytdg','mtde','mtdn','ytdn','cash','res','totcash'];
+  const metrics={};
+  metricIds.forEach(k=>{const el=document.getElementById('m-'+k);if(el)metrics[k]=el.value;});
+  return{
+    title:document.getElementById('ag-meeting-title')?.value||'Executive Team Meeting',
+    date:document.getElementById('ag-date')?.value||'',
+    celebrate:document.getElementById('ag-celebrate')?.value||'',
+    prayer:[1,2,3,4,5,6].map(i=>(document.getElementById('pr'+i)?.value||'')),
+    metrics,
+    agenda:Array.from(document.querySelectorAll('#ag-agenda-body tr')).map(r=>[...r.querySelectorAll('input')].map(i=>i.value)),
+    approvals:Array.from(document.querySelectorAll('#ag-approval-body tr')).map(r=>[...r.querySelectorAll('input')].map(i=>i.value)),
+    nextsteps:Array.from(document.querySelectorAll('#ag-ns-body tr')).map(r=>[...r.querySelectorAll('input')].map(i=>i.value)),
+  };
+}
+function loadExecAgendaData(d){
+  if(!d)return;
+  const titleEl=document.getElementById('ag-meeting-title');if(titleEl&&d.title)titleEl.value=d.title;
+  const dateEl=document.getElementById('ag-date');if(dateEl&&d.date)dateEl.value=d.date;
+  if(d.celebrate)document.getElementById('ag-celebrate').value=d.celebrate;
+  if(d.prayer)d.prayer.forEach((v,i)=>{const el=document.getElementById('pr'+(i+1));if(el)el.value=v;});
+  if(d.metrics)Object.entries(d.metrics).forEach(([k,v])=>{const el=document.getElementById('m-'+k);if(el)el.value=v;});
+  if(d.agenda){document.getElementById('ag-agenda-body').innerHTML='';d.agenda.forEach(r=>addAgRow(...r));}
+  if(d.approvals){document.getElementById('ag-approval-body').innerHTML='';d.approvals.forEach(r=>addApRow(...r));}
+  if(d.nextsteps){document.getElementById('ag-ns-body').innerHTML='';d.nextsteps.forEach(r=>addNsRow(...r));}
+}
+function saveAgenda(){
+  localStorage.setItem('ep_exec_agenda',JSON.stringify(getExecAgendaData()));
+  const el=document.getElementById('ag-status');
+  if(el){el.style.display='block';el.style.background='var(--sage-pale)';el.style.color='var(--sage)';el.textContent='Draft saved';setTimeout(()=>el.style.display='none',2500);}
+}
+function clearAgenda(){
+  showConfirm('Clear Agenda','Clear all agenda fields? Metrics stay populated.',function(){
+    ['ag-date','ag-celebrate'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+    const t=document.getElementById('ag-meeting-title');if(t)t.value='Executive Team Meeting';
+    [1,2,3,4,5,6].forEach(i=>{const el=document.getElementById('pr'+i);if(el)el.value='';});
+    document.getElementById('ag-agenda-body').innerHTML='';
+    document.getElementById('ag-approval-body').innerHTML='';
+    document.getElementById('ag-ns-body').innerHTML='';
+    seedExecAgenda();
+  });
+}
+function seedExecAgenda(){for(let i=0;i<5;i++)addAgRow();for(let i=0;i<3;i++)addApRow();for(let i=0;i<3;i++)addNsRow();}
+
 document.addEventListener('DOMContentLoaded', function() {
+  seedExecAgenda();
+  try{const saved=JSON.parse(localStorage.getItem('ep_exec_agenda')||'null');if(saved)loadExecAgendaData(saved);}catch(e){}
   initPersonMeetings(0);
   updateChipLabels();
   initAgendas();
