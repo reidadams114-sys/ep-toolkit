@@ -15,7 +15,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;background:#f5f4f0;
 .sync-bar{background:#222;padding:4px 20px;display:flex;align-items:center;gap:8px;font-size:11px;color:#666;}
 .sync-dot{width:6px;height:6px;border-radius:50%;background:#aaa;flex-shrink:0;}
 .sync-dot.synced{background:#639922;}.sync-dot.syncing{background:#EF9F27;}.sync-dot.error{background:#E24B4A;}
-.panel{display:none;padding:20px;max-width:900px;margin:0 auto;}
+.panel{display:none;padding:20px;max-width:940px;margin:0 auto;}
 .panel.active{display:block;}
 .card{background:#fff;border-radius:12px;border:.5px solid #e0ddd6;padding:16px 18px;margin-bottom:14px;}
 .slabel{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:#666;margin-bottom:10px;padding-bottom:8px;border-bottom:.5px solid #eee;display:block;}
@@ -27,30 +27,19 @@ label{font-size:12px;color:#666;display:block;margin-bottom:4px;font-weight:500;
 .btn{display:inline-flex;align-items:center;padding:10px 16px;font-size:13px;font-family:inherit;border-radius:8px;cursor:pointer;border:.5px solid #ccc;background:#fff;color:#1a1a1a;min-height:44px;}
 .btn:hover{background:#f5f4f0;}
 .btn-dark{background:#1a1a1a;color:#fff;border-color:#1a1a1a;}
+.btn-dark:hover{background:#333;}
+.btn-green{background:#639922;color:#fff;border-color:#639922;}
+.btn-green:hover{background:#527a1b;}
 .btn-sm{padding:7px 12px;font-size:12px;min-height:36px;}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px;}
-.chip{padding:8px 16px;border-radius:99px;font-size:13px;font-weight:500;border:.5px solid #ddd;background:#fff;cursor:pointer;min-height:36px;}
+.chip{padding:8px 14px;border-radius:99px;font-size:13px;font-weight:500;border:.5px solid #ddd;background:#fff;cursor:pointer;min-height:36px;display:inline-flex;align-items:center;gap:7px;font-family:inherit;}
 .chip.active{background:#1a1a1a;color:#fff;border-color:#1a1a1a;}
+.chip .chip-x{font-size:12px;color:#bbb;cursor:pointer;padding:0 2px;line-height:1;}
+.chip.active .chip-x{color:#777;}
+.chip .chip-x:hover{color:#E24B4A;}
+.chip-add{border-style:dashed;color:#888;}
 .two-col{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
 @media(max-width:640px){.two-col{grid-template-columns:1fr;}}
-
-/* TABLE WITH ROW REMOVAL */
-.tbl{width:100%;border-collapse:collapse;}
-.tbl th{font-size:10px;text-transform:uppercase;letter-spacing:.06em;color:#666;padding:6px 8px;border-bottom:.5px solid #e0ddd6;text-align:left;font-weight:600;}
-.tbl th.th-del{width:28px;}
-.tbl td{padding:0;}
-.tbl td input{border:none;border-bottom:.5px solid #f0ede8;border-radius:0;padding:10px 8px;font-size:14px;width:100%;font-family:inherit;background:#fff;color:#1a1a1a;outline:none;}
-.tbl td input:focus{border-bottom-color:#1a1a1a;background:#fafaf8;}
-.tbl tr:last-child td input{border-bottom:none;}
-.tbl td.td-del{width:28px;vertical-align:middle;text-align:center;}
-.del-row-btn{background:none;border:none;color:#ddd;cursor:pointer;font-size:16px;padding:0 4px;line-height:1;font-family:inherit;}
-.del-row-btn:hover{color:#E24B4A;}
-
-/* EDITABLE SECTION HEADERS */
-.section-hdr-row{display:flex;align-items:center;margin-bottom:8px;}
-.section-hdr-input{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:#666;border:none;background:transparent;outline:none;padding:0 0 8px 0;border-bottom:.5px solid #eee;width:100%;font-family:inherit;}
-.section-hdr-input:focus{border-bottom-color:#999;}
-
 .sbar{padding:10px 14px;border-radius:8px;font-size:13px;margin-top:10px;display:none;}
 .sbar.show{display:block;}
 .sbar.success{background:#eaf3de;color:#3B6D11;}
@@ -67,25 +56,16 @@ label{font-size:12px;color:#666;display:block;margin-bottom:4px;font-weight:500;
 .modal h3{font-size:16px;font-weight:600;margin-bottom:8px;}
 .modal p{font-size:14px;color:#555;margin-bottom:16px;}
 .modal-btns{display:flex;gap:8px;justify-content:flex-end;}
-.prayer-cols{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;}
-.pr-row{display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:.5px solid #f0ede8;}
-.pr-row:last-child{border-bottom:none;}
-.pr-num{font-size:11px;color:#bbb;min-width:14px;}
-.pr-row input{border:none;border-radius:0;padding:6px 0;font-size:14px;width:100%;outline:none;background:transparent;font-family:inherit;color:#1a1a1a;}
-.affirmation{padding:11px 0;border-bottom:.5px solid #f0ede8;font-size:14px;line-height:1.7;color:#222;}
-.affirmation:last-child{border-bottom:none;}
-.scripture{font-size:12px;color:#aaa;font-style:italic;margin-top:4px;letter-spacing:.01em;}
-.m-section{margin-bottom:20px;}
-.m-section:last-child{margin-bottom:0;}
-.m-section-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#bbb;padding:10px 0 8px;border-bottom:1px solid #e8e5df;margin-bottom:2px;}
-.m-section-subtitle{font-size:12px;color:#aaa;font-style:italic;padding:8px 0 4px;border-bottom:.5px solid #f5f3f0;}
-.m-quote{font-size:13px;color:#888;font-style:italic;line-height:1.6;padding:12px 14px;background:#f9f8f5;border-left:2px solid #ddd;border-radius:0 6px 6px 0;margin-top:10px;}
 .otter-list{max-height:260px;overflow-y:auto;margin-top:8px;}
 .oi{padding:10px 12px;border:.5px solid #e0ddd6;border-radius:8px;margin-bottom:6px;cursor:pointer;}
 .oi:hover{background:#f5f4f0;}
 .oi.selected{border-color:#1a1a1a;background:#f9f8f5;}
 .oi-title{font-size:13px;font-weight:500;}
 .oi-date{font-size:11px;color:#999;}
+.copy-box{background:#f9f8f5;border:.5px solid #e0ddd6;border-radius:8px;padding:14px;font-size:13px;line-height:1.7;color:#333;white-space:pre-wrap;word-break:break-word;max-height:320px;overflow-y:auto;}
+.copy-success{color:#639922;font-size:12px;display:none;}
+
+/* Metrics */
 .mgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;}
 @media(max-width:640px){.mgrid{grid-template-columns:1fr 1fr;}}
 .mcell{background:#f9f8f5;border-radius:10px;padding:12px;position:relative;}
@@ -97,85 +77,102 @@ label{font-size:12px;color:#666;display:block;margin-bottom:4px;font-weight:500;
 .dot-btn{width:10px;height:10px;border-radius:50%;cursor:pointer;border:none;padding:0;outline:none;flex-shrink:0;}
 .dn{background:#ccc;}.dg{background:#639922;}.da{background:#EF9F27;}.dr{background:#E24B4A;}
 .mdivider{grid-column:1/-1;border:none;border-top:.5px solid #e0ddd6;margin:2px 0;}
-.mremove{position:absolute;bottom:5px;right:8px;font-size:10px;color:#ccc;cursor:pointer;background:none;border:none;padding:0;display:none;}
+.mremove{position:absolute;bottom:5px;right:8px;font-size:10px;color:#ccc;cursor:pointer;background:none;border:none;padding:0;display:none;font-family:inherit;}
 .mcell:hover .mremove{display:block;}
 .mfooter{grid-column:1/-1;display:flex;align-items:center;gap:8px;padding-top:6px;}
 .mfooter-input{font-size:11px;color:#aaa;border:none;background:transparent;outline:none;flex:1;padding:0;font-family:inherit;}
-.addm-btn{font-size:11px;color:#888;border:.5px solid #ddd;border-radius:6px;padding:4px 10px;cursor:pointer;background:#fff;white-space:nowrap;font-family:inherit;}
+.addm-btn{font-size:11px;color:#888;border:.5px solid #ddd;border-radius:6px;padding:5px 10px;cursor:pointer;background:#fff;white-space:nowrap;font-family:inherit;}
+.addm-btn:hover{background:#f5f4f0;}
 .mtitle-input{font-size:18px;font-weight:600;border:none;background:transparent;outline:none;width:100%;font-family:inherit;color:#1a1a1a;padding:0;display:block;}
 .mtitle-input:focus{border-bottom:1.5px solid #1a1a1a;}
 
-/* ── PRINT STYLES ─────────────────────────────────────────── */
+/* Generic sections engine (tab 2 + tab 3) */
+.sec{border:.5px solid #e0ddd6;border-radius:10px;margin-bottom:12px;background:#fff;overflow:hidden;}
+.sec-hdr{display:flex;align-items:center;gap:6px;padding:9px 12px;background:#fafaf8;border-bottom:.5px solid #eee;}
+.sec-title-input{flex:1;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:#555;border:none;background:transparent;outline:none;padding:4px 0;font-family:inherit;min-width:60px;}
+.sec-btn{background:none;border:none;color:#bbb;cursor:pointer;font-size:13px;padding:4px 6px;line-height:1;font-family:inherit;border-radius:5px;}
+.sec-btn:hover{color:#1a1a1a;background:#f0ede8;}
+.sec-btn.sec-del:hover{color:#E24B4A;}
+.sec-body{padding:10px 12px;}
+.sec-tbl{width:100%;border-collapse:collapse;}
+.sec-tbl th{padding:0 6px 4px 6px;border-bottom:.5px solid #e0ddd6;}
+.sec-th-input{width:100%;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:#888;border:none;background:transparent;outline:none;padding:2px 0;font-family:inherit;text-align:left;}
+.sec-tbl td{padding:0;}
+.sec-tbl td input{border:none;border-bottom:.5px solid #f0ede8;border-radius:0;padding:9px 6px;font-size:14px;width:100%;font-family:inherit;background:#fff;color:#1a1a1a;outline:none;}
+.sec-tbl td input:focus{border-bottom-color:#1a1a1a;background:#fafaf8;}
+.sec-tbl tr:last-child td input{border-bottom:none;}
+.sec-tbl td.td-x{width:26px;text-align:center;vertical-align:middle;}
+.row-x{background:none;border:none;color:#ddd;cursor:pointer;font-size:15px;padding:0 3px;line-height:1;font-family:inherit;}
+.row-x:hover{color:#E24B4A;}
+.list-row{display:flex;align-items:center;gap:8px;padding:2px 0;border-bottom:.5px solid #f0ede8;}
+.list-row:last-of-type{border-bottom:none;}
+.list-dot{color:#ccc;font-size:9px;flex-shrink:0;}
+.list-row input{border:none;border-radius:0;padding:9px 2px;font-size:14px;width:100%;font-family:inherit;background:transparent;color:#1a1a1a;outline:none;flex:1;}
+.list-row input:focus{background:#fafaf8;}
+.add-row-btn{font-size:12px;color:#888;border:none;background:none;cursor:pointer;padding:8px 2px 2px;font-family:inherit;}
+.add-row-btn:hover{color:#1a1a1a;}
+.sec-chooser{display:none;gap:8px;flex-wrap:wrap;margin-bottom:12px;padding:12px;border:.5px dashed #ccc;border-radius:10px;background:#fafaf8;}
+.sec-chooser.open{display:flex;}
+.sec-text{width:100%;border:none;padding:4px 2px;font-size:14px;line-height:1.7;font-family:inherit;background:transparent;color:#1a1a1a;outline:none;resize:vertical;min-height:70px;}
+
+/* Manifesto */
+.affirmation{padding:11px 0;border-bottom:.5px solid #f0ede8;font-size:14px;line-height:1.7;color:#222;}
+.affirmation:last-child{border-bottom:none;}
+.scripture{font-size:12px;color:#aaa;font-style:italic;margin-top:4px;letter-spacing:.01em;}
+.m-section{margin-bottom:22px;}
+.m-section:last-child{margin-bottom:0;}
+.m-section-title{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#bbb;padding:10px 0 8px;border-bottom:1px solid #e8e5df;margin-bottom:2px;}
+.m-section-subtitle{font-size:12px;color:#aaa;font-style:italic;padding:8px 0 4px;border-bottom:.5px solid #f5f3f0;}
+.m-quote{font-size:13px;color:#888;font-style:italic;line-height:1.7;padding:12px 14px;background:#f9f8f5;border-left:2px solid #ddd;border-radius:0 6px 6px 0;margin-top:10px;}
+.m-sub-hdr{font-size:12px;font-weight:600;color:#666;padding:10px 0 4px;}
+.or-row{display:grid;grid-template-columns:1fr 34px 1fr;align-items:center;gap:6px;padding:9px 0;border-bottom:.5px solid #f0ede8;font-size:13px;line-height:1.55;}
+.or-row:last-child{border-bottom:none;}
+.or-left{color:#999;text-align:right;}
+.or-mid{color:#ccc;font-size:10px;text-transform:uppercase;letter-spacing:.06em;text-align:center;font-style:italic;}
+.or-right{color:#1a1a1a;font-weight:500;}
+.stat-row{display:flex;gap:10px;align-items:baseline;padding:8px 0;border-bottom:.5px solid #f0ede8;font-size:13px;line-height:1.6;}
+.stat-row:last-child{border-bottom:none;}
+.stat-num{font-size:20px;font-weight:700;color:#1a1a1a;min-width:64px;}
+
+/* Clarity pyramid */
+.pyr{display:flex;flex-direction:column;align-items:center;gap:5px;padding:14px 0 6px;}
+.pyr-row{color:#fff;border-radius:7px;padding:10px 14px;text-align:center;line-height:1.35;}
+.pyr-name{font-size:12px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;}
+.pyr-joe{font-size:11px;font-style:italic;opacity:.75;margin-top:2px;}
+.pyr-apex-wrap{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;}
+.pyr-steps{display:flex;flex-direction:column;gap:3px;align-items:flex-start;}
+.pyr-step{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#666;background:#eeece7;border-radius:4px;padding:3px 8px;}
+.pyr-step.s3{margin-left:0;background:#1a1a1a;color:#fff;}
+.pyr-step.s2{margin-left:8px;}
+.pyr-step.s1{margin-left:16px;}
+.pyr-arrow{font-size:10px;color:#aaa;padding-left:2px;}
+
+/* Ideal week */
+.iw-quote{font-size:12px;color:#999;font-style:italic;text-align:center;padding:4px 0 14px;line-height:1.6;}
+.iw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:10px;}
+.iw-day{border:.5px solid #e0ddd6;border-radius:10px;overflow:hidden;background:#fff;}
+.iw-day-hdr{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#555;background:#fafaf8;border-bottom:.5px solid #eee;padding:8px 12px;text-align:center;}
+.iw-day-body{padding:8px 10px;}
+.iw-row{display:flex;align-items:center;gap:5px;border-bottom:.5px solid #f0ede8;padding:1px 0;}
+.iw-row:last-of-type{border-bottom:none;}
+.iw-time{width:64px;flex-shrink:0;}
+.iw-time input{border:none;padding:8px 2px;font-size:12px;color:#888;width:100%;font-family:inherit;background:transparent;outline:none;}
+.iw-act{flex:1;}
+.iw-act input{border:none;padding:8px 2px;font-size:13px;width:100%;font-family:inherit;background:transparent;color:#1a1a1a;outline:none;}
+.iw-row input:focus{background:#fafaf8;}
+
+/* Rituals */
+.rit-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+@media(max-width:640px){.rit-grid{grid-template-columns:1fr;}}
+
 @media print {
-  @page { margin: 0.75in; size: letter; }
-  body { background: #fff !important; font-size: 11pt; color: #000; }
-  .top-bar, .sync-bar, .tab-btn, .panel:not(.active), .btn, .addm-btn,
-  .del-row-btn, .mremove, .section-hdr-row button { display: none !important; }
-  .panel.active { display: block !important; padding: 0; max-width: 100%; }
-  .card { border: none; border-radius: 0; padding: 0; margin-bottom: 0; box-shadow: none; }
-
-  /* Document header */
-  .print-doc-header { display: block !important; }
-
-  /* Title */
-  .mtitle-input { font-size: 20pt; font-weight: 700; border: none !important; color: #000; margin-bottom: 2pt; }
-
-  /* Section headers */
-  .section-hdr-input { font-size: 8pt; font-weight: 700; letter-spacing: .08em; color: #555; border-bottom: 1pt solid #ccc !important; padding-bottom: 3pt; margin-bottom: 6pt; }
-
-  /* Two-col becomes two-col in print */
-  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 16pt; }
-
-  /* Textarea print as readable text */
-  textarea { border: none !important; padding: 0; font-size: 10pt; line-height: 1.5; background: transparent; resize: none; }
-
-  /* Prayer rows */
-  .pr-row { padding: 3pt 0; border-bottom: .5pt solid #e0ddd6; }
-  .pr-row input { font-size: 10pt; padding: 0; }
-
-  /* Table */
-  .tbl { border-collapse: collapse; width: 100%; margin-bottom: 12pt; }
-  .tbl th { font-size: 7pt; padding: 4pt 6pt; border-bottom: 1pt solid #999; color: #333; }
-  .tbl td input { font-size: 10pt; padding: 4pt 6pt; border-bottom: .5pt solid #e0ddd6; }
-  .tbl tr:last-child td input { border-bottom: none; }
-  .th-del, .td-del { display: none !important; }
-
-  /* Metrics */
-  .mgrid { grid-template-columns: repeat(3,1fr); gap: 8pt; margin-bottom: 12pt; }
-  .mcell { background: #f5f5f5 !important; border-radius: 4pt; padding: 8pt; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .mlbl-input { font-size: 7pt; color: #666; }
-  .mval-input { font-size: 13pt; }
-  .msub-input { font-size: 8pt; }
-  .dot-btn { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
-  .mdivider { border-top: .5pt solid #ccc; }
-  .mfooter { padding-top: 4pt; }
-  .mfooter-input { font-size: 8pt; color: #888; }
-
-  /* Section spacing */
-  .print-section { margin-bottom: 14pt; }
-
-  /* Page breaks */
-  .print-break-before { page-break-before: always; }
-  /* Manifesto print */
-  .m-section-title { font-size: 8pt; color: #888; border-bottom: 1pt solid #ccc; padding-bottom: 4pt; margin-bottom: 4pt; }
-  .m-section { margin-bottom: 14pt; }
-  .m-quote { font-size: 10pt; padding: 8pt 10pt; }
-
-  /* Date / notes line */
-  #ag-date { font-size: 10pt; color: #555; margin-bottom: 10pt; min-height: auto; }
-  #ag-date:before { display: none; }
+  @page { margin: 0.6in; size: letter; }
+  body { background:#fff !important; }
+  .top-bar,.sync-bar,.btn,.addm-btn,.sec-btn,.row-x,.add-row-btn,.mremove,.chip-x,.sec-chooser{ display:none !important; }
+  .panel:not(.active){ display:none !important; }
+  .panel.active{ display:block !important; padding:0; max-width:100%; }
+  .card{ border:none; padding:0; }
 }
-
-/* Hidden in screen, shown in print */
-.print-doc-header { display: none; }
-/* Editable date/notes line */
-[contenteditable][data-placeholder]:empty:before {
-  content: attr(data-placeholder);
-  color: #ccc;
-  pointer-events: none;
-}
-[contenteditable] { outline: none; }
-[contenteditable]:focus { border-bottom: 1px solid #ddd; }
 </style>
 </head>
 <body>
@@ -183,10 +180,9 @@ label{font-size:12px;color:#666;display:block;margin-bottom:4px;font-weight:500;
 <div class="top-bar">
   <h1>EP Toolkit</h1>
   <button class="tab-btn active" id="tbtn-manifesto">Manifesto</button>
-  <button class="tab-btn" id="tbtn-agenda">Exec Agenda</button>
+  <button class="tab-btn" id="tbtn-agenda">Meeting Agendas</button>
   <button class="tab-btn" id="tbtn-dr">1:1 Prep</button>
-  <button class="tab-btn" id="tbtn-meetings">Meeting Agendas</button>
-  <button class="tab-btn" id="tbtn-asana">Meeting &rarr; Asana</button>
+  <button class="tab-btn" id="tbtn-dashboard">Dashboard</button>
   <button class="tab-btn" id="tbtn-plan">9-Month Plan</button>
 </div>
 <div class="sync-bar">
@@ -194,13 +190,12 @@ label{font-size:12px;color:#666;display:block;margin-bottom:4px;font-weight:500;
   <span id="sync-label">Connecting...</span>
 </div>
 
-<!-- MANIFESTO (first tab) -->
+<!-- MANIFESTO -->
 <div id="tab-manifesto" class="panel active">
 
   <div class="card">
     <span class="slabel">Morning Affirmations</span>
-    <div style="font-size:11px;color:#bbb;margin-bottom:12px;font-style:italic;">Read daily — slow down on the one that grabs you</div>
-
+    <div style="font-size:11px;color:#bbb;margin-bottom:12px;font-style:italic;">Read daily &mdash; slow down on the one that grabs you</div>
     <div class="m-section">
       <div class="affirmation">Jesus is first in my life. I exist to serve and glorify Him.</div>
       <div class="affirmation">I love my wife and will lay down my life to serve her.<div class="scripture">Ephesians 5:25</div></div>
@@ -225,8 +220,8 @@ label{font-size:12px;color:#666;display:block;margin-bottom:4px;font-weight:500;
   </div>
 
   <div class="card">
-    <span class="slabel">Leadership Manifesto</span>
-    <div style="font-size:11px;color:#bbb;margin-bottom:16px;font-style:italic;">Read weekly &mdash; slow down on the one that grabs you</div>
+    <span class="slabel">My Leadership Manifesto</span>
+    <div style="font-size:11px;color:#bbb;margin-bottom:16px;font-style:italic;">Read weekly &mdash; as needed review</div>
 
     <div class="m-section">
       <div class="m-section-title">&#127919; Leadership Priorities</div>
@@ -235,7 +230,7 @@ label{font-size:12px;color:#666;display:block;margin-bottom:4px;font-weight:500;
       <div class="affirmation">Establish irreducible simplicity and excellence</div>
       <div class="affirmation">Mobilize people to reach their ones</div>
       <div class="affirmation">Communicate constantly</div>
-      <div class="affirmation">Apply constant, gentle, pressure</div>
+      <div class="affirmation">Apply constant. gentle. pressure</div>
       <div class="affirmation">Stay humble and hungry</div>
     </div>
 
@@ -254,13 +249,32 @@ label{font-size:12px;color:#666;display:block;margin-bottom:4px;font-weight:500;
       <div class="affirmation">Have clear goals</div>
       <div class="affirmation">Identify and don&rsquo;t tolerate problems that stand in the way of goals</div>
       <div class="affirmation">Accurately diagnose those problems</div>
-      <div class="affirmation">Design plans that explicitly lay out tasks to get around your problems</div>
+      <div class="affirmation">Design plans that explicitly lay out tasks that will get you around your problems</div>
       <div class="affirmation">Implement these plans &mdash; do the tasks</div>
     </div>
 
     <div class="m-section">
+      <div class="m-section-title">&#128269; Basis for Tension &amp; Opportunity</div>
+      <div class="two-col" style="gap:0 20px;">
+        <div>
+          <div class="m-sub-hdr">Basis for Tension &amp; Opportunity</div>
+          <div class="affirmation">Culture</div>
+          <div class="affirmation">Teams</div>
+          <div class="affirmation">Systems</div>
+        </div>
+        <div>
+          <div class="m-sub-hdr">Questions for Self-Evaluation</div>
+          <div class="affirmation">Is there anything I can let go of?</div>
+          <div class="affirmation">Where is good enough, good enough?</div>
+          <div class="affirmation">What do I truly need to know?</div>
+          <div class="affirmation">What deserves my attention?</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="m-section">
       <div class="m-section-title">&#127942; Pillars of a Killer Team</div>
-      <div class="affirmation">Foster togetherness &mdash; 10M resigned; primary reasons: leaders don&rsquo;t know them &amp; we don&rsquo;t celebrate wins</div>
+      <div class="affirmation">Foster togetherness &mdash; 10 million resigned; primary reasons: leaders don&rsquo;t know them and we don&rsquo;t celebrate wins</div>
       <div class="affirmation">Recruit and keep the best talent</div>
       <div class="affirmation">Bolster accountability</div>
       <div class="affirmation">Structure for growth and peace</div>
@@ -268,9 +282,20 @@ label{font-size:12px;color:#666;display:block;margin-bottom:4px;font-weight:500;
     </div>
 
     <div class="m-section">
+      <div class="m-section-title">&#128330; Leading While Grieving</div>
+      <div class="affirmation">Acknowledge the loss (loss of my self-confidence)</div>
+      <div class="affirmation">Accept the gift of mourning</div>
+      <div class="affirmation">Adjust your expectations. When you or your team are in a season of loss, it&rsquo;s not the time to add a lot &mdash; personally or in the ministry</div>
+      <div class="affirmation">Embrace the waves of grief and productivity. It comes and goes</div>
+      <div class="affirmation">Communicate to your team, family, and friends</div>
+      <div class="affirmation">It&rsquo;s never time for perfectionism, but especially not when there is grieving happening</div>
+      <div class="affirmation">Build your replenishment cycle: Spiritual (the state of my inner world) &middot; Physical (moving my body, nutrition) &middot; Intellectual &middot; Emotional &middot; Social (friends and community)</div>
+    </div>
+
+    <div class="m-section">
       <div class="m-section-title">&#10024; Principles of Excellence</div>
       <div class="affirmation">The aggregation of marginal gains &mdash; 1% improvement in everything we do</div>
-      <div class="affirmation">Excellence is not about radical changes, but accruing small improvements over time</div>
+      <div class="affirmation">Excellence is not about radical changes, but about accruing small improvements over time</div>
       <div class="affirmation">Time will magnify whatever you feed it</div>
       <div class="affirmation">If you are struggling to improve, the problem isn&rsquo;t you &mdash; it&rsquo;s your systems</div>
       <div class="affirmation">You do not rise to the level of your goals; you fall to the level of your systems</div>
@@ -278,1345 +303,1702 @@ label{font-size:12px;color:#666;display:block;margin-bottom:4px;font-weight:500;
     </div>
 
     <div class="m-section">
+      <div class="m-section-title">&#9878;&#65039; Mediocre Leaders vs. Great Leaders</div>
+      <div class="or-row"><div class="or-left">allow pain to stand in the way of progress</div><div class="or-mid">or</div><div class="or-right">understand how to manage pain to produce progress</div></div>
+      <div class="or-row"><div class="or-left">avoid facing &ldquo;harsh&rdquo; realities</div><div class="or-mid">or</div><div class="or-right">face &ldquo;harsh&rdquo; realities</div></div>
+      <div class="or-row"><div class="or-left">worry about appearing good</div><div class="or-mid">or</div><div class="or-right">worry about achieving the good</div></div>
+      <div class="or-row"><div class="or-left">make decisions based on 1st order consequences only</div><div class="or-mid">or</div><div class="or-right">make decisions based on 1st, 2nd, and 3rd order consequences</div></div>
+      <div class="or-row"><div class="or-left">don&rsquo;t hold themselves accountable</div><div class="or-mid">or</div><div class="or-right">hold themselves accountable</div></div>
+    </div>
+
+    <div class="m-section">
       <div class="m-section-title">&#128101; Hiring Philosophy</div>
-      <div class="m-section-subtitle">Hunt for: passion to develop others &middot; obsessed with outcomes &middot; humble and hungry</div>
-      <div class="affirmation">Work for what they want, not what others want of them</div>
-      <div class="affirmation">Stress-test opinions by having the smartest people challenge them</div>
-      <div class="affirmation">Wary of overconfidence &mdash; good at not knowing</div>
-      <div class="affirmation">Wrestle with reality; reflect on results to improve</div>
+      <div class="m-sub-hdr">Hire people who:</div>
+      <div class="affirmation">Work for what they want and not what others want of them</div>
+      <div class="affirmation">Come up with the best independent opinions they can muster to move toward their goal</div>
+      <div class="affirmation">Stress-test opinions by having the smartest people they can find challenge them</div>
+      <div class="affirmation">Are wary of over-confidence, and good at not knowing</div>
+      <div class="affirmation">Wrestle with reality, experiencing the results of their decisions and reflecting on what they did to produce them so that they can improve</div>
+      <div class="m-quote">24 hours a day, 365 days a year, you should be able to answer the following questions: what are the key seats in my organization? what % of those seats can I say with confidence are filled with the right people? what are my plans for increasing that %? what are my backup plans if a right person leaves a key seat? &mdash; Jim Collins</div>
+      <div class="m-quote">It&rsquo;s pretty easy to spot an overwhelmingly strong candidate or even an overwhelmingly weak one. It&rsquo;s the whelming candidate you must avoid at all costs, because that&rsquo;s the one who can and will do your organization the most long-lasting harm. Overwhelmers earn you raves. Underwhelmers leave on their own or are terminated. Whelmers, sadly, are like a stubborn stain you can&rsquo;t get out of the carpet. They infuse an organization and its staff with mediocrity; they&rsquo;re comfortable, and so they never leave; and frustratingly, they never do anything that rises to the level of getting them promoted or sinks to the level of getting them fired. And because you either can&rsquo;t or don&rsquo;t fire them, you and they conspire to send a dangerous message to your staff and guests that average is acceptable. &mdash; Danny Meyer</div>
+      <div class="m-section-subtitle" style="margin-top:8px;">Without the right people in the right seats in the right roles with the right perspective in the right environment, effective and efficient progress will be elusive and any progress will cost exponentially more than it should.</div>
+      <div class="m-sub-hdr">Hunt for:</div>
+      <div class="affirmation">Passion to develop and empower others</div>
+      <div class="affirmation">Obsessed with outcomes</div>
+      <div class="affirmation">Humble and hungry</div>
       <div class="affirmation">2 out of every 3 hires should be from the outside</div>
-      <div class="m-quote">&ldquo;It&rsquo;s the whelming candidate you must avoid at all costs &mdash; they infuse an organization with mediocrity.&rdquo; &mdash; Danny Meyer</div>
+    </div>
+
+    <div class="m-section">
+      <div class="m-section-title">&#127793; Culture, Care &amp; Continuous Improvement</div>
+      <div class="m-quote">An organization&rsquo;s culture is complex. But it&rsquo;s not hard to describe. It&rsquo;s often explained as being &ldquo;the way we do things around here&rdquo; &mdash; what does and what doesn&rsquo;t. &mdash; James Heskett, The Culture Cycle</div>
+      <div class="m-quote">When I see things I don&rsquo;t like, I ask &ldquo;Why does it have to be that way?&rdquo; &mdash; Walt Disney</div>
+      <div class="m-sub-hdr">In 200 disproportionate conflicts (one side 10x stronger than the other):</div>
+      <div class="stat-row"><div class="stat-num">71%</div><div>When conventional methods are used, the stronger power wins 71% of the time</div></div>
+      <div class="stat-row"><div class="stat-num">63%</div><div>When unconventional methods and strategies are used, the smaller force wins 63% of the time</div></div>
+      <div class="m-sub-hdr">Output of unconventional minds:</div>
+      <div class="stat-row"><div class="stat-num">251</div><div>Richard Branson &mdash; companies founded</div></div>
+      <div class="stat-row"><div class="stat-num">240</div><div>Einstein &mdash; published papers</div></div>
+      <div class="stat-row"><div class="stat-num">1,039</div><div>Thomas Edison &mdash; patents</div></div>
+    </div>
+
+    <div class="m-section">
+      <div class="m-section-title">&#128506;&#65039; The Clarity Framework &mdash; What Joe Experiences</div>
+      <div class="pyr">
+        <div class="pyr-apex-wrap">
+          <div class="pyr-row" style="background:#1a1a1a;width:44%;min-width:190px;">
+            <div class="pyr-name">Mission Measures</div>
+            <div class="pyr-joe">&ldquo;What Joe Becomes&rdquo;</div>
+          </div>
+          <div class="pyr-steps">
+            <div class="pyr-step s3">Impact</div>
+            <div class="pyr-step s2">Output</div>
+            <div class="pyr-step s1">Input</div>
+            <div class="pyr-arrow">&#8593; the measures ladder</div>
+          </div>
+        </div>
+        <div class="pyr-row" style="background:#3d3d3b;width:58%;min-width:220px;">
+          <div class="pyr-name">Vision</div>
+          <div class="pyr-joe">&ldquo;What Joe Sees&rdquo;</div>
+        </div>
+        <div class="pyr-row" style="background:#5c5c58;width:72%;min-width:250px;">
+          <div class="pyr-name">Values</div>
+          <div class="pyr-joe">&ldquo;What Joe Feels&rdquo;</div>
+        </div>
+        <div class="pyr-row" style="background:#7d7d77;width:86%;min-width:280px;">
+          <div class="pyr-name">Mission</div>
+          <div class="pyr-joe">&ldquo;What Joe Hears&rdquo;</div>
+        </div>
+        <div class="pyr-row" style="background:#9c9c94;width:100%;">
+          <div class="pyr-name">Strategy</div>
+          <div class="pyr-joe">&ldquo;Where Joe Goes&rdquo;</div>
+        </div>
+      </div>
     </div>
 
     <div class="m-section">
       <div class="m-section-title">&#128161; Leadership Learnings</div>
+      <div class="m-section-subtitle">A weekly read-through. Slow down on the one that grabs you.</div>
       <div class="affirmation">&ldquo;The one with the most hope in the room has the greatest authority.&rdquo;</div>
+      <div class="affirmation">&ldquo;Behind this wall is a big, beautiful future.&rdquo;</div>
       <div class="affirmation">Think critically, but don&rsquo;t become critical.</div>
-      <div class="affirmation">Wisdom is the ability to apply knowledge.</div>
-      <div class="affirmation">Walk around with a towel, not a clipboard.</div>
-      <div class="affirmation">You don&rsquo;t keep people smarter than you by being smarter than them &mdash; you do it by loving and caring for them.</div>
-      <div class="affirmation">Change is inevitable. People don&rsquo;t fight change &mdash; they fight loss.</div>
-      <div class="affirmation">You cannot be emotionally immature and spiritually mature. A sign of emotional maturity: the time between my first response and my best response is getting shorter.</div>
-      <div class="affirmation">What if sometimes disappointing people is just a natural part of living out our calling?</div>
-      <div class="affirmation">How will I feel about this in 10 minutes? 10 weeks? 10 months?</div>
-      <div class="affirmation">Vision leaks every 6 weeks.</div>
-      <div class="affirmation">The opposite of conflict is not peace &mdash; it&rsquo;s artificial harmony.</div>
-      <div class="affirmation">A well-led organization cannot survive bad management. Management will be the lid on your mission.</div>
-      <div class="affirmation">You impress at a distance, but you impact at short-range.</div>
-      <div class="affirmation">Performers see under-performers. They wonder if you have the EQ to see it and the courage to confront it.</div>
-      <div class="affirmation">Consistency is the standard. Perfection is difficult to deliver consistently.</div>
-      <div class="affirmation">Define run-hard periods and cooldown periods. Rhythm is crucial for longevity.</div>
+      <div class="affirmation">Walk around with a towel not a clipboard.</div>
+      <div class="affirmation">Never accept that you can&rsquo;t change something.</div>
+      <div class="affirmation">Positivity changes things. It creates energy. When you are handed a decision, you must choose to let it fly or fail.</div>
+      <div class="affirmation">You don&rsquo;t keep people smarter than you by trying to be smarter than them. You do it by loving them and caring for them.</div>
+      <div class="affirmation">Change is inevitable. People don&rsquo;t really fight change. They fight loss. When they feel emotional loss that&rsquo;s when they grab the pitchforks.</div>
+      <div class="affirmation">Don&rsquo;t be consumed with running the organization of the church. Remember the gospel is a people business. A reaching and growing people business.</div>
+      <div class="affirmation">You cannot be emotionally immature and be spiritually mature. A sign of emotional maturity is that the time between my first response and my best response is getting shorter.</div>
+      <div class="affirmation">What if sometimes disappointing people is just a natural part of us living out our calling? If you live life trying not to disappoint others you will burn out.</div>
+      <div class="affirmation">How will I feel about this in 10 minutes? How about 10 weeks? 10 months?</div>
+      <div class="affirmation">Work hard at elevating others&rsquo; strengths and wins.</div>
       <div class="affirmation">Am I living like I believe I am enough?</div>
-    </div>
-
-    <div class="m-section">
-      <div class="m-section-title">&#128269; Basis for Tension &amp; Opportunity &mdash; Culture &middot; Teams &middot; Systems</div>
-      <div style="font-size:12px;font-weight:600;color:#666;padding:10px 0 4px;">Questions for Self-Evaluation</div>
-      <div class="affirmation">Is there anything I can let go of?</div>
-      <div class="affirmation">Where is good enough, good enough?</div>
-      <div class="affirmation">What do I truly need to know?</div>
-      <div class="affirmation">What deserves my attention?</div>
-      <div style="font-size:12px;font-weight:600;color:#666;padding:12px 0 4px;">Leading While Grieving</div>
-      <div class="affirmation">Acknowledge the loss</div>
-      <div class="affirmation">Accept the gift of mourning</div>
-      <div class="affirmation">Adjust your expectations in seasons of loss</div>
-      <div class="affirmation">Embrace the waves of grief and productivity</div>
-      <div class="affirmation">Replenishment cycle: Spiritual &middot; Physical &middot; Intellectual &middot; Emotional &middot; Social</div>
+      <div class="affirmation">Define run hard periods and cooldown periods. Rhythm is crucial for longevity.</div>
+      <div class="affirmation">If you don&rsquo;t put parameters around when your slow season is, you will never get out of your busy season.</div>
+      <div class="affirmation">62% of employees leave or consider leaving due to toxic culture. 86% of job seekers avoid companies with a reputation for a toxic culture.</div>
+      <div class="affirmation">A well led organization cannot survive bad management. Management will be the lid of how far you can move your mission and organization forward.</div>
+      <div class="affirmation">The biggest mistake companies and leaders make is thinking all of the best ideas are in the room.</div>
+      <div class="affirmation">You impress at a distance, but you impact at short-range. You won&rsquo;t be effective or have impact if you don&rsquo;t love those you work with.</div>
+      <div class="affirmation">The best minute I spend each day is the minute I spend investing in people.</div>
+      <div class="affirmation">Leaders bend the curve. Where can we get more return for equal or less investment of time, energy, and resources?</div>
+      <div class="affirmation">The best and most ideas win.</div>
+      <div class="affirmation">Love everyone, but move with the movers.</div>
+      <div class="affirmation">Anything that has &lsquo;continue&rsquo; or &lsquo;help&rsquo; is a garbage goal.</div>
+      <div class="affirmation">I have never heard a pastor say they had a difficult conversation too soon.</div>
+      <div class="affirmation">The job of a leader is to get all the disparate independent parts of ministries and people and pull them together at the table and inspire them to something bigger than the little sandbox they are playing in.</div>
+      <div class="affirmation">Performers see under-performers. They just wonder if you have the EQ to see it and the courage to confront it.</div>
+      <div class="affirmation">People feel cared for, and behave differently, when you make their life easier &mdash; when you remove workplace irritations.</div>
+      <div class="affirmation">The opposite of conflict is not peace; it&rsquo;s artificial harmony. You can&rsquo;t get to unity through artificial harmony.</div>
+      <div class="affirmation">Vision leaks every 6 weeks.</div>
     </div>
 
   </div>
 </div>
 
-<!-- EXEC AGENDA -->
+<!-- MEETING AGENDAS (tab 2) -->
 <div id="tab-agenda" class="panel">
+  <div class="chips" id="agenda-chips"></div>
   <div class="card">
-
-    <div class="print-section" style="margin-bottom:16px;padding-bottom:14px;border-bottom:.5px solid #e0ddd6;">
-      <input class="mtitle-input" id="ag-title" value="Executive Team Meeting">
-      <div style="font-size:12px;color:#999;margin-top:6px;min-height:20px;" id="ag-date" contenteditable="true" spellcheck="false" data-placeholder="Date / notes"></div>
-    </div>
-
-    <div class="print-section two-col" style="margin-bottom:16px;">
-      <div>
-        <div class="section-hdr-row">
-          <input class="section-hdr-input" id="hdr-celebrate" value="Celebrating">
-        </div>
-        <textarea id="ag-celebrate" rows="5" placeholder="What is God doing?&#10;Staff / volunteer wins&#10;Attendance milestones&#10;Campus highlights"></textarea>
+    <div style="display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap;margin-bottom:4px;">
+      <div style="flex:1;min-width:220px;">
+        <input type="text" class="mtitle-input" id="ag-title" placeholder="Meeting title...">
+        <div id="ag-date" contenteditable="true" style="font-size:12px;color:#999;outline:none;margin-top:4px;padding:2px 0;"></div>
       </div>
-      <div>
-        <div class="section-hdr-row">
-          <input class="section-hdr-input" id="hdr-prayer" value="Praying For">
-        </div>
-        <div class="prayer-cols">
-          <div>
-            <div class="pr-row"><span class="pr-num">1</span><input type="text" id="pr1" placeholder="Prayer item"></div>
-            <div class="pr-row"><span class="pr-num">2</span><input type="text" id="pr2" placeholder="Prayer item"></div>
-            <div class="pr-row"><span class="pr-num">3</span><input type="text" id="pr3" placeholder="Prayer item"></div>
-          </div>
-          <div>
-            <div class="pr-row"><span class="pr-num">4</span><input type="text" id="pr4" placeholder="Prayer item"></div>
-            <div class="pr-row"><span class="pr-num">5</span><input type="text" id="pr5" placeholder="Prayer item"></div>
-            <div class="pr-row"><span class="pr-num">6</span><input type="text" id="pr6" placeholder="Prayer item"></div>
-          </div>
-        </div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <button class="btn btn-sm" id="btn-add-section">+ Section</button>
+        <button class="btn btn-sm" id="btn-export-agenda">Export PDF</button>
+        <button class="btn btn-sm" id="btn-clear-agenda">Clear</button>
       </div>
     </div>
-
-    <div class="print-section" style="margin-bottom:16px;">
-      <div style="display:flex;align-items:center;margin-bottom:10px;">
-        <input class="section-hdr-input" id="hdr-metrics" value="Metrics Snapshot" style="flex:1;">
-        <button class="addm-btn" id="btn-add-metric" style="margin-left:8px;">+ metric</button>
-        <button class="addm-btn" id="btn-add-divider" style="margin-left:6px;">+ divider</button>
-      </div>
-      <div class="mgrid" id="metrics-grid"></div>
+    <div class="sec-chooser" id="sec-chooser">
+      <span style="font-size:11px;color:#888;align-self:center;">Add:</span>
+      <button class="chip" id="chooser-table">&#128203; Table</button>
+      <button class="chip" id="chooser-list">&#8226; List</button>
+      <button class="chip" id="chooser-text">&#182; Text</button>
+      <button class="chip" id="chooser-metrics">&#128202; Metrics</button>
+      <button class="chip" id="chooser-cancel">Cancel</button>
     </div>
-
-    <div class="print-section" style="margin-bottom:16px;">
-      <div class="section-hdr-row">
-        <input class="section-hdr-input" id="hdr-agenda" value="Agenda Topics">
-      </div>
-      <table class="tbl" style="margin-bottom:6px;">
-        <thead><tr>
-          <th style="width:40%">Topic</th>
-          <th style="width:21%">Owner</th>
-          <th style="width:13%">Time</th>
-          <th style="width:22%">Purpose</th>
-          <th class="th-del"></th>
-        </tr></thead>
-        <tbody id="ag-agenda-body"></tbody>
-      </table>
-      <button class="btn btn-sm" id="btn-add-ag-row" style="margin-top:4px;">+ Add row</button>
-    </div>
-
-    <div class="print-section" style="margin-bottom:16px;">
-      <div class="section-hdr-row">
-        <input class="section-hdr-input" id="hdr-approvals" value="Approval Items &amp; Calendar Dates">
-      </div>
-      <table class="tbl" style="margin-bottom:6px;">
-        <thead><tr>
-          <th style="width:48%">Item</th>
-          <th style="width:21%">Date</th>
-          <th style="width:27%">Status</th>
-          <th class="th-del"></th>
-        </tr></thead>
-        <tbody id="ag-approval-body"></tbody>
-      </table>
-      <button class="btn btn-sm" id="btn-add-ap-row" style="margin-top:4px;">+ Add row</button>
-    </div>
-
-    <div class="print-section" style="margin-bottom:16px;">
-      <div class="section-hdr-row">
-        <input class="section-hdr-input" id="hdr-nextsteps" value="Next Steps">
-      </div>
-      <table class="tbl" style="margin-bottom:6px;">
-        <thead><tr>
-          <th style="width:48%">Action</th>
-          <th style="width:24%">Owner</th>
-          <th style="width:24%">Due Date</th>
-          <th class="th-del"></th>
-        </tr></thead>
-        <tbody id="ag-ns-body"></tbody>
-      </table>
-      <button class="btn btn-sm" id="btn-add-ns-row" style="margin-top:4px;">+ Add row</button>
-    </div>
-
-    <div style="display:flex;gap:8px;padding-top:12px;border-top:.5px solid #e0ddd6;flex-wrap:wrap;" class="screen-only">
-      <button class="btn btn-sm" id="btn-clear-agenda">Clear fields</button>
-      <button class="btn btn-sm btn-dark" id="btn-print">Print / PDF</button>
-    </div>
-    <div id="ag-status" class="sbar"></div>
   </div>
+  <div id="ag-sections"></div>
+  <div class="sbar" id="ag-status"></div>
 </div>
 
-<!-- 1:1 PREP -->
+<!-- 1:1 PREP (tab 3) -->
 <div id="tab-dr" class="panel">
+  <div class="chips" id="dr-chips"></div>
+
   <div class="card">
-    <span class="slabel">Weekly 1:1 Prep</span>
-    <p style="font-size:13px;color:#666;margin-bottom:14px;">Fill in context for each direct report. Fields auto-populate from Otter.ai transcripts, then Claude generates a focused coaching brief.</p>
-
-    <div class="chips" id="dr-chips"></div>
-
-    <div style="display:flex;gap:8px;margin-bottom:14px;flex-wrap:wrap;">
-      <button class="btn btn-sm" id="btn-fetch-otter-dr">&#9889; Import from Otter.ai</button>
+    <span class="slabel">Report Profile</span>
+    <div class="two-col">
+      <div class="field"><label>Name</label><input type="text" id="dr-name" placeholder="Name"></div>
+      <div class="field"><label>Role</label><input type="text" id="dr-role" placeholder="Role / title"></div>
+      <div class="field"><label>Department</label><input type="text" id="dr-dept" placeholder="Department"></div>
+      <div class="field"><label>Current Energy Level</label>
+        <select id="dr-energy">
+          <option value="">Select...</option>
+          <option value="green">&#128994; Green — Energized &amp; healthy</option>
+          <option value="yellow">&#128993; Yellow — Managing, some strain</option>
+          <option value="red">&#128308; Red — Depleted, needs attention</option>
+        </select>
+      </div>
     </div>
+  </div>
 
-    <div id="otter-picker" style="display:none;border:.5px solid #e0ddd6;border-radius:10px;padding:14px;margin-bottom:12px;">
-      <div style="font-size:11px;font-weight:600;text-transform:uppercase;color:#666;margin-bottom:8px;">Select Otter.ai Meeting</div>
-      <div id="otter-list-dr" class="otter-list"></div>
-      <div style="display:flex;gap:8px;margin-top:10px;">
-        <button class="btn btn-sm btn-dark" id="btn-confirm-otter">Import selected</button>
+  <div id="dr-sections"></div>
+  <div style="margin-bottom:14px;">
+    <button class="btn btn-sm" id="btn-add-dr-section">+ Section</button>
+  </div>
+
+  <div class="card">
+    <span class="slabel">Import from Otter</span>
+    <div style="font-size:12px;color:#999;margin-bottom:10px;">Pull talking points from your last 1:1 transcript. Items land in matching sections.</div>
+    <button class="btn btn-dark" id="btn-fetch-otter-dr">&#127908; Import from Last 1:1</button>
+    <div id="otter-picker" style="display:none;margin-top:10px;">
+      <div style="font-size:12px;color:#666;margin-bottom:4px;">Select the meeting:</div>
+      <div class="otter-list" id="otter-list-dr"></div>
+      <div style="display:flex;gap:8px;margin-top:8px;">
+        <button class="btn btn-sm btn-dark" id="btn-confirm-otter">Import Selected</button>
         <button class="btn btn-sm" id="btn-cancel-otter">Cancel</button>
       </div>
     </div>
-
-    <div id="dr-status" class="sbar"></div>
-
-    <div class="two-col">
-      <div>
-        <div class="field"><label>Name</label><input type="text" id="dr-name" placeholder="Direct report name"></div>
-        <div class="field"><label>Role</label><input type="text" id="dr-role" placeholder="Role / title"></div>
-        <div class="field"><label>Department</label>
-          <select id="dr-dept">
-            <option value="">Select...</option>
-            <option>Finance</option>
-            <option>HR</option>
-            <option>Worship Ministry</option>
-            <option>Kids Ministry</option>
-            <option>Student Ministry</option>
-            <option>Operations</option>
-            <option>Communications</option>
-            <option>Outreach</option>
-            <option>Executive Admin</option>
-          </select>
-        </div>
-        <div class="field"><label>Energy / Capacity</label>
-          <select id="dr-energy">
-            <option value="">Select...</option>
-            <option>High — thriving</option>
-            <option>Steady — good pace</option>
-            <option>Stretched — watch carefully</option>
-            <option>Low — needs support</option>
-            <option>Observe / Unknown</option>
-          </select>
-        </div>
-        <div class="field"><label>Meeting Date</label><input type="text" id="dr-date" placeholder="MM/DD/YYYY"></div>
-      </div>
-      <div>
-        <div class="field"><label>Current Active Projects (1&ndash;3)</label><textarea id="dr-projects" rows="3" placeholder="Key projects and priorities..."></textarea></div>
-        <div class="field"><label>Known Blockers or Friction This Week</label><textarea id="dr-wins" rows="3" placeholder="What might be slowing them down..."></textarea></div>
-        <div class="field"><label>Last Week's Main Win (if known)</label><textarea id="dr-lastwin" rows="2" placeholder="Something to affirm specifically..."></textarea></div>
-      </div>
-    </div>
-    <div class="field"><label>Any Specific Development Focus</label><textarea id="dr-coaching" rows="2" placeholder="Growth area, skill, or leadership edge you're developing in them..."></textarea></div>
-    <div class="field"><label>What YOU Need from This Meeting</label><textarea id="dr-concerns" rows="2" placeholder="Decision, update, alignment, accountability check..."></textarea></div>
-    <div class="field"><label>Next Steps from Last Meeting</label><textarea id="dr-nextsteps" rows="3" placeholder="Follow-ups with owners and due dates..."></textarea></div>
-    <div class="field"><label>Family &amp; Personal Notes</label><textarea id="dr-personal" rows="2" placeholder="Personal context to remember and care for..."></textarea></div>
-
-    <div style="padding-top:14px;border-top:.5px solid #e0ddd6;margin-top:4px;">
-      <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:#666;margin-bottom:10px;">Generate Meeting Brief</div>
-      <p style="font-size:13px;color:#666;margin-bottom:10px;">Generate a coaching-oriented prep brief to paste into Claude before your 1:1.</p>
-      <button class="btn btn-dark btn-sm" id="btn-gen-brief">&#9889; Generate Brief Prompt</button>
-      <div id="brief-output" style="display:none;margin-top:12px;">
-        <div class="copy-box" id="brief-text"></div>
-        <div style="display:flex;align-items:center;gap:10px;margin-top:8px;">
-          <button class="btn btn-sm btn-green" id="btn-copy-brief">Copy to Clipboard</button>
-          <span class="copy-success" id="brief-copy-success">&#10003; Copied!</span>
-        </div>
-      </div>
-    </div>
-
-    <div style="padding-top:14px;border-top:.5px solid #e0ddd6;margin-top:16px;">
-      <div style="font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;color:#666;margin-bottom:10px;">Standard 1:1 Agenda Structure</div>
-      <div style="display:grid;gap:8px;">
-        <div style="background:#f9f8f5;border-radius:8px;padding:10px 12px;display:flex;gap:12px;align-items:flex-start;">
-          <div style="font-size:10px;font-weight:700;color:#aaa;white-space:nowrap;padding-top:2px;">0&ndash;5m</div>
-          <div><div style="font-size:13px;font-weight:600;margin-bottom:2px;">Personal Check-in</div><div style="font-size:12px;color:#666;">How are they really doing? Not a status update — a human moment. One genuine question.</div></div>
-        </div>
-        <div style="background:#f9f8f5;border-radius:8px;padding:10px 12px;display:flex;gap:12px;align-items:flex-start;">
-          <div style="font-size:10px;font-weight:700;color:#aaa;white-space:nowrap;padding-top:2px;">5&ndash;20m</div>
-          <div><div style="font-size:13px;font-weight:600;margin-bottom:2px;">Their Agenda First</div><div style="font-size:12px;color:#666;">What do they most need from you today? Surface blockers, decisions, or support needs they're carrying.</div></div>
-        </div>
-        <div style="background:#f9f8f5;border-radius:8px;padding:10px 12px;display:flex;gap:12px;align-items:flex-start;">
-          <div style="font-size:10px;font-weight:700;color:#aaa;white-space:nowrap;padding-top:2px;">20&ndash;35m</div>
-          <div><div style="font-size:13px;font-weight:600;margin-bottom:2px;">Project &amp; Priority Pulse</div><div style="font-size:12px;color:#666;">Quick status on 1&ndash;2 active initiatives. Not a full report — alignment and flag-raising only.</div></div>
-        </div>
-        <div style="background:#f9f8f5;border-radius:8px;padding:10px 12px;display:flex;gap:12px;align-items:flex-start;">
-          <div style="font-size:10px;font-weight:700;color:#aaa;white-space:nowrap;padding-top:2px;">35&ndash;45m</div>
-          <div><div style="font-size:13px;font-weight:600;margin-bottom:2px;">Your Agenda + Coaching</div><div style="font-size:12px;color:#666;">What you need from them + one development observation or encouragement. End with clarity on next steps.</div></div>
-        </div>
-        <div style="background:#f9f8f5;border-radius:8px;padding:10px 12px;display:flex;gap:12px;align-items:flex-start;">
-          <div style="font-size:10px;font-weight:700;color:#aaa;white-space:nowrap;padding-top:2px;">45&ndash;50m</div>
-          <div><div style="font-size:13px;font-weight:600;margin-bottom:2px;">Confirm Action Items</div><div style="font-size:12px;color:#666;">Name the 1&ndash;3 things each of you owns before next meeting. Keep it concrete.</div></div>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</div>
-
-<!-- MEETING AGENDAS -->
-<div id="tab-meetings" class="panel">
-  <div class="card">
-    <div style="display:flex;align-items:center;margin-bottom:14px;">
-      <span class="slabel" style="margin:0;border:none;padding:0;flex:1;">Meeting Agendas</span>
-      <button class="btn btn-sm btn-dark" id="btn-new-agenda">+ New</button>
-    </div>
-    <div id="agenda-tabs" class="chips"></div>
-    <div id="agenda-content"></div>
-    <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap;">
-      <button class="btn btn-sm" id="btn-save-agendas">Save all</button>
-      <button class="btn btn-sm" id="btn-delete-agenda" style="color:#E24B4A;">Delete this</button>
-    </div>
-    <div id="agenda-status" class="sbar"></div>
-  </div>
-</div>
-
-<!-- MEETING TO ASANA -->
-<div id="tab-asana" class="panel">
-  <div class="card">
-    <span class="slabel">Meeting &rarr; Asana Pipeline</span>
-    <p style="font-size:13px;color:#666;margin-bottom:14px;">Fetch your recent Otter.ai meetings, review extracted action items, and send them directly to your Asana inbox — one click at a time.</p>
-    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:4px;">
-      <button class="btn btn-dark" id="btn-fetch-otter-meetings">&#9889; Fetch Recent Meetings</button>
-    </div>
-    <div id="asana-status" class="sbar"></div>
-    <div id="asana-meetings" style="margin-top:14px;"></div>
+    <div class="sbar" id="dr-status"></div>
   </div>
 
   <div class="card">
-    <span class="slabel">How This Works</span>
-    <div style="display:grid;gap:8px;">
-      <div style="background:#f9f8f5;border-radius:8px;padding:10px 14px;display:flex;gap:12px;align-items:flex-start;">
-        <div style="font-size:16px;min-width:24px;">1</div>
-        <div style="font-size:13px;color:#333;">Click <strong>Fetch Recent Meetings</strong> — pulls your last 5 Otter.ai transcripts automatically</div>
+    <span class="slabel">Pre-Meeting Brief</span>
+    <div style="font-size:12px;color:#999;margin-bottom:10px;">Assembles a scannable ~3-minute brief from this report&rsquo;s sections.</div>
+    <button class="btn btn-green" id="btn-gen-brief">&#9889; Generate Brief</button>
+    <div id="brief-output" style="display:none;margin-top:12px;">
+      <div class="copy-box" id="brief-text"></div>
+      <div style="display:flex;gap:8px;align-items:center;margin-top:8px;">
+        <button class="btn btn-sm" id="btn-copy-brief">Copy</button>
+        <span class="copy-success" id="brief-copy-success">Copied &#10003;</span>
       </div>
-      <div style="background:#f9f8f5;border-radius:8px;padding:10px 14px;display:flex;gap:12px;align-items:flex-start;">
-        <div style="font-size:16px;min-width:24px;">2</div>
-        <div style="font-size:13px;color:#333;">Review extracted action items for each meeting — uncheck anything you don't want sent</div>
-      </div>
-      <div style="background:#f9f8f5;border-radius:8px;padding:10px 14px;display:flex;gap:12px;align-items:flex-start;">
-        <div style="font-size:16px;min-width:24px;">3</div>
-        <div style="font-size:13px;color:#333;">Hit <strong>Send to Asana</strong> per meeting — tasks land in your Asana inbox with owner noted</div>
-      </div>
-      <div style="background:#f9f8f5;border-radius:8px;padding:10px 14px;display:flex;gap:12px;align-items:flex-start;">
-        <div style="font-size:16px;min-width:24px;">4</div>
-        <div style="font-size:13px;color:#333;">Delegate or action from Asana — assign, set due dates, and close the loop</div>
-      </div>
-    </div>
-    <div style="margin-top:12px;padding:12px 14px;background:#eaf3de;border-radius:8px;font-size:12px;color:#3B6D11;line-height:1.6;">
-      <strong>ChurchOS alignment:</strong> Every next step needs an owner and a due date. Action items sent here include the named owner from the transcript so you can assign in Asana and maintain accountability.
     </div>
   </div>
 </div>
 
-<!-- 9-MONTH PLAN -->
+<!-- DASHBOARD (tab 4) -->
+<div id="tab-dashboard" class="panel">
+
+  <div class="card">
+    <span class="slabel">Meeting &rarr; Asana</span>
+    <div style="font-size:12px;color:#999;margin-bottom:10px;">Pull action items from recent Otter meetings and push them to Asana with owners and due dates.</div>
+    <button class="btn btn-dark" id="btn-fetch-otter-meetings">&#127908; Fetch Recent Meetings</button>
+    <div class="sbar" id="asana-status"></div>
+    <div id="asana-meetings" style="margin-top:10px;"></div>
+  </div>
+
+  <div class="card">
+    <span class="slabel">Daily Rituals</span>
+    <div class="rit-grid" id="rit-grid"></div>
+  </div>
+
+  <div class="card">
+    <span class="slabel">Ideal Week</span>
+    <div class="iw-quote">&ldquo;Things which matter most must never be at the mercy of things which matter least.&rdquo; &mdash; Stephen Covey</div>
+    <div class="iw-grid" id="iw-grid"></div>
+  </div>
+
+</div>
+
+<!-- 9-MONTH PLAN (tab 5) -->
 <div id="tab-plan" class="panel">
   <div class="card">
-    <span class="slabel">9-Month Strategic Planner</span>
-    <p style="font-size:13px;color:#666;margin-bottom:16px;">A rolling framework for forecasting where you need to be — mapped across your three oversight areas.</p>
-
-    <div class="field"><label>Current Month / Starting Point</label><input type="text" id="plan-start" placeholder="e.g. June 2026"></div>
-    <div class="field"><label>Top 3 Organizational Priorities Right Now</label><textarea id="plan-strategic" rows="4" placeholder="What are the 3 things that matter most right now..."></textarea></div>
-    <div class="field"><label>Known Major Events / Milestones in Next 9 Months</label><textarea id="plan-vips" rows="4" placeholder="Campaigns, building projects, hires, launches, fiscal year end..."></textarea></div>
-    <div class="field"><label>Current Pain Points / Things Keeping You Up at Night</label><textarea id="plan-caution" rows="4" placeholder="Cash flow, staffing gaps, cultural drift, leadership capacity..."></textarea></div>
-    <div class="field"><label>Staff Development Focus</label><textarea id="plan-staff" rows="3" placeholder="Who needs to grow, into what, by when..."></textarea></div>
-    <div class="field"><label>Financial Milestones</label><textarea id="plan-finance" rows="3" placeholder="Budget targets, giving goals, building milestones..."></textarea></div>
-    <div class="field"><label>What Does &ldquo;Win&rdquo; Look Like in 9 Months?</label><textarea id="plan-notes" rows="3" placeholder="If everything goes right, what does the church look like..."></textarea></div>
-    <div style="display:flex;gap:8px;margin-top:4px;flex-wrap:wrap;">
-      <button class="btn btn-dark btn-sm" id="btn-export-plan">&#8659; Export as PDF</button>
-    </div>
-    <div id="plan-status" class="sbar"></div>
+    <span class="slabel">9-Month Planning &mdash; May 2026 to January 2027</span>
+    <div style="font-size:12px;color:#999;margin-bottom:14px;">Tomorrow-oriented strategic map. Review Thursdays during strategy block.</div>
+    <div class="field"><label>The One Thing (if we only accomplished this, the 9 months succeeded)</label><textarea id="plan-onething" rows="2" placeholder="The single most important outcome..."></textarea></div>
+    <div class="field"><label>Theme / Banner for this season</label><input type="text" id="plan-theme" placeholder="e.g. Build the bench. Fill the seats."></div>
   </div>
 
   <div class="card">
-    <span class="slabel">The 9-Month Horizon Map</span>
-    <div style="display:grid;gap:8px;margin-bottom:4px;">
-      <div style="background:#f9f8f5;border-radius:8px;padding:12px 14px;display:flex;gap:14px;align-items:flex-start;">
-        <div style="min-width:52px;"><div style="font-size:9px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.06em;">NOW</div><div style="font-size:10px;font-weight:700;color:#639922;">M1&ndash;2</div></div>
-        <div><div style="font-size:13px;font-weight:700;margin-bottom:3px;">Stabilize &amp; Diagnose</div><div style="font-size:11px;color:#999;font-style:italic;margin-bottom:4px;">Finance &middot; HR &middot; Ministry</div><div style="font-size:12px;color:#555;">What's broken or fragile right now? Where are dependencies that could fail? Get honest data on capacity across all three areas. These 60 days are about clear-eyed diagnosis, not action.</div></div>
-      </div>
-      <div style="background:#f9f8f5;border-radius:8px;padding:12px 14px;display:flex;gap:14px;align-items:flex-start;">
-        <div style="min-width:52px;"><div style="font-size:9px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.06em;">NEAR</div><div style="font-size:10px;font-weight:700;color:#EF9F27;">M3&ndash;4</div></div>
-        <div><div style="font-size:13px;font-weight:700;margin-bottom:3px;">Align &amp; Decide</div><div style="font-size:11px;color:#999;font-style:italic;margin-bottom:4px;">Key Hires &middot; Budget Structure</div><div style="font-size:12px;color:#555;">Make the structural decisions now that take 3&ndash;6 months to play out. Hiring, budget reallocation, team restructures. Decisions delayed here arrive as crises in months 7&ndash;9.</div></div>
-      </div>
-      <div style="background:#f9f8f5;border-radius:8px;padding:12px 14px;display:flex;gap:14px;align-items:flex-start;">
-        <div style="min-width:52px;"><div style="font-size:9px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.06em;">MID</div><div style="font-size:10px;font-weight:700;color:#EF9F27;">M5&ndash;6</div></div>
-        <div><div style="font-size:13px;font-weight:700;margin-bottom:3px;">Build &amp; Equip</div><div style="font-size:11px;color:#999;font-style:italic;margin-bottom:4px;">Onboarding &middot; Systems &middot; Training</div><div style="font-size:12px;color:#555;">New hires are ramping. New systems are being adopted. This phase feels slow — resist the urge to rush it. Your job here is removing obstacles and holding the vision steady while others execute.</div></div>
-      </div>
-      <div style="background:#f9f8f5;border-radius:8px;padding:12px 14px;display:flex;gap:14px;align-items:flex-start;">
-        <div style="min-width:52px;"><div style="font-size:9px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.06em;">LONG</div><div style="font-size:10px;font-weight:700;color:#E24B4A;">M7&ndash;8</div></div>
-        <div><div style="font-size:13px;font-weight:700;margin-bottom:3px;">Execute &amp; Measure</div><div style="font-size:11px;color:#999;font-style:italic;margin-bottom:4px;">OKRs &middot; Review &middot; Adjust</div><div style="font-size:12px;color:#555;">Plans are running. Review against your leading indicators. Make the minor corrections now that keep you from major pivots later. This is high-trust delegation territory.</div></div>
-      </div>
-      <div style="background:#f9f8f5;border-radius:8px;padding:12px 14px;display:flex;gap:14px;align-items:flex-start;">
-        <div style="min-width:52px;"><div style="font-size:9px;font-weight:700;color:#aaa;text-transform:uppercase;letter-spacing:.06em;">END</div><div style="font-size:10px;font-weight:700;color:#E24B4A;">M9</div></div>
-        <div><div style="font-size:13px;font-weight:700;margin-bottom:3px;">Arrive &amp; Reset</div><div style="font-size:11px;color:#999;font-style:italic;margin-bottom:4px;">Evaluate &middot; Celebrate &middot; Next Horizon</div><div style="font-size:12px;color:#555;">You're here — did you arrive where you planned? Run a structured retrospective across Finance, HR, and Ministry. Then immediately begin the next 9-month planning cycle. The horizon is always moving.</div></div>
-      </div>
+    <span class="slabel">Horizon Map</span>
+    <div class="two-col">
+      <div class="field"><label>Now (May&ndash;Jul) &mdash; 90-day sprint</label><textarea id="plan-now" rows="5" placeholder="What must be true by end of July..."></textarea></div>
+      <div class="field"><label>Next (Aug&ndash;Oct) &mdash; Fall launch season</label><textarea id="plan-next" rows="5" placeholder="What must be true by end of October..."></textarea></div>
+      <div class="field"><label>Later (Nov&ndash;Jan) &mdash; Vision &amp; budget season</label><textarea id="plan-later" rows="5" placeholder="What must be true by end of January..."></textarea></div>
+      <div class="field"><label>Parking Lot (good ideas, not now)</label><textarea id="plan-parking" rows="5" placeholder="Ideas to revisit..."></textarea></div>
     </div>
   </div>
 
   <div class="card">
-    <span class="slabel">Leading Indicators to Track Monthly</span>
-    <div class="two-col" style="gap:16px;">
-      <div>
-        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#639922;margin-bottom:8px;">Finance</div>
-        <div class="affirmation" style="font-size:12px;">Reserve fund trend (3-mo rolling)</div>
-        <div class="affirmation" style="font-size:12px;">Giving vs. budget variance</div>
-        <div class="affirmation" style="font-size:12px;">Ministry spend by % of budget used</div>
-        <div class="affirmation" style="font-size:12px;">Upcoming major capital decisions</div>
-        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#EF9F27;margin:12px 0 8px;">HR / People</div>
-        <div class="affirmation" style="font-size:12px;">Open positions &amp; time-to-fill</div>
-        <div class="affirmation" style="font-size:12px;">Staff capacity ratings (self-reported)</div>
-        <div class="affirmation" style="font-size:12px;">Attrition risk signals</div>
-        <div class="affirmation" style="font-size:12px;">Succession gaps identified</div>
-      </div>
-      <div>
-        <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#E24B4A;margin-bottom:8px;">Ministry</div>
-        <div class="affirmation" style="font-size:12px;">Attendance trend (not just Sunday)</div>
-        <div class="affirmation" style="font-size:12px;">Volunteer engagement rate</div>
-        <div class="affirmation" style="font-size:12px;">First-time guest return rate</div>
-        <div class="affirmation" style="font-size:12px;">Small group / connection %</div>
-      </div>
-    </div>
+    <span class="slabel">Leading Indicators I&rsquo;m Watching</span>
+    <textarea id="plan-indicators" rows="4" placeholder="Volunteer pipeline conversion, small group foundation count per future campus area, giving units trend, staff key-seat confidence %..."></textarea>
   </div>
+
+  <div class="card">
+    <span class="slabel">Personal Development Focus</span>
+    <textarea id="plan-personal" rows="3" placeholder="What I am building in myself this season..."></textarea>
+  </div>
+
+  <div style="display:flex;gap:8px;flex-wrap:wrap;">
+    <button class="btn btn-dark" id="btn-export-plan">Export Plan PDF</button>
+  </div>
+  <div class="sbar" id="plan-status"></div>
 </div>
 
+<!-- MODAL -->
 <div class="modal-bg" id="modal-bg">
   <div class="modal">
-    <h3 id="modal-title">Confirm</h3>
+    <h3 id="modal-title"></h3>
     <p id="modal-msg"></p>
+    <div id="modal-input-wrap" style="display:none;margin-bottom:14px;"><input type="text" id="modal-input" placeholder=""></div>
     <div class="modal-btns">
-      <button class="btn" id="modal-cancel">Cancel</button>
-      <button class="btn btn-dark" id="modal-confirm">Confirm</button>
+      <button class="btn btn-sm" id="modal-cancel">Cancel</button>
+      <button class="btn btn-sm btn-dark" id="modal-ok">OK</button>
     </div>
   </div>
 </div>
+
 <script>
-var SURL = "https://gqxucdgnqtcwqooyoatt.supabase.co";
-var SKEY = "sb_publishable_FN_yHMPiPVp-FGvEZoK8Ww_0XDU57un";
+/* ============ SUPABASE SYNC ============ */
+var SB_URL = 'https://gqxucdgnqtcwqooyoatt.supabase.co';
+var SB_KEY = 'sb_publishable_FN_yHMPiPVp-FGvEZoK8Ww_0XDU57un';
+var syncTimers = {};
 
-var SHDR = {'Content-Type':'application/json','apikey':SKEY,'Authorization':'Bearer '+SKEY};
-var API = 'https://api.anthropic.com/v1/messages';
-var OMCP = 'https://mcp.otter.ai/mcp';
-var AMCP = 'https://mcp.asana.com/v2/mcp';
-var MDL = 'claude-sonnet-4-20250514';
-var DOT_CYCLE = ['dn','dg','da','dr'];
-var metricNextId = 20;
-var currentDR = 0;
-var selectedOtterDR = null;
-var agendas = [];
-var currentAgIdx = 0;
-var debounceTimers = {};
-var DR_FIELDS = ['name','role','date','energy','dept','lastwin','projects','wins','coaching','concerns','nextsteps','personal'];
-
-var metricsData = {
-  source: 'April 30, 2026 \u00B7 Financial Statements',
-  items: [
-    {id:1, label:'Weekly Attendance (AWA)', value:'4,500', sub:'All 4 campuses', dot:'dg'},
-    {id:2, label:'MTD Giving (General UNR)', value:'$487,547', sub:'Budget $438,047 \u00B7 +$49,500', dot:'dg'},
-    {id:3, label:'YTD Giving (General UNR)', value:'$1,964,896', sub:'Budget $1,808,237 \u00B7 +$156,659', dot:'dg'},
-    {id:'d1', divider:true},
-    {id:4, label:'MTD Total Expenses', value:'$624,985', sub:'Budget $494,862 \u00B7 -$130,123', dot:'dr'},
-    {id:5, label:'MTD Net', value:'($137,438)', sub:'Budget ($56,816)', dot:'dr', red:true},
-    {id:6, label:'YTD Net', value:'($282,275)', sub:'Budget ($253,452)', dot:'dr', red:true},
-    {id:'d2', divider:true},
-    {id:7, label:'General Cash (Savings)', value:'$79,268', sub:'Operating cash on hand', dot:'da'},
-    {id:8, label:'Bank Reserve Shortfall', value:'($759,691)', sub:'Required $838,959', dot:'dr', red:true},
-    {id:9, label:'Total Operating Cash', value:'$3,132,649', sub:'All accounts combined', dot:'da'}
-  ]
-};
-
-function esc(s) {
-  return String(s||'').replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+function setSync(state, label){
+  var d = document.getElementById('sync-dot');
+  var l = document.getElementById('sync-label');
+  if(!d || !l) return;
+  d.className = 'sync-dot ' + (state || '');
+  l.textContent = label || '';
 }
 
-function setSyncStatus(state, msg) {
-  document.getElementById('sync-dot').className = 'sync-dot ' + state;
-  document.getElementById('sync-label').textContent = msg;
+function sbSet(key, value){
+  setSync('syncing', 'Saving...');
+  return fetch(SB_URL + '/rest/v1/toolkit_data', {
+    method: 'POST',
+    headers: {
+      'apikey': SB_KEY,
+      'Authorization': 'Bearer ' + SB_KEY,
+      'Content-Type': 'application/json',
+      'Prefer': 'resolution=merge-duplicates'
+    },
+    body: JSON.stringify({ key: key, value: JSON.stringify(value) })
+  }).then(function(r){
+    if(r.ok){ setSync('synced', 'Synced'); } else { setSync('error', 'Sync error'); }
+    return r.ok;
+  }).catch(function(){ setSync('error', 'Offline — changes not saved'); return false; });
 }
 
-function sbSet(key, value) {
-  setSyncStatus('syncing', 'Saving...');
-  var hdrs = {};
-  for (var k in SHDR) hdrs[k] = SHDR[k];
-  hdrs['Prefer'] = 'resolution=merge-duplicates';
-  return fetch(SURL + '/rest/v1/toolkit_data', {
-    method: 'POST', headers: hdrs,
-    body: JSON.stringify({key: key, value: JSON.stringify(value)})
-  }).then(function(r) {
-    if (!r.ok) throw new Error('save failed');
-    var t = new Date().toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
-    setSyncStatus('synced', 'Saved ' + t);
-  }).catch(function(e) { setSyncStatus('error', 'Save failed'); console.error(e); });
+function sbGet(key){
+  return fetch(SB_URL + '/rest/v1/toolkit_data?key=eq.' + encodeURIComponent(key) + '&select=value', {
+    headers: { 'apikey': SB_KEY, 'Authorization': 'Bearer ' + SB_KEY }
+  }).then(function(r){ return r.ok ? r.json() : []; })
+    .then(function(rows){
+      if(!rows || !rows.length) return null;
+      var v = rows[0].value;
+      if(typeof v === 'string'){
+        try { return JSON.parse(v); } catch(e){ return v; }
+      }
+      return v;
+    })
+    .catch(function(){ return null; });
 }
 
-function sbGet(key) {
-  return fetch(SURL + '/rest/v1/toolkit_data?key=eq.' + encodeURIComponent(key) + '&select=value', {headers: SHDR})
-    .then(function(r) { return r.ok ? r.json() : []; })
-    .then(function(rows) { return rows.length ? JSON.parse(rows[0].value) : null; })
-    .catch(function() { return null; });
+function debounceSave(key, fn){
+  if(syncTimers[key]) clearTimeout(syncTimers[key]);
+  syncTimers[key] = setTimeout(fn, 1200);
 }
 
-function showModal(title, msg, confirmText) {
-  return new Promise(function(resolve) {
-    document.getElementById('modal-title').textContent = title;
-    document.getElementById('modal-msg').textContent = msg;
-    document.getElementById('modal-confirm').textContent = confirmText || 'Confirm';
-    document.getElementById('modal-bg').className = 'modal-bg open';
-    document.getElementById('modal-cancel').onclick = function() { document.getElementById('modal-bg').className = 'modal-bg'; resolve(false); };
-    document.getElementById('modal-confirm').onclick = function() { document.getElementById('modal-bg').className = 'modal-bg'; resolve(true); };
-  });
+function esc(s){
+  if(s === undefined || s === null) return '';
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-function showTab(id) {
+/* ============ MODAL (iOS-safe prompt/confirm) ============ */
+var modalCb = null;
+function showModal(title, msg, opts, cb){
+  opts = opts || {};
+  var bg = document.getElementById('modal-bg');
+  document.getElementById('modal-title').textContent = title || '';
+  document.getElementById('modal-msg').textContent = msg || '';
+  var iw = document.getElementById('modal-input-wrap');
+  var inp = document.getElementById('modal-input');
+  if(opts.input){
+    iw.style.display = 'block';
+    inp.value = opts.value || '';
+    inp.placeholder = opts.placeholder || '';
+  } else {
+    iw.style.display = 'none';
+  }
+  document.getElementById('modal-ok').textContent = opts.okText || 'OK';
+  modalCb = cb || null;
+  bg.classList.add('open');
+  if(opts.input){ setTimeout(function(){ try{ inp.focus(); }catch(e){} }, 120); }
+}
+function closeModal(ok){
+  var bg = document.getElementById('modal-bg');
+  bg.classList.remove('open');
+  var cb = modalCb; modalCb = null;
+  if(cb){
+    var val = document.getElementById('modal-input').value;
+    cb(ok, val);
+  }
+}
+
+/* ============ TABS ============ */
+function showTab(name){
   var panels = document.querySelectorAll('.panel');
-  for (var i = 0; i < panels.length; i++) panels[i].classList.remove('active');
+  for(var i=0;i<panels.length;i++){ panels[i].classList.remove('active'); }
   var btns = document.querySelectorAll('.tab-btn');
-  for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
-  document.getElementById('tab-' + id).classList.add('active');
-  var tbtn = document.getElementById('tbtn-' + id);
-  if (tbtn) tbtn.classList.add('active');
+  for(var j=0;j<btns.length;j++){ btns[j].classList.remove('active'); }
+  var p = document.getElementById('tab-' + name);
+  if(p) p.classList.add('active');
+  var b = document.getElementById('tbtn-' + name);
+  if(b) b.classList.add('active');
 }
 
-function setStatus(id, msg, type) {
+function setStatus(id, msg, cls){
   var el = document.getElementById(id);
-  if (!el) return;
+  if(!el) return;
   el.textContent = msg;
-  el.className = 'sbar show ' + type;
-  if (type !== 'loading') setTimeout(function() { el.classList.remove('show'); }, 3000);
+  el.className = 'sbar show ' + (cls || '');
+  if(cls === 'success'){ setTimeout(function(){ el.className = 'sbar'; }, 3500); }
 }
 
-function debounceSave(key) {
-  clearTimeout(debounceTimers[key]);
-  debounceTimers[key] = setTimeout(function() {
-    if (key === 'agenda') saveAgenda();
-    if (key === 'plan') savePlan();
-    if (key === 'metrics') saveMetrics();
-  }, 1200);
+/* ============ METRICS ENGINE (unchanged data model, key: metrics) ============ */
+var DOT_STATES = ['dn','dg','da','dr'];
+var metricsData = null;
+
+function defaultMetrics(){
+  return {
+    title: 'Executive Team Meeting',
+    date: '',
+    items: [
+      {label:'Weekly Attendance Avg', value:'4,500', sub:'All campuses', dot:'dn'},
+      {label:'MTD Giving', value:'$487,547', sub:'Budget: $438,047', dot:'dg'},
+      {label:'YTD Giving', value:'$1,964,896', sub:'Budget: $1,808,237', dot:'dg'},
+      {label:'MTD Expenses', value:'$624,985', sub:'Budget: $494,862', dot:'dr'},
+      {label:'MTD Net', value:'($137,438)', sub:'', dot:'dr'},
+      {label:'YTD Net', value:'($282,275)', sub:'', dot:'dr'},
+      {type:'div'},
+      {label:'General Cash', value:'$79,268', sub:'', dot:'da'},
+      {label:'Bank Reserve Shortfall', value:'($759,691)', sub:'Required: $838,959', dot:'dr'},
+      {label:'Total Operating Cash', value:'$3,132,649', sub:'', dot:'dg'}
+    ],
+    footer: 'Conservative posture: hold discretionary spend until net trend reverses.'
+  };
 }
 
-function debounceSaveDR() {
-  clearTimeout(debounceTimers['dr']);
-  debounceTimers['dr'] = setTimeout(function() { saveDR(); }, 1200);
+function saveMetrics(){
+  debounceSave('metrics', function(){ sbSet('metrics', metricsData); });
 }
 
-function onAgendaInput() { debounceSave('agenda'); }
-function onPlanInput() { debounceSave('plan'); }
+function cycleDot(btn, item){
+  var idx = DOT_STATES.indexOf(item.dot || 'dn');
+  item.dot = DOT_STATES[(idx + 1) % DOT_STATES.length];
+  btn.className = 'dot-btn ' + item.dot;
+  saveMetrics();
+}
 
-// -- METRICS ---------------------------------------------------
-function renderMetrics() {
-  var grid = document.getElementById('metrics-grid');
-  grid.innerHTML = '';
-  for (var i = 0; i < metricsData.items.length; i++) {
-    var m = metricsData.items[i];
-    if (m.divider) {
+function normalizeMetrics(val){
+  if(!val || typeof val !== 'object') return defaultMetrics();
+  if(Array.isArray(val)){ return { title:'', date:'', items: val, footer:'' }; }
+  if(!Array.isArray(val.items)) val.items = defaultMetrics().items;
+  return val;
+}
+
+function renderMetricsInto(container){
+  metricsData = normalizeMetrics(metricsData);
+  container.innerHTML = '';
+  var grid = document.createElement('div');
+  grid.className = 'mgrid';
+  metricsData.items.forEach(function(item, i){
+    if(item.type === 'div'){
       var hr = document.createElement('hr');
       hr.className = 'mdivider';
       grid.appendChild(hr);
-      continue;
+      return;
     }
-    (function(metric) {
-      var cell = document.createElement('div');
-      cell.className = 'mcell';
-
-      var lblInput = document.createElement('input');
-      lblInput.className = 'mlbl-input';
-      lblInput.value = metric.label || '';
-      lblInput.placeholder = 'Label';
-      lblInput.addEventListener('input', function() { metric.label = this.value; debounceSave('metrics'); });
-
-      var valRow = document.createElement('div');
-      valRow.className = 'mval-row';
-
-      var dotBtn = document.createElement('button');
-      dotBtn.className = 'dot-btn ' + (metric.dot || 'dn');
-      dotBtn.addEventListener('click', function() {
-        var ci = DOT_CYCLE.indexOf(metric.dot || 'dn');
-        metric.dot = DOT_CYCLE[(ci + 1) % DOT_CYCLE.length];
-        dotBtn.className = 'dot-btn ' + metric.dot;
-        debounceSave('metrics');
-      });
-
-      var valInput = document.createElement('input');
-      valInput.className = 'mval-input' + (metric.red ? ' red' : '');
-      valInput.value = metric.value || '';
-      valInput.placeholder = '--';
-      valInput.addEventListener('input', function() {
-        metric.value = this.value;
-        metric.red = this.value.charAt(0) === '(';
-        this.className = 'mval-input' + (metric.red ? ' red' : '');
-        debounceSave('metrics');
-      });
-
-      var subInput = document.createElement('input');
-      subInput.className = 'msub-input';
-      subInput.value = metric.sub || '';
-      subInput.placeholder = 'Context / vs budget';
-      subInput.addEventListener('input', function() { metric.sub = this.value; debounceSave('metrics'); });
-
-      var removeBtn = document.createElement('button');
-      removeBtn.className = 'mremove';
-      removeBtn.textContent = 'x remove';
-      removeBtn.addEventListener('click', function() {
-        var idx = metricsData.items.indexOf(metric);
-        if (idx > -1) metricsData.items.splice(idx, 1);
-        renderMetrics(); debounceSave('metrics');
-      });
-
-      valRow.appendChild(dotBtn);
-      valRow.appendChild(valInput);
-      cell.appendChild(lblInput);
-      cell.appendChild(valRow);
-      cell.appendChild(subInput);
-      cell.appendChild(removeBtn);
-      grid.appendChild(cell);
-    })(m);
-  }
-
-  var footer = document.createElement('div');
-  footer.className = 'mfooter';
-  footer.style.gridColumn = '1/-1';
-  var srcInput = document.createElement('input');
-  srcInput.className = 'mfooter-input';
-  srcInput.value = metricsData.source || '';
-  srcInput.placeholder = 'Source / reporting period';
-  srcInput.addEventListener('input', function() { metricsData.source = this.value; debounceSave('metrics'); });
-  footer.appendChild(srcInput);
-  grid.appendChild(footer);
-}
-
-function addMetric() {
-  metricsData.items.push({id: metricNextId++, label:'New Metric', value:'--', sub:'', dot:'dn'});
-  renderMetrics(); debounceSave('metrics');
-}
-
-function addDivider() {
-  metricsData.items.push({id: 'd' + metricNextId++, divider:true});
-  renderMetrics(); debounceSave('metrics');
-}
-
-function saveMetrics() { return sbSet('metrics', metricsData); }
-
-function loadMetrics() {
-  return sbGet('metrics').then(function(saved) {
-    if (saved && saved.items) {
-      metricsData = saved;
-      var ids = [];
-      for (var i = 0; i < saved.items.length; i++) {
-        if (!saved.items[i].divider) ids.push(Number(saved.items[i].id) || 0);
-      }
-      metricNextId = ids.length ? Math.max.apply(null, ids) + 1 : 20;
-    }
-    renderMetrics();
+    var cell = document.createElement('div');
+    cell.className = 'mcell';
+    var lbl = document.createElement('input');
+    lbl.type = 'text'; lbl.className = 'mlbl-input'; lbl.value = item.label || '';
+    lbl.addEventListener('input', function(){ item.label = lbl.value; saveMetrics(); });
+    var vrow = document.createElement('div');
+    vrow.className = 'mval-row';
+    var dot = document.createElement('button');
+    dot.className = 'dot-btn ' + (item.dot || 'dn');
+    dot.addEventListener('click', function(){ cycleDot(dot, item); });
+    var val = document.createElement('input');
+    val.type = 'text';
+    val.className = 'mval-input' + ((item.value || '').indexOf('(') === 0 ? ' red' : '');
+    val.value = item.value || '';
+    val.addEventListener('input', function(){
+      item.value = val.value;
+      val.className = 'mval-input' + (val.value.indexOf('(') === 0 ? ' red' : '');
+      saveMetrics();
+    });
+    vrow.appendChild(dot); vrow.appendChild(val);
+    var sub = document.createElement('input');
+    sub.type = 'text'; sub.className = 'msub-input'; sub.value = item.sub || '';
+    sub.placeholder = 'context...';
+    sub.addEventListener('input', function(){ item.sub = sub.value; saveMetrics(); });
+    var rm = document.createElement('button');
+    rm.className = 'mremove'; rm.textContent = 'remove';
+    rm.addEventListener('click', function(){
+      metricsData.items.splice(i, 1);
+      renderAgendaSections();
+      saveMetrics();
+    });
+    cell.appendChild(lbl); cell.appendChild(vrow); cell.appendChild(sub); cell.appendChild(rm);
+    grid.appendChild(cell);
   });
-}
-
-// -- EXEC AGENDA -----------------------------------------------
-function makeDelBtn(tr) {
-  var btn = document.createElement('button');
-  btn.className = 'del-row-btn';
-  btn.innerHTML = '&times;';
-  btn.title = 'Remove row';
-  btn.addEventListener('click', function() {
-    tr.parentNode.removeChild(tr);
-    debounceSave('agenda');
+  var foot = document.createElement('div');
+  foot.className = 'mfooter';
+  var fin = document.createElement('input');
+  fin.type = 'text'; fin.className = 'mfooter-input';
+  fin.value = metricsData.footer || '';
+  fin.placeholder = 'Footer note...';
+  fin.addEventListener('input', function(){ metricsData.footer = fin.value; saveMetrics(); });
+  var addBtn = document.createElement('button');
+  addBtn.className = 'addm-btn'; addBtn.textContent = '+ metric';
+  addBtn.addEventListener('click', function(){
+    metricsData.items.push({label:'New Metric', value:'', sub:'', dot:'dn'});
+    renderAgendaSections(); saveMetrics();
   });
-  return btn;
+  var addDiv = document.createElement('button');
+  addDiv.className = 'addm-btn'; addDiv.textContent = '+ divider';
+  addDiv.addEventListener('click', function(){
+    metricsData.items.push({type:'div'});
+    renderAgendaSections(); saveMetrics();
+  });
+  foot.appendChild(fin); foot.appendChild(addBtn); foot.appendChild(addDiv);
+  grid.appendChild(foot);
+  container.appendChild(grid);
 }
 
-function makeAgRow(t, o, m, p) {
-  var tr = document.createElement('tr');
-  var vals = [t||'', o||'', m||'', p||''];
-  var phs = ['Topic','Owner','10 min','Inform/Decide/Discuss'];
-  var widths = ['40%','21%','13%','22%'];
-  for (var i = 0; i < 4; i++) {
-    var td = document.createElement('td');
-    td.style.width = widths[i];
-    var inp = document.createElement('input');
-    inp.type = 'text'; inp.value = vals[i]; inp.placeholder = phs[i];
-    inp.addEventListener('input', onAgendaInput);
-    td.appendChild(inp); tr.appendChild(td);
-  }
-  var tdDel = document.createElement('td');
-  tdDel.className = 'td-del';
-  tdDel.appendChild(makeDelBtn(tr));
-  tr.appendChild(tdDel);
-  return tr;
-}
+/* ============ AGENDA DOCS (tab 2) — keys: agenda_list, exec_agenda, agenda_1.. ============ */
+var agendaList = [];
+var agendaData = {};
+var currentAgendaKey = null;
+var agendaDoc = null;
+var secIdCounter = 1;
 
-function addAgRow(t, o, m, p) {
-  document.getElementById('ag-agenda-body').appendChild(makeAgRow(t, o, m, p));
-}
+function newSecId(){ return 's' + (Date.now()) + '_' + (secIdCounter++); }
 
-function makeApRow(i, d, s) {
-  var tr = document.createElement('tr');
-  var vals = [i||'', d||'', s||''];
-  var phs = ['Item','Date','Pending/Approved/Tabled'];
-  var widths = ['48%','21%','27%'];
-  for (var j = 0; j < 3; j++) {
-    var td = document.createElement('td');
-    td.style.width = widths[j];
-    var inp = document.createElement('input');
-    inp.type = 'text'; inp.value = vals[j]; inp.placeholder = phs[j];
-    inp.addEventListener('input', onAgendaInput);
-    td.appendChild(inp); tr.appendChild(td);
-  }
-  var tdDel = document.createElement('td');
-  tdDel.className = 'td-del';
-  tdDel.appendChild(makeDelBtn(tr));
-  tr.appendChild(tdDel);
-  return tr;
-}
-
-function addApRow(i, d, s) {
-  document.getElementById('ag-approval-body').appendChild(makeApRow(i, d, s));
-}
-
-function makeNsRow(a, o, d) {
-  var tr = document.createElement('tr');
-  var vals = [a||'', o||'', d||''];
-  var phs = ['Action','Owner','Due date'];
-  var widths = ['48%','24%','24%'];
-  for (var i = 0; i < 3; i++) {
-    var td = document.createElement('td');
-    td.style.width = widths[i];
-    var inp = document.createElement('input');
-    inp.type = 'text'; inp.value = vals[i]; inp.placeholder = phs[i];
-    inp.addEventListener('input', onAgendaInput);
-    td.appendChild(inp); tr.appendChild(td);
-  }
-  var tdDel = document.createElement('td');
-  tdDel.className = 'td-del';
-  tdDel.appendChild(makeDelBtn(tr));
-  tr.appendChild(tdDel);
-  return tr;
-}
-
-function addNsRow(a, o, d) {
-  document.getElementById('ag-ns-body').appendChild(makeNsRow(a, o, d));
-}
-
-function getRowVals(tbody) {
-  var result = [];
-  var rows = tbody.querySelectorAll('tr');
-  for (var i = 0; i < rows.length; i++) {
-    var ins = rows[i].querySelectorAll('input');
-    var row = [];
-    for (var j = 0; j < ins.length; j++) row.push(ins[j].value);
-    result.push(row);
-  }
-  return result;
-}
-
-function getAgendaData() {
-  var pr = [];
-  for (var i = 1; i <= 6; i++) pr.push(document.getElementById('pr' + i).value);
+function defaultAgendaDoc(){
   return {
-    title: document.getElementById('ag-title').value,
-    date: document.getElementById('ag-date').textContent,
-    celebrate: document.getElementById('ag-celebrate').value,
-    prayer: pr,
-    hdrs: {
-      celebrate: document.getElementById('hdr-celebrate').value,
-      prayer: document.getElementById('hdr-prayer').value,
-      metrics: document.getElementById('hdr-metrics').value,
-      agenda: document.getElementById('hdr-agenda').value,
-      approvals: document.getElementById('hdr-approvals').value,
-      nextsteps: document.getElementById('hdr-nextsteps').value
-    },
-    agenda: getRowVals(document.getElementById('ag-agenda-body')),
-    approvals: getRowVals(document.getElementById('ag-approval-body')),
-    nextsteps: getRowVals(document.getElementById('ag-ns-body'))
+    v: 2,
+    title: 'Executive Team Meeting',
+    date: '',
+    sections: [
+      {id: newSecId(), kind:'metrics', title:'Metrics Snapshot'},
+      {id: newSecId(), kind:'table', title:'Agenda Topics', cols:['Topic','Owner','Time','Purpose'], rows:[['','','',''],['','','',''],['','','','']]},
+      {id: newSecId(), kind:'table', title:'Approval Items & Calendar Dates', cols:['Item','Date','Status'], rows:[['','',''],['','','']]},
+      {id: newSecId(), kind:'table', title:'Next Steps', cols:['Action','Owner','Due Date'], rows:[['','',''],['','','']]}
+    ]
   };
 }
 
-function loadAgendaData(d) {
-  if (!d) return;
-  if (d.title) document.getElementById('ag-title').value = d.title;
-  if (d.date) document.getElementById('ag-date').textContent = d.date;
-  if (d.celebrate) document.getElementById('ag-celebrate').value = d.celebrate;
-  if (d.prayer) {
-    for (var i = 0; i < d.prayer.length && i < 6; i++) {
-      document.getElementById('pr' + (i+1)).value = d.prayer[i];
-    }
-  }
-  if (d.hdrs) {
-    var hdrKeys = ['celebrate','prayer','metrics','agenda','approvals','nextsteps'];
-    for (var i = 0; i < hdrKeys.length; i++) {
-      var el = document.getElementById('hdr-' + hdrKeys[i]);
-      if (el && d.hdrs[hdrKeys[i]]) el.value = d.hdrs[hdrKeys[i]];
-    }
-  }
-  document.getElementById('ag-agenda-body').innerHTML = '';
-  document.getElementById('ag-approval-body').innerHTML = '';
-  document.getElementById('ag-ns-body').innerHTML = '';
-  if (d.agenda && d.agenda.length) {
-    for (var i = 0; i < d.agenda.length; i++) addAgRow.apply(null, d.agenda[i]);
-  } else { for (var i = 0; i < 5; i++) addAgRow(); }
-  if (d.approvals && d.approvals.length) {
-    for (var i = 0; i < d.approvals.length; i++) addApRow.apply(null, d.approvals[i]);
-  } else { for (var i = 0; i < 3; i++) addApRow(); }
-  if (d.nextsteps && d.nextsteps.length) {
-    for (var i = 0; i < d.nextsteps.length; i++) addNsRow.apply(null, d.nextsteps[i]);
-  } else { for (var i = 0; i < 4; i++) addNsRow(); }
+function newMeetingDoc(name){
+  return {
+    v: 2,
+    title: name || 'New Meeting',
+    date: '',
+    sections: [
+      {id: newSecId(), kind:'table', title:'Agenda Topics', cols:['Topic','Owner','Time','Purpose'], rows:[['','','',''],['','','','']]},
+      {id: newSecId(), kind:'table', title:'Next Steps', cols:['Action','Owner','Due Date'], rows:[['','',''],['','','']]}
+    ]
+  };
 }
 
-function saveAgenda() { return sbSet('exec_agenda', getAgendaData()); }
+function nextAgendaKey(){
+  var maxN = 0;
+  agendaList.forEach(function(a){
+    var m = /^agenda_(\d+)$/.exec(a.key);
+    if(m){ var n = parseInt(m[1], 10); if(n > maxN) maxN = n; }
+  });
+  return 'agenda_' + (maxN + 1);
+}
 
-function clearAgenda() {
-  showModal('Clear agenda', 'Clear all agenda fields? Metrics stay.', 'Clear').then(function(ok) {
-    if (!ok) return;
-    document.getElementById('ag-title').value = 'Executive Team Meeting';
-    document.getElementById('ag-date').textContent = '';
-    document.getElementById('ag-celebrate').value = '';
-    for (var i = 1; i <= 6; i++) document.getElementById('pr' + i).value = '';
-    document.getElementById('ag-agenda-body').innerHTML = '';
-    document.getElementById('ag-approval-body').innerHTML = '';
-    document.getElementById('ag-ns-body').innerHTML = '';
-    for (var i = 0; i < 5; i++) addAgRow();
-    for (var i = 0; i < 3; i++) addApRow();
-    for (var i = 0; i < 4; i++) addNsRow();
-    saveAgenda();
+function saveAgendaList(){
+  debounceSave('agenda_list', function(){ sbSet('agenda_list', agendaList); });
+}
+
+function saveAgendaDoc(){
+  if(!currentAgendaKey) return;
+  var key = currentAgendaKey;
+  debounceSave(key, function(){ sbSet(key, agendaData[key]); });
+}
+
+function renderAgendaChips(){
+  var wrap = document.getElementById('agenda-chips');
+  if(!wrap) return;
+  wrap.innerHTML = '';
+  agendaList.forEach(function(a, idx){
+    var chip = document.createElement('button');
+    chip.className = 'chip' + (a.key === currentAgendaKey ? ' active' : '');
+    var nm = document.createElement('span');
+    nm.textContent = a.name || ('Agenda ' + (idx + 1));
+    var x = document.createElement('span');
+    x.className = 'chip-x'; x.innerHTML = '&#10005;';
+    x.addEventListener('click', function(ev){
+      ev.stopPropagation();
+      showModal('Remove ' + (a.name || 'this agenda') + '?', 'This agenda and its contents will no longer appear in the toolkit. Metrics values are kept.', {okText:'Remove'}, function(ok){
+        if(!ok) return;
+        agendaList.splice(idx, 1);
+        sbSet(a.key, null);
+        delete agendaData[a.key];
+        if(!agendaList.length){
+          var key = 'agenda_1';
+          agendaList.push({key:key, name:'New Meeting'});
+          agendaData[key] = newMeetingDoc('New Meeting');
+          sbSet(key, agendaData[key]);
+        }
+        saveAgendaList();
+        if(currentAgendaKey === a.key || !currentAgendaKey){
+          selectAgenda(agendaList[0].key);
+        } else {
+          renderAgendaChips();
+        }
+      });
+    });
+    chip.appendChild(nm); chip.appendChild(x);
+    chip.addEventListener('click', function(){ selectAgenda(a.key); });
+    wrap.appendChild(chip);
+  });
+  var add = document.createElement('button');
+  add.className = 'chip chip-add';
+  add.textContent = '+ Add agenda';
+  add.addEventListener('click', function(){
+    showModal('New Agenda', 'What meeting is this for?', {input:true, placeholder:'e.g. Central Team', okText:'Add'}, function(ok, val){
+      if(!ok || !val || !val.trim()) return;
+      var key = nextAgendaKey();
+      agendaList.push({key:key, name:val.trim()});
+      agendaData[key] = newMeetingDoc(val.trim());
+      sbSet(key, agendaData[key]);
+      saveAgendaList();
+      selectAgenda(key);
+    });
+  });
+  wrap.appendChild(add);
+}
+
+function loadAgendaIntoUI(){
+  agendaDoc = currentAgendaKey ? agendaData[currentAgendaKey] : null;
+  var t = document.getElementById('ag-title');
+  if(t) t.value = agendaDoc ? (agendaDoc.title || '') : '';
+  var d = document.getElementById('ag-date');
+  if(d) d.textContent = agendaDoc ? (agendaDoc.date || '') : '';
+  renderAgendaSections();
+}
+
+function selectAgenda(key){
+  currentAgendaKey = key;
+  renderAgendaChips();
+  if(agendaData[key]){
+    loadAgendaIntoUI();
+  } else {
+    sbGet(key).then(function(val){
+      if(val){
+        agendaData[key] = normalizeAgendaDoc(val);
+      } else {
+        var entry = null;
+        agendaList.forEach(function(a){ if(a.key === key) entry = a; });
+        agendaData[key] = (key === 'exec_agenda') ? defaultAgendaDoc() : newMeetingDoc(entry ? entry.name : 'New Meeting');
+      }
+      loadAgendaIntoUI();
+    });
+  }
+}
+
+function migrateAgendaDoc(old){
+  if(!old || typeof old !== 'object') old = {};
+  var doc = { v: 2, title: old.title || 'Executive Team Meeting', date: old.date || '', sections: [] };
+  doc.sections.push({id:newSecId(), kind:'metrics', title:'Metrics Snapshot'});
+  function tblFrom(title, cols, arr, mapFn){
+    var rows = [];
+    if(arr && arr.length){ arr.forEach(function(r){ rows.push(mapFn(r)); }); }
+    if(!rows.length){ rows = [cols.map(function(){ return ''; })]; }
+    doc.sections.push({id:newSecId(), kind:'table', title:title, cols:cols, rows:rows});
+  }
+  tblFrom('Agenda Topics', ['Topic','Owner','Time','Purpose'], old.agenda, function(r){ return [r.topic||'', r.owner||'', r.time||'', r.purpose||'']; });
+  tblFrom('Approval Items & Calendar Dates', ['Item','Date','Status'], old.approvals, function(r){ return [r.item||'', r.date||'', r.status||'']; });
+  tblFrom('Next Steps', ['Action','Owner','Due Date'], old.nextsteps, function(r){ return [r.action||'', r.owner||'', r.due||'']; });
+  return doc;
+}
+
+function moveSection(arr, idx, dir, renderFn, saveFn){
+  var ni = idx + dir;
+  if(ni < 0 || ni >= arr.length) return;
+  var tmp = arr[idx]; arr[idx] = arr[ni]; arr[ni] = tmp;
+  renderFn(); saveFn();
+}
+
+function buildSectionShell(sec, idx, arr, renderFn, saveFn){
+  var wrap = document.createElement('div');
+  wrap.className = 'sec';
+  var hdr = document.createElement('div');
+  hdr.className = 'sec-hdr';
+  var up = document.createElement('button');
+  up.className = 'sec-btn'; up.innerHTML = '&#8593;'; up.title = 'Move up';
+  up.addEventListener('click', function(){ moveSection(arr, idx, -1, renderFn, saveFn); });
+  var down = document.createElement('button');
+  down.className = 'sec-btn'; down.innerHTML = '&#8595;'; down.title = 'Move down';
+  down.addEventListener('click', function(){ moveSection(arr, idx, 1, renderFn, saveFn); });
+  var title = document.createElement('input');
+  title.type = 'text'; title.className = 'sec-title-input';
+  title.value = sec.title || '';
+  title.placeholder = 'Section title...';
+  title.addEventListener('input', function(){ sec.title = title.value; saveFn(); });
+  var del = document.createElement('button');
+  del.className = 'sec-btn sec-del'; del.innerHTML = '&#10005;'; del.title = 'Remove section';
+  del.addEventListener('click', function(){
+    showModal('Remove section?', 'Delete "' + (sec.title || 'Untitled') + '" and its contents?', {okText:'Remove'}, function(ok){
+      if(ok){ arr.splice(idx, 1); renderFn(); saveFn(); }
+    });
+  });
+  hdr.appendChild(up); hdr.appendChild(down); hdr.appendChild(title); hdr.appendChild(del);
+  var body = document.createElement('div');
+  body.className = 'sec-body';
+  wrap.appendChild(hdr); wrap.appendChild(body);
+  return { wrap: wrap, body: body };
+}
+
+function buildTableSection(sec, body, saveFn, renderFn){
+  var tbl = document.createElement('table');
+  tbl.className = 'sec-tbl';
+  var thead = document.createElement('thead');
+  var trh = document.createElement('tr');
+  sec.cols.forEach(function(c, ci){
+    var th = document.createElement('th');
+    var ti = document.createElement('input');
+    ti.type = 'text'; ti.className = 'sec-th-input'; ti.value = c;
+    ti.addEventListener('input', function(){ sec.cols[ci] = ti.value; saveFn(); });
+    th.appendChild(ti);
+    trh.appendChild(th);
+  });
+  var thx = document.createElement('th'); thx.className = 'td-x';
+  trh.appendChild(thx);
+  thead.appendChild(trh);
+  tbl.appendChild(thead);
+  var tbody = document.createElement('tbody');
+  sec.rows.forEach(function(row, ri){
+    var tr = document.createElement('tr');
+    sec.cols.forEach(function(c, ci){
+      var td = document.createElement('td');
+      var inp = document.createElement('input');
+      inp.type = 'text';
+      inp.value = row[ci] || '';
+      inp.addEventListener('input', function(){ row[ci] = inp.value; saveFn(); });
+      td.appendChild(inp);
+      tr.appendChild(td);
+    });
+    var tdx = document.createElement('td'); tdx.className = 'td-x';
+    var xb = document.createElement('button');
+    xb.className = 'row-x'; xb.innerHTML = '&#215;';
+    xb.addEventListener('click', function(){ sec.rows.splice(ri, 1); renderFn(); saveFn(); });
+    tdx.appendChild(xb);
+    tr.appendChild(tdx);
+    tbody.appendChild(tr);
+  });
+  tbl.appendChild(tbody);
+  body.appendChild(tbl);
+  var add = document.createElement('button');
+  add.className = 'add-row-btn'; add.textContent = '+ Add row';
+  add.addEventListener('click', function(){
+    sec.rows.push(sec.cols.map(function(){ return ''; }));
+    renderFn(); saveFn();
+  });
+  body.appendChild(add);
+}
+
+function buildListSection(sec, body, saveFn, renderFn){
+  if(!sec.rows) sec.rows = [''];
+  sec.rows.forEach(function(rowVal, ri){
+    var lr = document.createElement('div');
+    lr.className = 'list-row';
+    var dot = document.createElement('span');
+    dot.className = 'list-dot'; dot.innerHTML = '&#9679;';
+    var inp = document.createElement('input');
+    inp.type = 'text';
+    inp.value = rowVal || '';
+    inp.addEventListener('input', function(){ sec.rows[ri] = inp.value; saveFn(); });
+    var xb = document.createElement('button');
+    xb.className = 'row-x'; xb.innerHTML = '&#215;';
+    xb.addEventListener('click', function(){ sec.rows.splice(ri, 1); renderFn(); saveFn(); });
+    lr.appendChild(dot); lr.appendChild(inp); lr.appendChild(xb);
+    body.appendChild(lr);
+  });
+  var add = document.createElement('button');
+  add.className = 'add-row-btn'; add.textContent = '+ Add line';
+  add.addEventListener('click', function(){ sec.rows.push(''); renderFn(); saveFn(); });
+  body.appendChild(add);
+}
+
+function buildTextSection(sec, body, saveFn){
+  var ta = document.createElement('textarea');
+  ta.className = 'sec-text';
+  ta.value = sec.text || '';
+  ta.placeholder = 'Notes...';
+  ta.addEventListener('input', function(){ sec.text = ta.value; saveFn(); });
+  body.appendChild(ta);
+}
+
+function normalizeAgendaDoc(doc){
+  if(!doc || typeof doc !== 'object' || Array.isArray(doc)) return defaultAgendaDoc();
+  if(doc.v !== 2){ return migrateAgendaDoc(doc); }
+  if(!Array.isArray(doc.sections)) doc.sections = defaultAgendaDoc().sections;
+  doc.sections.forEach(function(sec){
+    if(!sec.id) sec.id = newSecId();
+    if(sec.kind === 'table'){
+      if(!Array.isArray(sec.cols) || !sec.cols.length) sec.cols = ['Item','Owner','Notes'];
+      if(!Array.isArray(sec.rows)) sec.rows = [];
+      sec.rows = sec.rows.map(function(row){
+        if(!Array.isArray(row)) row = [];
+        while(row.length < sec.cols.length) row.push('');
+        return row;
+      });
+      if(!sec.rows.length) sec.rows = [sec.cols.map(function(){ return ''; })];
+    } else if(sec.kind === 'list'){
+      if(!Array.isArray(sec.rows)) sec.rows = [''];
+    }
+  });
+  return doc;
+}
+
+function renderAgendaSections(){
+  var container = document.getElementById('ag-sections');
+  if(!container || !agendaDoc) return;
+  container.innerHTML = '';
+  agendaDoc.sections.forEach(function(sec, idx){
+    try {
+      var shell = buildSectionShell(sec, idx, agendaDoc.sections, renderAgendaSections, saveAgendaDoc);
+      if(sec.kind === 'metrics'){
+        renderMetricsInto(shell.body);
+      } else if(sec.kind === 'table'){
+        buildTableSection(sec, shell.body, saveAgendaDoc, renderAgendaSections);
+      } else if(sec.kind === 'list'){
+        buildListSection(sec, shell.body, saveAgendaDoc, renderAgendaSections);
+      } else {
+        buildTextSection(sec, shell.body, saveAgendaDoc);
+      }
+      container.appendChild(shell.wrap);
+    } catch(e){
+      var err = document.createElement('div');
+      err.className = 'sec';
+      err.innerHTML = '<div class="sec-body" style="color:#E24B4A;font-size:12px;">This section could not be displayed. Remove and re-add it.</div>';
+      container.appendChild(err);
+    }
   });
 }
 
-function doPrint() {
-  window.print();
+function addAgendaSection(kind){
+  var sec;
+  if(kind === 'metrics'){
+    var has = agendaDoc.sections.some(function(s){ return s.kind === 'metrics'; });
+    if(has){ setStatus('ag-status', 'A metrics section already exists.', 'error'); return; }
+    sec = {id:newSecId(), kind:'metrics', title:'Metrics Snapshot'};
+  } else if(kind === 'table'){
+    sec = {id:newSecId(), kind:'table', title:'New Section', cols:['Item','Owner','Notes'], rows:[['','','']]};
+  } else if(kind === 'list'){
+    sec = {id:newSecId(), kind:'list', title:'New List', rows:['']};
+  } else {
+    sec = {id:newSecId(), kind:'text', title:'Notes', text:''};
+  }
+  agendaDoc.sections.push(sec);
+  renderAgendaSections();
+  saveAgendaDoc();
+  document.getElementById('sec-chooser').classList.remove('open');
 }
 
-// -- 1:1 PREP --------------------------------------------------
-function initDRChips() {
-  var chips = document.getElementById('dr-chips');
-  chips.innerHTML = '';
-  var proms = [];
-  for (var i = 0; i < 5; i++) proms.push(sbGet('dr_' + i));
-  Promise.all(proms).then(function(results) {
-    for (var i = 0; i < results.length; i++) {
-      var saved = results[i] || {};
-      (function(idx, data) {
-        var btn = document.createElement('button');
-        btn.className = 'chip' + (idx === 0 ? ' active' : '');
-        btn.textContent = data.name || 'Report ' + (idx + 1);
-        btn.addEventListener('click', function() { selectDR(idx); });
-        chips.appendChild(btn);
-      })(i, saved);
+/* ============ AGENDA PDF EXPORT (no browser header/footer) ============ */
+function dotColor(d){
+  if(d === 'dg') return '#639922';
+  if(d === 'da') return '#EF9F27';
+  if(d === 'dr') return '#E24B4A';
+  return '#ccc';
+}
+
+function exportAgendaPDF(){
+  var h = '';
+  h += '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>' + esc(agendaDoc.title) + '</title><style>';
+  h += '@page{margin:0;size:letter;} body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;color:#1a1a1a;padding:0.7in 0.75in;font-size:12px;}';
+  h += 'h1{font-size:20px;margin:0 0 2px;} .date{font-size:11px;color:#888;margin-bottom:18px;}';
+  h += 'h2{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#888;border-bottom:1px solid #ddd;padding-bottom:4px;margin:18px 0 8px;}';
+  h += 'table{width:100%;border-collapse:collapse;} th{font-size:9px;text-transform:uppercase;letter-spacing:.05em;color:#999;text-align:left;padding:4px 6px;border-bottom:1px solid #ccc;}';
+  h += 'td{font-size:11px;padding:5px 6px;border-bottom:0.5px solid #eee;vertical-align:top;}';
+  h += '.mg{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;} .mc{border:0.5px solid #ddd;border-radius:6px;padding:7px 9px;}';
+  h += '.ml{font-size:8px;text-transform:uppercase;letter-spacing:.05em;color:#999;} .mv{font-size:13px;font-weight:600;margin:2px 0;} .mv.red{color:#E24B4A;} .ms{font-size:9px;color:#999;}';
+  h += '.dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:4px;-webkit-print-color-adjust:exact;print-color-adjust:exact;}';
+  h += '.foot{font-size:9px;color:#999;font-style:italic;margin-top:6px;}';
+  h += 'ul{margin:4px 0;padding-left:18px;} li{font-size:11px;padding:2px 0;} p{font-size:11px;line-height:1.6;white-space:pre-wrap;}';
+  h += '</style></head><body>';
+  h += '<h1>' + esc(agendaDoc.title) + '</h1>';
+  if(agendaDoc.date){ h += '<div class="date">' + esc(agendaDoc.date) + '</div>'; }
+  agendaDoc.sections.forEach(function(sec){
+    h += '<h2>' + esc(sec.title) + '</h2>';
+    if(sec.kind === 'metrics' && metricsData){
+      h += '<div class="mg">';
+      metricsData.items.forEach(function(item){
+        if(item.type === 'div') return;
+        var red = (item.value || '').indexOf('(') === 0 ? ' red' : '';
+        h += '<div class="mc"><div class="ml">' + esc(item.label) + '</div>';
+        h += '<div class="mv' + red + '"><span class="dot" style="background:' + dotColor(item.dot) + '"></span>' + esc(item.value) + '</div>';
+        if(item.sub){ h += '<div class="ms">' + esc(item.sub) + '</div>'; }
+        h += '</div>';
+      });
+      h += '</div>';
+      if(metricsData.footer){ h += '<div class="foot">' + esc(metricsData.footer) + '</div>'; }
+    } else if(sec.kind === 'table'){
+      h += '<table><thead><tr>';
+      sec.cols.forEach(function(c){ h += '<th>' + esc(c) + '</th>'; });
+      h += '</tr></thead><tbody>';
+      sec.rows.forEach(function(row){
+        var any = row.some(function(v){ return (v || '').trim() !== ''; });
+        if(!any) return;
+        h += '<tr>';
+        row.forEach(function(v){ h += '<td>' + esc(v) + '</td>'; });
+        h += '</tr>';
+      });
+      h += '</tbody></table>';
+    } else if(sec.kind === 'list'){
+      h += '<ul>';
+      (sec.rows || []).forEach(function(v){ if((v || '').trim() !== ''){ h += '<li>' + esc(v) + '</li>'; } });
+      h += '</ul>';
+    } else {
+      h += '<p>' + esc(sec.text || '') + '</p>';
     }
-    loadDRFields(results[0] || {});
   });
+  h += '<script>window.onload=function(){window.print();};<\/script></body></html>';
+  var w = window.open('', '_blank');
+  if(!w){ setStatus('ag-status', 'Popup blocked — allow popups for this site.', 'error'); return; }
+  w.document.write(h);
+  w.document.close();
+}
+</script>
+
+<script>
+/* ============ 1:1 PREP (tab 3) — keys: dr_list, dr_0..dr_N ============ */
+var drList = [];
+var drData = {};
+var currentDrKey = null;
+
+function defaultDrSections(){
+  return [
+    {id:newSecId(), title:'Current Projects & Ownership', rows:['','']},
+    {id:newSecId(), title:'Wins to Affirm', rows:['']},
+    {id:newSecId(), title:'Blockers & Role Diffusion Risks', rows:['']},
+    {id:newSecId(), title:'Coaching / Development Focus', rows:['']},
+    {id:newSecId(), title:'Concerns to Address', rows:['']},
+    {id:newSecId(), title:'Next Steps (Owner + Due Date)', rows:['']},
+    {id:newSecId(), title:'Personal / Family Notes', rows:['']}
+  ];
 }
 
-function selectDR(idx) {
-  saveDR().then(function() {
-    currentDR = idx;
-    var chips = document.querySelectorAll('#dr-chips .chip');
-    for (var i = 0; i < chips.length; i++) chips[i].classList.toggle('active', i === idx);
-    sbGet('dr_' + idx).then(function(d) { loadDRFields(d || {}); });
-  });
+function migrateDrDoc(old){
+  if(!old || typeof old !== 'object') old = {};
+  var doc = { v:2, name: old.name || '', role: old.role || '', dept: old.dept || '', energy: old.energy || '', sections: [] };
+  function sect(title, val){
+    var rows = [];
+    if(val && String(val).trim() !== ''){
+      String(val).split('\n').forEach(function(line){
+        var t = line.replace(/^[-*\u2022]\s*/, '').trim();
+        if(t !== '') rows.push(t);
+      });
+    }
+    if(!rows.length) rows = [''];
+    doc.sections.push({id:newSecId(), title:title, rows:rows});
+  }
+  sect('Current Projects & Ownership', old.projects);
+  var wins = old.wins || '';
+  if(old.lastwin && String(old.lastwin).trim() !== ''){ wins = (wins ? wins + '\n' : '') + old.lastwin; }
+  sect('Wins to Affirm', wins);
+  sect('Blockers & Role Diffusion Risks', old.blockers);
+  sect('Coaching / Development Focus', old.coaching);
+  sect('Concerns to Address', old.concerns);
+  sect('Next Steps (Owner + Due Date)', old.nextsteps);
+  sect('Personal / Family Notes', old.personal);
+  return doc;
 }
 
-function loadDRFields(d) {
-  for (var i = 0; i < DR_FIELDS.length; i++) {
-    var el = document.getElementById('dr-' + DR_FIELDS[i]);
-    if (el) el.value = d[DR_FIELDS[i]] || '';
+function saveDrList(){
+  debounceSave('dr_list', function(){ sbSet('dr_list', drList); });
+}
+
+function saveCurrentDr(){
+  if(!currentDrKey) return;
+  var key = currentDrKey;
+  debounceSave(key, function(){ sbSet(key, drData[key]); });
+}
+
+function nextDrKey(){
+  var maxN = -1;
+  drList.forEach(function(p){
+    var m = /^dr_(\d+)$/.exec(p.key);
+    if(m){ var n = parseInt(m[1], 10); if(n > maxN) maxN = n; }
+  });
+  return 'dr_' + (maxN + 1);
+}
+
+function renderDrChips(){
+  var wrap = document.getElementById('dr-chips');
+  if(!wrap) return;
+  wrap.innerHTML = '';
+  drList.forEach(function(p, idx){
+    var chip = document.createElement('button');
+    chip.className = 'chip' + (p.key === currentDrKey ? ' active' : '');
+    var nm = document.createElement('span');
+    nm.textContent = p.name || ('Report ' + (idx + 1));
+    var x = document.createElement('span');
+    x.className = 'chip-x'; x.innerHTML = '&#10005;';
+    x.addEventListener('click', function(ev){
+      ev.stopPropagation();
+      showModal('Remove ' + (p.name || 'this report') + '?', 'Their 1:1 prep data will no longer appear in the toolkit.', {okText:'Remove'}, function(ok){
+        if(!ok) return;
+        drList.splice(idx, 1);
+        saveDrList();
+        sbSet(p.key, null);
+        if(currentDrKey === p.key){
+          currentDrKey = drList.length ? drList[0].key : null;
+        }
+        renderDrChips();
+        loadCurrentDrIntoUI();
+      });
+    });
+    chip.appendChild(nm); chip.appendChild(x);
+    chip.addEventListener('click', function(){ selectDr(p.key); });
+    wrap.appendChild(chip);
+  });
+  var add = document.createElement('button');
+  add.className = 'chip chip-add';
+  add.textContent = '+ Add person';
+  add.addEventListener('click', function(){
+    showModal('Add 1:1 Report', 'Who are you adding?', {input:true, placeholder:'Name', okText:'Add'}, function(ok, val){
+      if(!ok || !val || !val.trim()) return;
+      var key = nextDrKey();
+      drList.push({key:key, name:val.trim()});
+      drData[key] = { v:2, name: val.trim(), role:'', dept:'', energy:'', sections: defaultDrSections() };
+      saveDrList();
+      sbSet(key, drData[key]);
+      selectDr(key);
+    });
+  });
+  wrap.appendChild(add);
+}
+
+function normalizeDrDoc(val){
+  if(!val || typeof val !== 'object' || Array.isArray(val)) return null;
+  if(val.v !== 2) return migrateDrDoc(val);
+  if(!Array.isArray(val.sections) || !val.sections.length) val.sections = defaultDrSections();
+  val.sections.forEach(function(s){
+    if(!s.id) s.id = newSecId();
+    if(!Array.isArray(s.rows)) s.rows = [''];
+  });
+  return val;
+}
+
+function selectDr(key){
+  currentDrKey = key;
+  renderDrChips();
+  if(drData[key]){
+    loadCurrentDrIntoUI();
+  } else {
+    sbGet(key).then(function(val){
+      var norm = normalizeDrDoc(val);
+      if(norm){
+        drData[key] = norm;
+      } else {
+        var entry = null;
+        drList.forEach(function(p){ if(p.key === key) entry = p; });
+        drData[key] = { v:2, name: entry ? entry.name : '', role:'', dept:'', energy:'', sections: defaultDrSections() };
+      }
+      loadCurrentDrIntoUI();
+    });
   }
 }
 
-function saveDR() {
-  var d = {};
-  for (var i = 0; i < DR_FIELDS.length; i++) {
-    var el = document.getElementById('dr-' + DR_FIELDS[i]);
-    if (el) d[DR_FIELDS[i]] = el.value;
+function loadCurrentDrIntoUI(){
+  var doc = currentDrKey ? drData[currentDrKey] : null;
+  var nameEl = document.getElementById('dr-name');
+  var roleEl = document.getElementById('dr-role');
+  var deptEl = document.getElementById('dr-dept');
+  var enEl = document.getElementById('dr-energy');
+  if(nameEl) nameEl.value = doc ? (doc.name || '') : '';
+  if(roleEl) roleEl.value = doc ? (doc.role || '') : '';
+  if(deptEl) deptEl.value = doc ? (doc.dept || '') : '';
+  if(enEl) enEl.value = doc ? (doc.energy || '') : '';
+  renderDrSections();
+}
+
+function renderDrSections(){
+  var container = document.getElementById('dr-sections');
+  if(!container) return;
+  container.innerHTML = '';
+  var doc = currentDrKey ? drData[currentDrKey] : null;
+  if(!doc) return;
+  if(!doc.sections) doc.sections = defaultDrSections();
+  doc.sections.forEach(function(sec, idx){
+    try {
+      var shell = buildSectionShell(sec, idx, doc.sections, renderDrSections, saveCurrentDr);
+      buildListSection(sec, shell.body, saveCurrentDr, renderDrSections);
+      container.appendChild(shell.wrap);
+    } catch(e){
+      var err = document.createElement('div');
+      err.className = 'sec';
+      err.innerHTML = '<div class="sec-body" style="color:#E24B4A;font-size:12px;">This section could not be displayed. Remove and re-add it.</div>';
+      container.appendChild(err);
+    }
+  });
+}
+
+function wireDrHeaderFields(){
+  var map = [ ['dr-name','name'], ['dr-role','role'], ['dr-dept','dept'], ['dr-energy','energy'] ];
+  map.forEach(function(pair){
+    var el = document.getElementById(pair[0]);
+    if(!el) return;
+    el.addEventListener('input', function(){
+      if(!currentDrKey || !drData[currentDrKey]) return;
+      drData[currentDrKey][pair[1]] = el.value;
+      if(pair[1] === 'name'){
+        drList.forEach(function(p){ if(p.key === currentDrKey) p.name = el.value; });
+        renderDrChips();
+        saveDrList();
+      }
+      saveCurrentDr();
+    });
+    el.addEventListener('change', function(){
+      if(!currentDrKey || !drData[currentDrKey]) return;
+      drData[currentDrKey][pair[1]] = el.value;
+      saveCurrentDr();
+    });
+  });
+}
+
+/* ---- Otter import (1:1) ---- */
+var otterMeetingsCache = [];
+var selectedOtterId = null;
+
+function callClaude(prompt, useOtter){
+  var body = {
+    model: 'claude-sonnet-4-6',
+    max_tokens: 1000,
+    messages: [ { role:'user', content: prompt } ]
+  };
+  if(useOtter){
+    body.mcp_servers = [ { type:'url', url:'https://mcp.otter.ai/mcp', name:'otter' } ];
   }
-  var chips = document.querySelectorAll('#dr-chips .chip');
-  if (chips[currentDR]) chips[currentDR].textContent = d.name || 'Report ' + (currentDR + 1);
-  return sbSet('dr_' + currentDR, d);
+  return fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body)
+  }).then(function(r){ return r.json(); });
 }
 
-function updateChipLabel() {
-  var chips = document.querySelectorAll('#dr-chips .chip');
-  var val = document.getElementById('dr-name').value;
-  if (chips[currentDR]) chips[currentDR].textContent = val || 'Report ' + (currentDR + 1);
+function extractText(data){
+  if(!data || !data.content) return '';
+  return data.content.filter(function(b){ return b.type === 'text'; })
+    .map(function(b){ return b.text; }).join('\n');
 }
 
-function fetchOtterForDR() {
-  setStatus('dr-status', 'Fetching meetings...', 'loading');
-  fetch(API, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({
-    model: MDL, max_tokens: 1000,
-    system: 'Return ONLY a raw JSON array of 6 most recent meetings. Each: {"otid":"...","title":"...","date":"..."}. No markdown.',
-    messages: [{role:'user', content:'List my 6 most recent Otter.ai meetings'}],
-    mcp_servers: [{type:'url', url:OMCP, name:'otter'}]
-  })}).then(function(r) { return r.json(); }).then(function(data) {
-    var tb = null;
-    for (var i = 0; i < data.content.length; i++) { if (data.content[i].type === 'text') { tb = data.content[i]; break; } }
-    if (!tb) throw new Error('No response');
-    var meetings = JSON.parse(tb.text.replace(/```json|```/g, '').trim());
+function fetchOtterForDr(){
+  var doc = currentDrKey ? drData[currentDrKey] : null;
+  if(!doc || !doc.name){
+    setStatus('dr-status', 'Select a report and enter their name first.', 'error');
+    return;
+  }
+  setStatus('dr-status', 'Searching Otter for recent meetings...', 'loading');
+  var prompt = 'Search my Otter meetings for recent 1:1 meetings, especially any with ' + doc.name + '. Respond ONLY with a JSON array (no markdown, no preamble) of up to 6 meetings: [{"id":"...","title":"...","date":"..."}]';
+  callClaude(prompt, true).then(function(data){
+    var txt = extractText(data).replace(/```json|```/g, '').trim();
+    var arr = [];
+    try { arr = JSON.parse(txt); } catch(e){ arr = []; }
+    if(!arr.length){
+      setStatus('dr-status', 'No meetings found. Check your Otter connection.', 'error');
+      return;
+    }
+    otterMeetingsCache = arr;
+    selectedOtterId = null;
     var list = document.getElementById('otter-list-dr');
     list.innerHTML = '';
-    for (var i = 0; i < meetings.length; i++) {
-      (function(m) {
-        var d = document.createElement('div');
-        d.className = 'oi';
-        d.innerHTML = '<div class="oi-title">' + esc(m.title||'Untitled') + '</div><div class="oi-date">' + esc(m.date||'') + '</div>';
-        d.addEventListener('click', function() {
-          var all = document.querySelectorAll('#otter-list-dr .oi');
-          for (var j = 0; j < all.length; j++) all[j].classList.remove('selected');
-          this.classList.add('selected'); selectedOtterDR = m;
-        });
-        list.appendChild(d);
-      })(meetings[i]);
-    }
+    arr.forEach(function(m){
+      var item = document.createElement('div');
+      item.className = 'oi';
+      item.innerHTML = '<div class="oi-title">' + esc(m.title) + '</div><div class="oi-date">' + esc(m.date || '') + '</div>';
+      item.addEventListener('click', function(){
+        selectedOtterId = m.id;
+        var all = list.querySelectorAll('.oi');
+        for(var i=0;i<all.length;i++){ all[i].classList.remove('selected'); }
+        item.classList.add('selected');
+      });
+      list.appendChild(item);
+    });
     document.getElementById('otter-picker').style.display = 'block';
-    setStatus('dr-status', 'Select a meeting to import', 'success');
-  }).catch(function(e) { setStatus('dr-status', 'Error: ' + e.message, 'error'); });
-}
-
-function confirmOtterDR() {
-  if (!selectedOtterDR) { setStatus('dr-status', 'Please select a meeting', 'error'); return; }
-  document.getElementById('otter-picker').style.display = 'none';
-  setStatus('dr-status', 'Analyzing transcript...', 'loading');
-  var drName = document.getElementById('dr-name').value || 'this direct report';
-  fetch(API, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({
-    model: MDL, max_tokens: 1000,
-    system: 'Analyze 1:1 meeting for ' + drName + '. Return ONLY raw JSON: {"projects":"...","wins":"...","coaching":"...","concerns":"...","nextsteps":"...","energy":"High -- thriving|Steady -- good pace|Stretched -- watch carefully|Low -- needs support|Observe / Unknown"}',
-    messages: [{role:'user', content:'Meeting: ' + selectedOtterDR.title + '\nOTID: ' + selectedOtterDR.otid + '\nFetch transcript and extract 1:1 prep info.'}],
-    mcp_servers: [{type:'url', url:OMCP, name:'otter'}]
-  })}).then(function(r) { return r.json(); }).then(function(data) {
-    var tb = null;
-    for (var i = 0; i < data.content.length; i++) { if (data.content[i].type === 'text') { tb = data.content[i]; break; } }
-    if (!tb) throw new Error('No response');
-    var info = JSON.parse(tb.text.replace(/```json|```/g, '').trim());
-    var fields = ['projects','wins','coaching','concerns','nextsteps','energy'];
-    for (var i = 0; i < fields.length; i++) {
-      if (info[fields[i]]) document.getElementById('dr-' + fields[i]).value = info[fields[i]];
-    }
-    saveDR(); setStatus('dr-status', 'Fields populated from transcript', 'success');
-  }).catch(function(e) { setStatus('dr-status', 'Error: ' + e.message, 'error'); });
-}
-
-// -- MEETING AGENDAS -------------------------------------------
-function initAgendas() {
-  sbGet('meeting_agendas').then(function(saved) {
-    agendas = (saved && saved.length) ? saved : [{title:'Central Team', date:'', attendees:'', items:'', nextsteps:''}];
-    renderAgTabs(); renderAgContent();
+    setStatus('dr-status', 'Select the meeting to import from.', 'loading');
+  }).catch(function(){
+    setStatus('dr-status', 'Could not reach Otter. Try again.', 'error');
   });
 }
 
-function renderAgTabs() {
-  var tabs = document.getElementById('agenda-tabs');
-  tabs.innerHTML = '';
-  for (var i = 0; i < agendas.length; i++) {
-    (function(idx) {
-      var btn = document.createElement('button');
-      btn.className = 'chip' + (idx === currentAgIdx ? ' active' : '');
-      btn.textContent = agendas[idx].title || 'Agenda ' + (idx + 1);
-      btn.addEventListener('click', function() { saveCurrentAg(); currentAgIdx = idx; renderAgTabs(); renderAgContent(); });
-      tabs.appendChild(btn);
-    })(i);
+function importSelectedOtter(){
+  if(!selectedOtterId){
+    setStatus('dr-status', 'Tap a meeting first.', 'error');
+    return;
   }
-}
-
-function renderAgContent() {
-  var a = agendas[currentAgIdx];
-  var div = document.getElementById('agenda-content');
-  div.innerHTML = '';
-  function makeField(labelText, elTag, elId, elVal, elPh, rows) {
-    var f = document.createElement('div'); f.className = 'field'; f.style.marginTop = '10px';
-    var lbl = document.createElement('label'); lbl.textContent = labelText;
-    var el;
-    if (elTag === 'textarea') {
-      el = document.createElement('textarea'); el.id = elId; el.rows = rows || 4;
-      el.placeholder = elPh; el.value = elVal;
-    } else {
-      el = document.createElement('input'); el.type = 'text'; el.id = elId;
-      el.placeholder = elPh; el.value = elVal;
+  var doc = drData[currentDrKey];
+  setStatus('dr-status', 'Reading transcript and extracting talking points...', 'loading');
+  var prompt = 'Fetch the Otter meeting transcript with id "' + selectedOtterId + '". Extract 1:1 prep points about ' + doc.name + '. Respond ONLY with JSON (no markdown): {"projects":["..."],"wins":["..."],"blockers":["..."],"coaching":["..."],"concerns":["..."],"nextsteps":["..."],"personal":["..."],"energy":"green|yellow|red or empty"}';
+  callClaude(prompt, true).then(function(data){
+    var txt = extractText(data).replace(/```json|```/g, '').trim();
+    var obj = null;
+    try { obj = JSON.parse(txt); } catch(e){ obj = null; }
+    if(!obj){
+      setStatus('dr-status', 'Could not parse the transcript. Try again.', 'error');
+      return;
     }
-    f.appendChild(lbl); f.appendChild(el); return f;
-  }
-  div.appendChild(makeField('Meeting Title', 'input', 'ag2-title', a.title||'', 'e.g. Central Team'));
-  var two = document.createElement('div'); two.className = 'two-col';
-  two.appendChild(makeField('Date', 'input', 'ag2-date', a.date||'', 'MM/DD/YYYY'));
-  two.appendChild(makeField('Attendees', 'input', 'ag2-attendees', a.attendees||'', 'Names'));
-  div.appendChild(two);
-  div.appendChild(makeField('Agenda Items', 'textarea', 'ag2-items', a.items||'', 'Item 1 (Owner, time)', 8));
-  div.appendChild(makeField('Next Steps', 'textarea', 'ag2-nextsteps', a.nextsteps||'', 'Step | Owner | Due Date', 4));
-  document.getElementById('ag2-title').addEventListener('input', function() { agendas[currentAgIdx].title = this.value; renderAgTabs(); });
+    var mapping = [
+      ['projects','Current Projects & Ownership'],
+      ['wins','Wins to Affirm'],
+      ['blockers','Blockers & Role Diffusion Risks'],
+      ['coaching','Coaching / Development Focus'],
+      ['concerns','Concerns to Address'],
+      ['nextsteps','Next Steps (Owner + Due Date)'],
+      ['personal','Personal / Family Notes']
+    ];
+    mapping.forEach(function(pair){
+      var items = obj[pair[0]];
+      if(!items || !items.length) return;
+      var target = null;
+      doc.sections.forEach(function(s){ if(s.title === pair[1]) target = s; });
+      if(!target){
+        target = {id:newSecId(), title:pair[1], rows:[]};
+        doc.sections.push(target);
+      }
+      if(target.rows.length === 1 && (target.rows[0] || '').trim() === ''){ target.rows = []; }
+      items.forEach(function(it){ if(it && String(it).trim() !== '') target.rows.push(String(it).trim()); });
+    });
+    if(obj.energy && ['green','yellow','red'].indexOf(obj.energy) >= 0){
+      doc.energy = obj.energy;
+      var enEl = document.getElementById('dr-energy');
+      if(enEl) enEl.value = obj.energy;
+    }
+    renderDrSections();
+    saveCurrentDr();
+    document.getElementById('otter-picker').style.display = 'none';
+    setStatus('dr-status', 'Imported. Review each section before the 1:1.', 'success');
+  }).catch(function(){
+    setStatus('dr-status', 'Import failed. Try again.', 'error');
+  });
 }
 
-function saveCurrentAg() {
-  agendas[currentAgIdx] = {
-    title: document.getElementById('ag2-title') ? document.getElementById('ag2-title').value : agendas[currentAgIdx].title,
-    date: document.getElementById('ag2-date') ? document.getElementById('ag2-date').value : '',
-    attendees: document.getElementById('ag2-attendees') ? document.getElementById('ag2-attendees').value : '',
-    items: document.getElementById('ag2-items') ? document.getElementById('ag2-items').value : '',
-    nextsteps: document.getElementById('ag2-nextsteps') ? document.getElementById('ag2-nextsteps').value : ''
+/* ---- Generate Brief ---- */
+function generateBrief(){
+  var doc = currentDrKey ? drData[currentDrKey] : null;
+  if(!doc){ return; }
+  var en = { green:'GREEN — energized & healthy', yellow:'YELLOW — managing, some strain', red:'RED — depleted, needs attention' };
+  var lines = [];
+  lines.push('1:1 PREP BRIEF — ' + (doc.name || 'Report'));
+  var sub = [];
+  if(doc.role) sub.push(doc.role);
+  if(doc.dept) sub.push(doc.dept);
+  if(sub.length) lines.push(sub.join(' · '));
+  if(doc.energy) lines.push('Energy: ' + (en[doc.energy] || doc.energy));
+  lines.push('');
+  (doc.sections || []).forEach(function(sec){
+    var rows = (sec.rows || []).filter(function(r){ return (r || '').trim() !== ''; });
+    if(!rows.length) return;
+    lines.push(sec.title.toUpperCase());
+    rows.forEach(function(r){ lines.push('• ' + r); });
+    lines.push('');
+  });
+  lines.push('---');
+  lines.push('Remember: every next step needs an owner and a due date.');
+  var txt = lines.join('\n');
+  document.getElementById('brief-text').textContent = txt;
+  document.getElementById('brief-output').style.display = 'block';
+}
+
+function copyBrief(){
+  var txt = document.getElementById('brief-text').textContent;
+  function done(){
+    var s = document.getElementById('brief-copy-success');
+    s.style.display = 'inline';
+    setTimeout(function(){ s.style.display = 'none'; }, 2000);
+  }
+  if(navigator.clipboard && navigator.clipboard.writeText){
+    navigator.clipboard.writeText(txt).then(done).catch(function(){ fallbackCopy(txt); done(); });
+  } else {
+    fallbackCopy(txt); done();
+  }
+}
+function fallbackCopy(txt){
+  var ta = document.createElement('textarea');
+  ta.value = txt;
+  ta.style.position = 'fixed'; ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus(); ta.select();
+  try { document.execCommand('copy'); } catch(e){}
+  document.body.removeChild(ta);
+}
+
+/* ============ DASHBOARD — rituals (key: rituals) + ideal week (key: ideal_week) ============ */
+var ritualsData = null;
+var RITUAL_DEFS = [
+  ['daily_startup','Daily Start Up'],
+  ['daily_shutdown','Daily Shut Down'],
+  ['work_startup','Work Start Up'],
+  ['work_shutdown','Work Shut Down']
+];
+
+function defaultRituals(){
+  return { daily_startup:[''], daily_shutdown:[''], work_startup:[''], work_shutdown:[''] };
+}
+
+function saveRituals(){
+  debounceSave('rituals', function(){ sbSet('rituals', ritualsData); });
+}
+
+function renderRituals(){
+  var grid = document.getElementById('rit-grid');
+  if(!grid) return;
+  if(!ritualsData) ritualsData = defaultRituals();
+  grid.innerHTML = '';
+  RITUAL_DEFS.forEach(function(def){
+    var key = def[0], label = def[1];
+    if(!Array.isArray(ritualsData[key])) ritualsData[key] = [''];
+    var card = document.createElement('div');
+    card.className = 'iw-day';
+    var hdr = document.createElement('div');
+    hdr.className = 'iw-day-hdr';
+    hdr.textContent = label;
+    var body = document.createElement('div');
+    body.className = 'iw-day-body';
+    ritualsData[key].forEach(function(val, ri){
+      var lr = document.createElement('div');
+      lr.className = 'list-row';
+      var dot = document.createElement('span');
+      dot.className = 'list-dot'; dot.innerHTML = '&#9679;';
+      var inp = document.createElement('input');
+      inp.type = 'text'; inp.value = val || '';
+      inp.addEventListener('input', function(){ ritualsData[key][ri] = inp.value; saveRituals(); });
+      var xb = document.createElement('button');
+      xb.className = 'row-x'; xb.innerHTML = '&#215;';
+      xb.addEventListener('click', function(){ ritualsData[key].splice(ri, 1); renderRituals(); saveRituals(); });
+      lr.appendChild(dot); lr.appendChild(inp); lr.appendChild(xb);
+      body.appendChild(lr);
+    });
+    var add = document.createElement('button');
+    add.className = 'add-row-btn'; add.textContent = '+ Add step';
+    add.addEventListener('click', function(){ ritualsData[key].push(''); renderRituals(); saveRituals(); });
+    body.appendChild(add);
+    card.appendChild(hdr); card.appendChild(body);
+    grid.appendChild(card);
+  });
+}
+
+var idealWeekData = null;
+var IW_DAYS = [ ['mon','Monday'], ['tue','Tuesday'], ['wed','Wednesday'], ['thu','Thursday'], ['fri','Friday'], ['sat','Saturday'], ['sun','Sunday'] ];
+
+function defaultIdealWeek(){
+  return {
+    mon:[{t:'',a:''}], tue:[{t:'',a:''}], wed:[{t:'',a:''}],
+    thu:[{t:'',a:''}], fri:[{t:'',a:''}], sat:[{t:'',a:''}], sun:[{t:'',a:''}]
   };
 }
 
-function saveAgendas() {
-  saveCurrentAg();
-  sbSet('meeting_agendas', agendas).then(function() { setStatus('agenda-status', 'Saved', 'success'); });
+function saveIdealWeek(){
+  debounceSave('ideal_week', function(){ sbSet('ideal_week', idealWeekData); });
 }
 
-function addNewAgenda() {
-  saveCurrentAg();
-  agendas.push({title:'New Agenda', date:'', attendees:'', items:'', nextsteps:''});
-  currentAgIdx = agendas.length - 1; renderAgTabs(); renderAgContent();
-}
-
-function deleteCurrentAgenda() {
-  if (agendas.length <= 1) { setStatus('agenda-status', 'Cannot delete last agenda', 'error'); return; }
-  showModal('Delete', 'Delete "' + agendas[currentAgIdx].title + '"?', 'Delete').then(function(ok) {
-    if (!ok) return;
-    agendas.splice(currentAgIdx, 1);
-    currentAgIdx = Math.max(0, currentAgIdx - 1);
-    renderAgTabs(); renderAgContent(); sbSet('meeting_agendas', agendas);
-  });
-}
-
-// -- MEETING TO ASANA ------------------------------------------
-function fetchOtterMeetings() {
-  setStatus('asana-status', 'Fetching meetings...', 'loading');
-  fetch(API, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({
-    model: MDL, max_tokens: 1000,
-    system: 'Return ONLY a raw JSON array of 5 most recent meetings. Each: {"otid":"...","title":"...","date":"..."}. No markdown.',
-    messages: [{role:'user', content:'List my 5 most recent Otter.ai meetings'}],
-    mcp_servers: [{type:'url', url:OMCP, name:'otter'}]
-  })}).then(function(r) { return r.json(); }).then(function(data) {
-    var tb = null;
-    for (var i = 0; i < data.content.length; i++) { if (data.content[i].type === 'text') { tb = data.content[i]; break; } }
-    if (!tb) throw new Error('No response');
-    var meetings = JSON.parse(tb.text.replace(/```json|```/g, '').trim());
-    var container = document.getElementById('asana-meetings');
-    container.innerHTML = '<p style="font-size:13px;color:#666;margin-bottom:10px;">Click a meeting to extract action items.</p>';
-    for (var i = 0; i < meetings.length; i++) {
-      (function(m) {
-        var item = document.createElement('div'); item.className = 'mi';
-        var safeId = 'act-' + String(m.otid).replace(/[^a-z0-9]/gi, '');
-        var hdr = document.createElement('div'); hdr.className = 'mi-hdr';
-        hdr.innerHTML = '<span>' + esc(m.title||'Untitled') + '</span><small>' + esc(m.date||'') + '</small><span style="font-size:12px;color:#999;">&#9654; Extract</span>';
-        var body = document.createElement('div'); body.className = 'mi-body'; body.id = safeId; body.style.display = 'none';
-        hdr.addEventListener('click', function() { toggleExtract(body, m.otid, m.title||''); });
-        item.appendChild(hdr); item.appendChild(body); container.appendChild(item);
-      })(meetings[i]);
-    }
-    setStatus('asana-status', meetings.length + ' meetings fetched', 'success');
-  }).catch(function(e) { setStatus('asana-status', 'Error: ' + e.message, 'error'); });
-}
-
-function toggleExtract(body, otid, title) {
-  if (body.style.display === 'block') { body.style.display = 'none'; return; }
-  body.style.display = 'block';
-  body.innerHTML = '<p style="font-size:13px;color:#666;">Extracting...</p>';
-  fetch(API, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({
-    model: MDL, max_tokens: 1000,
-    system: 'Extract action items. Return ONLY raw JSON array: [{"text":"action","owner":"person or unknown"}]. No markdown.',
-    messages: [{role:'user', content:'Meeting: ' + title + '\nOTID: ' + otid + '\nFetch transcript and list action items.'}],
-    mcp_servers: [{type:'url', url:OMCP, name:'otter'}]
-  })}).then(function(r) { return r.json(); }).then(function(data) {
-    var tb = null;
-    for (var i = 0; i < data.content.length; i++) { if (data.content[i].type === 'text') { tb = data.content[i]; break; } }
-    if (!tb) throw new Error('No response');
-    var items = JSON.parse(tb.text.replace(/```json|```/g, '').trim());
-    if (!items.length) { body.innerHTML = '<p style="font-size:13px;color:#999;">No action items found.</p>'; return; }
-    body.innerHTML = '';
-    var cbIds = [];
-    for (var i = 0; i < items.length; i++) {
-      var cbId = 'cb-' + Math.random().toString(36).substr(2,8);
-      cbIds.push(cbId);
+function renderIdealWeek(){
+  var grid = document.getElementById('iw-grid');
+  if(!grid) return;
+  if(!idealWeekData) idealWeekData = defaultIdealWeek();
+  grid.innerHTML = '';
+  IW_DAYS.forEach(function(day){
+    var key = day[0], label = day[1];
+    if(!Array.isArray(idealWeekData[key])) idealWeekData[key] = [{t:'',a:''}];
+    var card = document.createElement('div');
+    card.className = 'iw-day';
+    var hdr = document.createElement('div');
+    hdr.className = 'iw-day-hdr';
+    hdr.textContent = label;
+    var body = document.createElement('div');
+    body.className = 'iw-day-body';
+    idealWeekData[key].forEach(function(block, bi){
       var row = document.createElement('div');
-      row.style.cssText = 'display:flex;align-items:flex-start;gap:8px;padding:8px 0;border-bottom:.5px solid #f0ede8;';
-      var cb = document.createElement('input'); cb.type = 'checkbox'; cb.id = cbId; cb.checked = true; cb.style.cssText = 'width:auto;margin-top:3px;';
-      var txt = document.createElement('div'); txt.style.cssText = 'flex:1;font-size:13px;';
-      txt.innerHTML = esc(items[i].text) + '<br><span style="font-size:11px;color:#999;">Owner: ' + esc(items[i].owner||'--') + '</span>';
-      row.appendChild(cb); row.appendChild(txt); body.appendChild(row);
-    }
-    var sendBtn = document.createElement('button');
-    sendBtn.className = 'btn btn-dark btn-sm'; sendBtn.style.marginTop = '10px'; sendBtn.textContent = 'Send to Asana';
-    sendBtn.addEventListener('click', function() {
-      var checked = [];
-      for (var i = 0; i < items.length; i++) { var cb = document.getElementById(cbIds[i]); if (cb && cb.checked) checked.push(items[i]); }
-      sendToAsana(title, checked);
+      row.className = 'iw-row';
+      var tw = document.createElement('div'); tw.className = 'iw-time';
+      var ti = document.createElement('input');
+      ti.type = 'text'; ti.value = block.t || ''; ti.placeholder = '5:00a';
+      ti.addEventListener('input', function(){ block.t = ti.value; saveIdealWeek(); });
+      tw.appendChild(ti);
+      var aw = document.createElement('div'); aw.className = 'iw-act';
+      var ai = document.createElement('input');
+      ai.type = 'text'; ai.value = block.a || ''; ai.placeholder = 'Activity...';
+      ai.addEventListener('input', function(){ block.a = ai.value; saveIdealWeek(); });
+      aw.appendChild(ai);
+      var xb = document.createElement('button');
+      xb.className = 'row-x'; xb.innerHTML = '&#215;';
+      xb.addEventListener('click', function(){ idealWeekData[key].splice(bi, 1); renderIdealWeek(); saveIdealWeek(); });
+      row.appendChild(tw); row.appendChild(aw); row.appendChild(xb);
+      body.appendChild(row);
     });
-    body.appendChild(sendBtn);
-  }).catch(function(e) { body.innerHTML = '<p style="font-size:13px;color:#E24B4A;">Error: ' + e.message + '</p>'; });
-}
-
-function sendToAsana(title, checked) {
-  if (!checked.length) return;
-  setStatus('asana-status', 'Sending ' + checked.length + ' items...', 'loading');
-  var taskList = '';
-  for (var i = 0; i < checked.length; i++) taskList += '"' + checked[i].text + '" -- owner: ' + checked[i].owner + '\n';
-  fetch(API, {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({
-    model: MDL, max_tokens: 1000,
-    system: 'Create Asana tasks in user inbox. Respond ONLY with JSON: {"created":N}.',
-    messages: [{role:'user', content:'Create these as Asana tasks in my inbox:\n' + taskList + '\nSource: ' + title}],
-    mcp_servers: [{type:'url', url:AMCP, name:'asana'}]
-  })}).then(function(r) { return r.json(); }).then(function(data) {
-    var tb = null;
-    for (var i = 0; i < data.content.length; i++) { if (data.content[i].type === 'text') { tb = data.content[i]; break; } }
-    var result;
-    try { result = JSON.parse((tb ? tb.text : '').replace(/```json|```/g, '').trim()); } catch(e) { result = {created: checked.length}; }
-    setStatus('asana-status', '\u2713 ' + result.created + ' tasks added to Asana', 'success');
-  }).catch(function(e) { setStatus('asana-status', 'Error: ' + e.message, 'error'); });
-}
-
-// -- 9-MONTH PLAN ----------------------------------------------
-function savePlan() {
-  var d = {};
-  var fields = ['start','strategic','vips','caution','staff','finance','notes'];
-  for (var i = 0; i < fields.length; i++) { var el = document.getElementById('plan-' + fields[i]); if (el) d[fields[i]] = el.value; }
-  return sbSet('plan', d);
-}
-
-function loadPlan() {
-  sbGet('plan').then(function(d) {
-    if (!d) return;
-    var fields = ['start','strategic','vips','caution','staff','finance','notes'];
-    for (var i = 0; i < fields.length; i++) { var el = document.getElementById('plan-' + fields[i]); if (el && d[fields[i]]) el.value = d[fields[i]]; }
+    var add = document.createElement('button');
+    add.className = 'add-row-btn'; add.textContent = '+ Add block';
+    add.addEventListener('click', function(){ idealWeekData[key].push({t:'',a:''}); renderIdealWeek(); saveIdealWeek(); });
+    body.appendChild(add);
+    card.appendChild(hdr); card.appendChild(body);
+    grid.appendChild(card);
   });
 }
 
-// -- WIRE BUTTONS ----------------------------------------------
-function wireButtons() {
-  // Helper -- silently skips missing elements so one bad ID can't kill all tabs
-  function on(id, evt, fn) {
-    var el = document.getElementById(id);
-    if (el) el.addEventListener(evt, fn);
-  }
-
-  // Tabs
-  on('tbtn-manifesto', 'click', function() { showTab('manifesto'); });
-  on('tbtn-agenda',    'click', function() { showTab('agenda'); });
-  on('tbtn-dr',        'click', function() { showTab('dr'); });
-  on('tbtn-meetings',  'click', function() { showTab('meetings'); });
-  on('tbtn-asana',     'click', function() { showTab('asana'); });
-  on('tbtn-plan',      'click', function() { showTab('plan'); });
-
-  // Exec agenda
-  on('btn-add-metric',   'click', function() { addMetric(); });
-  on('btn-add-divider',  'click', function() { addDivider(); });
-  on('btn-add-ag-row',   'click', function() { addAgRow(); });
-  on('btn-add-ap-row',   'click', function() { addApRow(); });
-  on('btn-add-ns-row',   'click', function() { addNsRow(); });
-  on('btn-clear-agenda', 'click', function() { clearAgenda(); });
-  on('btn-print',        'click', function() { doPrint(); });
-  on('ag-title',         'input', onAgendaInput);
-  on('ag-date',          'input', onAgendaInput);
-  on('ag-date',          'blur',  onAgendaInput);
-  on('ag-celebrate',     'input', onAgendaInput);
-  var hdrIds = ['hdr-celebrate','hdr-prayer','hdr-metrics','hdr-agenda','hdr-approvals','hdr-nextsteps'];
-  for (var i = 0; i < hdrIds.length; i++) on(hdrIds[i], 'input', onAgendaInput);
-  for (var i = 1; i <= 6; i++) on('pr' + i, 'input', onAgendaInput);
-
-  // 1:1 prep
-  on('btn-fetch-otter-dr', 'click', function() { fetchOtterForDR(); });
-  on('btn-confirm-otter',  'click', function() { confirmOtterDR(); });
-  on('btn-cancel-otter',   'click', function() { var op = document.getElementById('otter-picker'); if(op) op.style.display = 'none'; });
-  on('btn-gen-brief',      'click', function() { generateBrief(); });
-  on('btn-copy-brief',     'click', function() { copyBrief(); });
-  on('dr-name', 'input', function() { updateChipLabel(); debounceSaveDR(); });
-  var drIds = ['dr-role','dr-date','dr-lastwin','dr-projects','dr-wins','dr-coaching','dr-concerns','dr-nextsteps','dr-personal'];
-  for (var i = 0; i < drIds.length; i++) on(drIds[i], 'input', debounceSaveDR);
-  on('dr-energy', 'change', debounceSaveDR);
-  on('dr-dept',   'change', debounceSaveDR);
-
-  // Meeting agendas
-  on('btn-new-agenda',    'click', function() { addNewAgenda(); });
-  on('btn-save-agendas',  'click', function() { saveAgendas(); });
-  on('btn-delete-agenda', 'click', function() { deleteCurrentAgenda(); });
-
-  // Asana
-  on('btn-fetch-otter-meetings', 'click', function() { fetchOtterMeetings(); });
-
-  // 9-month plan
-  on('btn-export-plan', 'click', function() { exportPlanPDF(); });
-  var planFields = ['start','strategic','vips','caution','staff','finance','notes'];
-  for (var i = 0; i < planFields.length; i++) on('plan-' + planFields[i], 'input', onPlanInput);
-}
-
-
-// -- GENERATE 1:1 BRIEF ---------------------------------------
-function generateBrief() {
-  var name = document.getElementById('dr-name').value || '[Name]';
-  var role = document.getElementById('dr-role').value || '[Role]';
-  var dept = document.getElementById('dr-dept').value || '[Department]';
-  var energy = document.getElementById('dr-energy').value || 'Unknown';
-  var projects = document.getElementById('dr-projects').value || 'Not specified';
-  var blockers = document.getElementById('dr-wins').value || 'None noted';
-  var lastwin = document.getElementById('dr-lastwin').value || 'Not noted';
-  var devfocus = document.getElementById('dr-coaching').value || 'Not specified';
-  var ineed = document.getElementById('dr-concerns').value || 'Not specified';
-  var nextsteps = document.getElementById('dr-nextsteps').value || 'None from last meeting';
-  var personal = document.getElementById('dr-personal').value || 'None noted';
-
-  var lines = [];
-  lines.push('I have a 1:1 meeting coming up with ' + name + ', who serves as ' + role + ' over ' + dept + ' at Church @ The Springs (thesprings.net), a multisite church with 4 campuses and ~4,500 weekly attendees.');
-  lines.push('');
-  lines.push('Here is my pre-meeting context. Please generate a focused, coaching-oriented prep brief I can use to lead this meeting well.');
-  lines.push('');
-  lines.push('---');
-  lines.push('');
-  lines.push('CURRENT ACTIVE PROJECTS (1-3):');
-  lines.push(projects);
-  lines.push('');
-  lines.push('KNOWN BLOCKERS OR FRICTION THIS WEEK:');
-  lines.push(blockers);
-  lines.push('');
-  lines.push("LAST WEEK'S MAIN WIN:");
-  lines.push(lastwin);
-  lines.push('');
-  lines.push('CURRENT ENERGY / CAPACITY: ' + energy);
-  lines.push('');
-  lines.push('SPECIFIC DEVELOPMENT FOCUS:');
-  lines.push(devfocus);
-  lines.push('');
-  lines.push('WHAT I NEED FROM THIS MEETING:');
-  lines.push(ineed);
-  lines.push('');
-  lines.push('NEXT STEPS FROM LAST MEETING (to follow up on):');
-  lines.push(nextsteps);
-  lines.push('');
-  lines.push('FAMILY & PERSONAL NOTES:');
-  lines.push(personal);
-  lines.push('');
-  lines.push('---');
-  lines.push('');
-  lines.push('Please generate:');
-  lines.push('1. A 2-sentence framing of where ' + name + ' is right now (energy, load, momentum)');
-  lines.push('2. 3-4 coaching questions tailored to their context -- not generic, specific to what I shared');
-  lines.push('3. One affirmation or win I should open with');
-  lines.push('4. My agenda for this meeting based on what I shared I need');
-  lines.push('5. Any blind spots or concerns I should probe gently');
-  lines.push('6. Suggested next steps to close the meeting with clarity');
-  lines.push('');
-  lines.push('Keep it scannable -- I have 3 minutes to prep before the meeting.');
-
-  var prompt = lines.join('\n');
-  document.getElementById('brief-text').textContent = prompt;
-  document.getElementById('brief-output').style.display = 'block';
-  document.getElementById('brief-copy-success').style.display = 'none';
-}
-
-function copyBrief() {
-  var text = document.getElementById('brief-text').textContent;
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(text).then(function() {
-      var el = document.getElementById('brief-copy-success');
-      el.style.display = 'inline';
-      setTimeout(function() { el.style.display = 'none'; }, 2500);
-    });
-  } else {
-    var ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    document.execCommand('copy');
-    document.body.removeChild(ta);
-    var el = document.getElementById('brief-copy-success');
-    el.style.display = 'inline';
-    setTimeout(function() { el.style.display = 'none'; }, 2500);
-  }
-}
-
-// -- EXPORT PLAN AS PDF ----------------------------------------
-function exportPlanPDF() {
-  var startVal = (document.getElementById('plan-start') ? document.getElementById('plan-start').value : '') || '';
-  var fields = [
-    {label:'Top 3 Organizational Priorities', id:'plan-strategic'},
-    {label:'Known Major Events & Milestones', id:'plan-vips'},
-    {label:'Current Pain Points / Caution Areas', id:'plan-caution'},
-    {label:'Staff Development Focus', id:'plan-staff'},
-    {label:'Financial Milestones', id:'plan-finance'},
-    {label:'What "Win" Looks Like in 9 Months', id:'plan-notes'}
-  ];
-
-  function escHtml(s) {
-    return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-  }
-  function nl2p(s) {
-    var lines = s.split('\n');
-    var out = '';
-    for (var i=0; i<lines.length; i++) {
-      out += '<p style="margin:0 0 6pt;">' + escHtml(lines[i] || ' ') + '</p>';
+/* ============ OTTER -> ASANA (dashboard) ============ */
+function fetchOtterMeetings(){
+  setStatus('asana-status', 'Fetching recent meetings from Otter...', 'loading');
+  var prompt = 'List my recent Otter meetings from the last 14 days. Respond ONLY with a JSON array (no markdown): [{"id":"...","title":"...","date":"..."}] with up to 8 meetings.';
+  callClaude(prompt, true).then(function(data){
+    var txt = extractText(data).replace(/```json|```/g, '').trim();
+    var arr = [];
+    try { arr = JSON.parse(txt); } catch(e){ arr = []; }
+    var wrap = document.getElementById('asana-meetings');
+    wrap.innerHTML = '';
+    if(!arr.length){
+      setStatus('asana-status', 'No recent meetings found. Check Otter connection.', 'error');
+      return;
     }
-    return out;
-  }
-  function section(title, val) {
-    if (!val || !val.trim()) return '';
-    return '<div style="margin-bottom:18pt;">' +
-      '<div style="font-size:8pt;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#888;border-bottom:1pt solid #ddd;padding-bottom:4pt;margin-bottom:8pt;">' + escHtml(title) + '</div>' +
-      '<div style="font-size:11pt;line-height:1.7;color:#222;">' + nl2p(val) + '</div>' +
-      '</div>';
-  }
-
-  var body = '';
-  for (var i=0; i<fields.length; i++) {
-    var el = document.getElementById(fields[i].id);
-    body += section(fields[i].label, el ? el.value : '');
-  }
-
-  var dateStr = new Date().toLocaleDateString();
-  var html = '<!DOCTYPE html><html><head><meta charset="UTF-8">' +
-    '<style>' +
-    '@page{margin:.75in;size:letter;}' +
-    'body{font-family:-apple-system,BlinkMacSystemFont,Arial,sans-serif;color:#1a1a1a;font-size:11pt;line-height:1.6;margin:0;}' +
-    'h1{font-size:20pt;font-weight:700;margin:0 0 4pt;}' +
-    '.meta{font-size:9pt;color:#888;margin-bottom:20pt;padding-bottom:12pt;border-bottom:1pt solid #ddd;}' +
-    '</style></head><body>' +
-    '<h1>9-Month Strategic Plan</h1>' +
-    '<div class="meta">Church @ The Springs &middot; thesprings.net' +
-    (startVal ? ' &middot; Starting ' + escHtml(startVal) : '') +
-    ' &middot; Generated ' + dateStr + '</div>' +
-    body +
-    '</body></html>';
-
-  var w = window.open('', '_blank');
-  if (!w) { alert('Please allow popups to export as PDF.'); return; }
-  w.document.write(html);
-  w.document.close();
-  w.focus();
-  setTimeout(function() { w.print(); }, 500);
-}
-
-
-// -- INIT ------------------------------------------------------
-function init() {
-  wireButtons();
-  renderMetrics();
-  for (var i = 0; i < 5; i++) addAgRow();
-  for (var i = 0; i < 3; i++) addApRow();
-  for (var i = 0; i < 4; i++) addNsRow();
-
-  fetch(SURL + '/rest/v1/toolkit_data?limit=1', {headers: SHDR})
-    .then(function(r) { setSyncStatus(r.ok ? 'synced' : 'error', r.ok ? 'Connected' : 'Cannot connect'); })
-    .catch(function() { setSyncStatus('error', 'Offline'); });
-
-  loadMetrics();
-  sbGet('exec_agenda').then(function(d) { if (d) loadAgendaData(d); });
-  initDRChips();
-  initAgendas();
-  loadPlan();
-}
-
-// Wire tabs immediately via event delegation on the top-bar
-// This is the belt-AND-suspenders fallback - works even if wireButtons() fails
-document.addEventListener('DOMContentLoaded', function() {
-  // Tab delegation - catches clicks on any .tab-btn regardless of wireButtons
-  var topBar = document.querySelector('.top-bar');
-  if (topBar) {
-    topBar.addEventListener('click', function(e) {
-      var btn = e.target;
-      while (btn && btn !== topBar) {
-        if (btn.id && btn.id.indexOf('tbtn-') === 0) {
-          showTab(btn.id.replace('tbtn-', ''));
-          return;
-        }
-        btn = btn.parentNode;
-      }
+    arr.forEach(function(m){
+      var mi = document.createElement('div');
+      mi.className = 'mi';
+      var hdr = document.createElement('div');
+      hdr.className = 'mi-hdr';
+      hdr.innerHTML = '<span>' + esc(m.title) + '</span><small>' + esc(m.date || '') + '</small>';
+      var body = document.createElement('div');
+      body.className = 'mi-body';
+      body.style.display = 'none';
+      var extractBtn = document.createElement('button');
+      extractBtn.className = 'btn btn-sm btn-dark';
+      extractBtn.textContent = 'Extract Action Items';
+      extractBtn.addEventListener('click', function(){ extractActions(m, body, extractBtn); });
+      body.appendChild(extractBtn);
+      hdr.addEventListener('click', function(){
+        body.style.display = body.style.display === 'none' ? 'block' : 'none';
+      });
+      mi.appendChild(hdr); mi.appendChild(body);
+      wrap.appendChild(mi);
     });
-  }
+    setStatus('asana-status', 'Tap a meeting, then extract its action items.', 'success');
+  }).catch(function(){
+    setStatus('asana-status', 'Could not reach Otter. Try again.', 'error');
+  });
+}
 
-  // Run init with full error isolation - nothing in init() can break the tabs
-  try { wireButtons(); } catch(e) { console.error('wireButtons error:', e); }
-  try { renderMetrics(); } catch(e) { console.error('renderMetrics error:', e); }
-  try { for (var i = 0; i < 5; i++) addAgRow(); } catch(e) {}
-  try { for (var i = 0; i < 3; i++) addApRow(); } catch(e) {}
-  try { for (var i = 0; i < 4; i++) addNsRow(); } catch(e) {}
+function extractActions(meeting, body, btn){
+  btn.disabled = true;
+  btn.textContent = 'Extracting...';
+  var prompt = 'Fetch the Otter transcript with id "' + meeting.id + '" titled "' + meeting.title + '". Extract action items. Respond ONLY with JSON (no markdown): [{"task":"...","owner":"...","due":"..."}]. ChurchOS rule: every task needs an owner; if unclear use "UNASSIGNED".';
+  callClaude(prompt, true).then(function(data){
+    var txt = extractText(data).replace(/```json|```/g, '').trim();
+    var items = [];
+    try { items = JSON.parse(txt); } catch(e){ items = []; }
+    btn.style.display = 'none';
+    if(!items.length){
+      var p = document.createElement('div');
+      p.style.cssText = 'font-size:13px;color:#999;padding:6px 0;';
+      p.textContent = 'No clear action items found in this transcript.';
+      body.appendChild(p);
+      return;
+    }
+    var list = document.createElement('div');
+    items.forEach(function(it){
+      var row = document.createElement('div');
+      row.style.cssText = 'padding:8px 0;border-bottom:.5px solid #f0ede8;font-size:13px;';
+      row.innerHTML = '<div style="font-weight:500;">' + esc(it.task) + '</div><div style="font-size:11px;color:#999;">Owner: ' + esc(it.owner || 'UNASSIGNED') + (it.due ? ' · Due: ' + esc(it.due) : '') + '</div>';
+      list.appendChild(row);
+    });
+    body.appendChild(list);
+    var sendBtn = document.createElement('button');
+    sendBtn.className = 'btn btn-sm btn-green';
+    sendBtn.style.marginTop = '10px';
+    sendBtn.textContent = 'Send ' + items.length + ' to Asana';
+    sendBtn.addEventListener('click', function(){ sendToAsana(items, sendBtn); });
+    body.appendChild(sendBtn);
+  }).catch(function(){
+    btn.disabled = false;
+    btn.textContent = 'Extract Action Items';
+    setStatus('asana-status', 'Extraction failed. Try again.', 'error');
+  });
+}
 
-  // Supabase connection test - completely isolated
+function sendToAsana(items, btn){
+  btn.disabled = true;
+  btn.textContent = 'Sending to Asana...';
+  var lines = items.map(function(it){
+    return '- Task: ' + it.task + ' | Owner: ' + (it.owner || 'UNASSIGNED') + ' | Due: ' + (it.due || 'not set');
+  }).join('\n');
+  var prompt = 'Create these tasks in my Asana workspace (use my default/first workspace and an appropriate project, or "Meeting Action Items" if it exists):\n' + lines + '\nAssign owners by name where they match workspace members. Set due dates where given. Then respond with a one-line confirmation of how many tasks were created.';
+  var body = {
+    model: 'claude-sonnet-4-6',
+    max_tokens: 1000,
+    messages: [ { role:'user', content: prompt } ],
+    mcp_servers: [ { type:'url', url:'https://mcp.asana.com/v2/mcp', name:'asana' } ]
+  };
+  fetch('https://api.anthropic.com/v1/messages', {
+    method:'POST',
+    headers: { 'Content-Type':'application/json' },
+    body: JSON.stringify(body)
+  }).then(function(r){ return r.json(); }).then(function(data){
+    var txt = extractText(data);
+    btn.textContent = 'Sent ✓';
+    setStatus('asana-status', txt || 'Tasks sent to Asana.', 'success');
+  }).catch(function(){
+    btn.disabled = false;
+    btn.textContent = 'Send to Asana';
+    setStatus('asana-status', 'Could not reach Asana. Try again.', 'error');
+  });
+}
+
+/* ============ 9-MONTH PLAN (key: plan) ============ */
+var PLAN_FIELDS = ['plan-onething','plan-theme','plan-now','plan-next','plan-later','plan-parking','plan-indicators','plan-personal'];
+
+function savePlan(){
+  debounceSave('plan', function(){
+    var obj = {};
+    PLAN_FIELDS.forEach(function(id){
+      var el = document.getElementById(id);
+      if(el) obj[id] = el.value;
+    });
+    sbSet('plan', obj);
+  });
+}
+
+function loadPlanIntoUI(obj){
+  if(!obj) return;
+  PLAN_FIELDS.forEach(function(id){
+    var el = document.getElementById(id);
+    if(el && obj[id] !== undefined) el.value = obj[id];
+  });
+}
+
+function exportPlanPDF(){
+  var get = function(id){
+    var el = document.getElementById(id);
+    return el ? el.value : '';
+  };
+  var h = '';
+  h += '<!DOCTYPE html><html><head><meta charset="UTF-8"><title>9-Month Plan</title><style>';
+  h += '@page{margin:0;size:letter;} body{font-family:-apple-system,BlinkMacSystemFont,sans-serif;color:#1a1a1a;padding:0.7in 0.75in;font-size:12px;}';
+  h += 'h1{font-size:20px;margin:0 0 4px;} .sub{font-size:11px;color:#888;margin-bottom:16px;}';
+  h += 'h2{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:#888;border-bottom:1px solid #ddd;padding-bottom:4px;margin:16px 0 6px;}';
+  h += 'p{font-size:11px;line-height:1.65;white-space:pre-wrap;margin:0 0 6px;}';
+  h += '.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}';
+  h += '</style></head><body>';
+  h += '<h1>9-Month Plan</h1><div class="sub">May 2026 – January 2027 · Church @ The Springs</div>';
+  h += '<h2>The One Thing</h2><p>' + esc(get('plan-onething')) + '</p>';
+  h += '<h2>Theme</h2><p>' + esc(get('plan-theme')) + '</p>';
+  h += '<div class="grid">';
+  h += '<div><h2>Now (May–Jul)</h2><p>' + esc(get('plan-now')) + '</p></div>';
+  h += '<div><h2>Next (Aug–Oct)</h2><p>' + esc(get('plan-next')) + '</p></div>';
+  h += '<div><h2>Later (Nov–Jan)</h2><p>' + esc(get('plan-later')) + '</p></div>';
+  h += '<div><h2>Parking Lot</h2><p>' + esc(get('plan-parking')) + '</p></div>';
+  h += '</div>';
+  h += '<h2>Leading Indicators</h2><p>' + esc(get('plan-indicators')) + '</p>';
+  h += '<h2>Personal Development Focus</h2><p>' + esc(get('plan-personal')) + '</p>';
+  h += '<script>window.onload=function(){window.print();};<\/script></body></html>';
+  var w = window.open('', '_blank');
+  if(!w){ setStatus('plan-status', 'Popup blocked — allow popups for this site.', 'error'); return; }
+  w.document.write(h);
+  w.document.close();
+}
+
+/* ============ WIRING + INIT ============ */
+function on(id, evt, fn){
+  var el = document.getElementById(id);
+  if(el){ el.addEventListener(evt, fn); }
+}
+
+function wireButtons(){
+  on('tbtn-manifesto', 'click', function(){ showTab('manifesto'); });
+  on('tbtn-agenda', 'click', function(){ showTab('agenda'); });
+  on('tbtn-dr', 'click', function(){ showTab('dr'); });
+  on('tbtn-dashboard', 'click', function(){ showTab('dashboard'); });
+  on('tbtn-plan', 'click', function(){ showTab('plan'); });
+
+  on('modal-ok', 'click', function(){ closeModal(true); });
+  on('modal-cancel', 'click', function(){ closeModal(false); });
+  on('modal-input', 'keydown', function(e){ if(e.key === 'Enter'){ closeModal(true); } });
+
+  on('ag-title', 'input', function(){
+    if(!agendaDoc) return;
+    var v = document.getElementById('ag-title').value;
+    agendaDoc.title = v;
+    agendaList.forEach(function(a){ if(a.key === currentAgendaKey) a.name = v; });
+    renderAgendaChips();
+    saveAgendaList();
+    saveAgendaDoc();
+  });
+  on('ag-date', 'input', function(){
+    if(agendaDoc){ agendaDoc.date = document.getElementById('ag-date').textContent; saveAgendaDoc(); }
+  });
+  on('btn-add-section', 'click', function(){
+    document.getElementById('sec-chooser').classList.toggle('open');
+  });
+  on('chooser-table', 'click', function(){ addAgendaSection('table'); });
+  on('chooser-list', 'click', function(){ addAgendaSection('list'); });
+  on('chooser-text', 'click', function(){ addAgendaSection('text'); });
+  on('chooser-metrics', 'click', function(){ addAgendaSection('metrics'); });
+  on('chooser-cancel', 'click', function(){
+    document.getElementById('sec-chooser').classList.remove('open');
+  });
+  on('btn-export-agenda', 'click', exportAgendaPDF);
+  on('btn-clear-agenda', 'click', function(){
+    showModal('Clear this agenda?', 'This resets the current agenda to its default sections. Other agendas and metrics values are kept.', {okText:'Clear'}, function(ok){
+      if(!ok || !currentAgendaKey) return;
+      var keep = agendaDoc ? agendaDoc.title : '';
+      var fresh = (currentAgendaKey === 'exec_agenda') ? defaultAgendaDoc() : newMeetingDoc(keep);
+      if(keep) fresh.title = keep;
+      agendaData[currentAgendaKey] = fresh;
+      loadAgendaIntoUI();
+      saveAgendaDoc();
+    });
+  });
+
+  on('btn-add-dr-section', 'click', function(){
+    var doc = currentDrKey ? drData[currentDrKey] : null;
+    if(!doc){ return; }
+    showModal('New section', 'Name this section:', {input:true, placeholder:'e.g. Q3 Goals', okText:'Add'}, function(ok, val){
+      if(!ok || !val || !val.trim()) return;
+      doc.sections.push({id:newSecId(), title:val.trim(), rows:['']});
+      renderDrSections();
+      saveCurrentDr();
+    });
+  });
+  on('btn-fetch-otter-dr', 'click', fetchOtterForDr);
+  on('btn-confirm-otter', 'click', importSelectedOtter);
+  on('btn-cancel-otter', 'click', function(){
+    document.getElementById('otter-picker').style.display = 'none';
+  });
+  on('btn-gen-brief', 'click', generateBrief);
+  on('btn-copy-brief', 'click', copyBrief);
+
+  on('btn-fetch-otter-meetings', 'click', fetchOtterMeetings);
+
+  PLAN_FIELDS.forEach(function(id){ on(id, 'input', savePlan); });
+  on('btn-export-plan', 'click', exportPlanPDF);
+
+  wireDrHeaderFields();
+}
+
+function initTabsFallback(){
+  var bar = document.querySelector('.top-bar');
+  if(!bar) return;
+  bar.addEventListener('click', function(e){
+    var t = e.target;
+    while(t && t !== bar){
+      if(t.id && t.id.indexOf('tbtn-') === 0){
+        showTab(t.id.substring(5));
+        return;
+      }
+      t = t.parentNode;
+    }
+  });
+}
+
+function loadAll(){
+  setSync('syncing', 'Loading...');
+  sbGet('metrics').then(function(val){
+    if(val) metricsData = normalizeMetrics(val);
+    return sbGet('agenda_list');
+  }).then(function(val){
+    if(val && Array.isArray(val) && val.length){
+      agendaList = val.filter(function(a){ return a && a.key; });
+      agendaData = {};
+      return null;
+    }
+    agendaList = [];
+    agendaData = {};
+    return sbGet('exec_agenda').then(function(doc){
+      var norm = normalizeAgendaDoc(doc);
+      agendaData['exec_agenda'] = norm;
+      agendaList = [{key:'exec_agenda', name: norm.title || 'Executive Team Meeting'}];
+      sbSet('agenda_list', agendaList);
+      return null;
+    });
+  }).then(function(){
+    renderAgendaChips();
+    if(agendaList.length){ selectAgenda(agendaList[0].key); }
+    return sbGet('dr_list');
+  }).then(function(val){
+    if(val && Array.isArray(val) && val.length){
+      drList = val.filter(function(p){ return p && p.key; });
+    } else {
+      drList = [];
+      var fetches = [];
+      for(var i=0;i<5;i++){ fetches.push(sbGet('dr_' + i)); }
+      return Promise.all(fetches).then(function(results){
+        results.forEach(function(doc, i){
+          var norm = normalizeDrDoc(doc);
+          if(norm){
+            drList.push({ key:'dr_' + i, name: norm.name || ('Report ' + (i+1)) });
+            drData['dr_' + i] = norm;
+          }
+        });
+        if(drList.length){ sbSet('dr_list', drList); }
+        return null;
+      });
+    }
+    return null;
+  }).then(function(){
+    renderDrChips();
+    if(drList.length){ selectDr(drList[0].key); }
+    return sbGet('rituals');
+  }).then(function(val){
+    if(val && typeof val === 'object' && !Array.isArray(val)) ritualsData = val;
+    renderRituals();
+    return sbGet('ideal_week');
+  }).then(function(val){
+    if(val && typeof val === 'object' && !Array.isArray(val)) idealWeekData = val;
+    renderIdealWeek();
+    return sbGet('plan');
+  }).then(function(val){
+    if(val && typeof val === 'object') loadPlanIntoUI(val);
+    setSync('synced', 'Synced');
+  }).catch(function(){
+    setSync('error', 'Some data failed to load — refresh to retry');
+    try { renderAgendaSections(); } catch(e){}
+    try { renderRituals(); } catch(e){}
+    try { renderIdealWeek(); } catch(e){}
+  });
+}
+
+document.addEventListener('DOMContentLoaded', function(){
+  try { initTabsFallback(); } catch(e){ console.error('tabs fallback', e); }
+  try { wireButtons(); } catch(e){ console.error('wireButtons', e); }
   try {
-    fetch(SURL + '/rest/v1/toolkit_data?limit=1', {headers: SHDR})
-      .then(function(r) { setSyncStatus(r.ok ? 'synced' : 'error', r.ok ? 'Connected' : 'Cannot connect'); })
-      .catch(function() { setSyncStatus('error', 'Offline — data will not sync'); });
-  } catch(e) { setSyncStatus('error', 'Offline'); }
-
-  // Load all data - each isolated
-  try { loadMetrics(); } catch(e) { console.error('loadMetrics error:', e); }
-  try { sbGet('exec_agenda').then(function(d) { if (d) loadAgendaData(d); }).catch(function(){}); } catch(e) {}
-  try { initDRChips(); } catch(e) { console.error('initDRChips error:', e); }
-  try { initAgendas(); } catch(e) { console.error('initAgendas error:', e); }
-  try { loadPlan(); } catch(e) { console.error('loadPlan error:', e); }
+    if(!agendaList.length){
+      agendaList = [{key:'exec_agenda', name:'Executive Team Meeting'}];
+      agendaData['exec_agenda'] = defaultAgendaDoc();
+      currentAgendaKey = 'exec_agenda';
+      renderAgendaChips();
+      loadAgendaIntoUI();
+    }
+  } catch(e){ console.error('agenda render', e); }
+  try { renderRituals(); } catch(e){ console.error('rituals', e); }
+  try { renderIdealWeek(); } catch(e){ console.error('ideal week', e); }
+  try { renderDrChips(); } catch(e){ console.error('dr chips', e); }
+  try { loadAll(); } catch(e){ console.error('loadAll', e); }
 });
 </script>
 </body>
