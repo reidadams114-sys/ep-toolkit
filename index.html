@@ -461,6 +461,19 @@ label{font-size:12px;color:#666;display:block;margin-bottom:4px;font-weight:500;
     </div>
   </div>
   <div id="ag-sections"></div>
+  <div class="card">
+    <span class="slabel">Import from Plaud</span>
+    <div style="font-size:12px;color:#999;margin-bottom:10px;">Pulls action items from a Plaud recording into this agenda&rsquo;s Next Steps.</div>
+    <button class="btn btn-dark" id="btn-fetch-plaud-agenda">&#127908; Pull Plaud Action Items</button>
+    <div id="plaud-picker-ag" style="display:none;margin-top:10px;">
+      <div style="font-size:12px;color:#666;margin-bottom:4px;">Select the recording:</div>
+      <div class="otter-list" id="plaud-list-ag"></div>
+      <div style="display:flex;gap:8px;margin-top:8px;">
+        <button class="btn btn-sm btn-dark" id="btn-confirm-plaud-ag">Import Selected</button>
+        <button class="btn btn-sm" id="btn-cancel-plaud-ag">Cancel</button>
+      </div>
+    </div>
+  </div>
   <div class="sbar" id="ag-status"></div>
 </div>
  
@@ -491,8 +504,8 @@ label{font-size:12px;color:#666;display:block;margin-bottom:4px;font-weight:500;
   </div>
  
   <div class="card">
-    <span class="slabel">Import from Otter</span>
-    <div style="font-size:12px;color:#999;margin-bottom:10px;">Pull talking points from your last 1:1 transcript. Items land in matching sections.</div>
+    <span class="slabel">Import from Plaud</span>
+    <div style="font-size:12px;color:#999;margin-bottom:10px;">Pull talking points from your last 1:1 recording. Items land in matching sections.</div>
     <button class="btn btn-dark" id="btn-fetch-otter-dr">&#127908; Import from Last 1:1</button>
     <div id="otter-picker" style="display:none;margin-top:10px;">
       <div style="font-size:12px;color:#666;margin-bottom:4px;">Select the meeting:</div>
@@ -524,8 +537,8 @@ label{font-size:12px;color:#666;display:block;margin-bottom:4px;font-weight:500;
  
   <div class="card">
     <span class="slabel">Meeting &rarr; Asana</span>
-    <div style="font-size:12px;color:#999;margin-bottom:10px;">Pull action items from recent Otter meetings and push them to Asana with owners and due dates.</div>
-    <button class="btn btn-dark" id="btn-fetch-otter-meetings">&#127908; Fetch Recent Meetings</button>
+    <div style="font-size:12px;color:#999;margin-bottom:10px;">Pull action items from recent Plaud recordings and push them to Asana with owners and due dates.</div>
+    <button class="btn btn-dark" id="btn-fetch-otter-meetings">&#127908; Fetch Recent Recordings</button>
     <div class="sbar" id="asana-status"></div>
     <div id="asana-meetings" style="margin-top:10px;"></div>
   </div>
@@ -1418,7 +1431,7 @@ function wireDrHeaderFields(){
   });
 }
  
-/* ---- Otter import (1:1) ---- */
+/* ---- Plaud import (1:1) ---- */
 var otterMeetingsCache = [];
 var selectedOtterId = null;
  
@@ -1429,7 +1442,7 @@ function callClaude(prompt, useOtter){
     messages: [ { role:'user', content: prompt } ]
   };
   if(useOtter){
-    body.mcp_servers = [ { type:'url', url:'https://mcp.otter.ai/mcp', name:'otter' } ];
+    body.mcp_servers = [ { type:'url', url:'https://mcp.plaud.ai/mcp', name:'plaud' } ];
   }
   return fetch('https://api.anthropic.com/v1/messages', {
     method: 'POST',
@@ -1450,14 +1463,14 @@ function fetchOtterForDr(){
     setStatus('dr-status', 'Select a report and enter their name first.', 'error');
     return;
   }
-  setStatus('dr-status', 'Searching Otter for recent meetings...', 'loading');
-  var prompt = 'Search my Otter meetings for recent 1:1 meetings, especially any with ' + doc.name + '. Respond ONLY with a JSON array (no markdown, no preamble) of up to 6 meetings: [{"id":"...","title":"...","date":"..."}]';
+  setStatus('dr-status', 'Searching Plaud for recent recordings...', 'loading');
+  var prompt = 'List my recent Plaud recordings from the last 21 days, prioritizing 1:1 meetings, especially any mentioning ' + doc.name + ' in the title or summary. Respond ONLY with a JSON array (no markdown, no preamble) of up to 6 recordings: [{"id":"...","title":"...","date":"..."}]';
   callClaude(prompt, true).then(function(data){
     var txt = extractText(data).replace(/```json|```/g, '').trim();
     var arr = [];
     try { arr = JSON.parse(txt); } catch(e){ arr = []; }
     if(!arr.length){
-      setStatus('dr-status', 'No meetings found. Check your Otter connection.', 'error');
+      setStatus('dr-status', 'No recordings found. Check your Plaud connection.', 'error');
       return;
     }
     otterMeetingsCache = arr;
@@ -1479,7 +1492,7 @@ function fetchOtterForDr(){
     document.getElementById('otter-picker').style.display = 'block';
     setStatus('dr-status', 'Select the meeting to import from.', 'loading');
   }).catch(function(){
-    setStatus('dr-status', 'Could not reach Otter. Try again.', 'error');
+    setStatus('dr-status', 'Could not reach Plaud. Try again.', 'error');
   });
 }
  
@@ -1490,7 +1503,7 @@ function importSelectedOtter(){
   }
   var doc = drData[currentDrKey];
   setStatus('dr-status', 'Reading transcript and extracting talking points...', 'loading');
-  var prompt = 'Fetch the Otter meeting transcript with id "' + selectedOtterId + '". Extract 1:1 prep points about ' + doc.name + '. Respond ONLY with JSON (no markdown): {"projects":["..."],"wins":["..."],"blockers":["..."],"coaching":["..."],"concerns":["..."],"nextsteps":["..."],"personal":["..."],"energy":"green|yellow|red or empty"}';
+  var prompt = 'Fetch the Plaud recording with id "' + selectedOtterId + '" including its transcript and AI summary. Extract 1:1 prep points about ' + doc.name + '. Respond ONLY with JSON (no markdown): {"projects":["..."],"wins":["..."],"blockers":["..."],"coaching":["..."],"concerns":["..."],"nextsteps":["..."],"personal":["..."],"energy":"green|yellow|red or empty"}';
   callClaude(prompt, true).then(function(data){
     var txt = extractText(data).replace(/```json|```/g, '').trim();
     var obj = null;
@@ -1582,6 +1595,102 @@ function fallbackCopy(txt){
   ta.focus(); ta.select();
   try { document.execCommand('copy'); } catch(e){}
   document.body.removeChild(ta);
+}
+ 
+/* ---- Plaud import (Meeting Agendas) ---- */
+var agPlaudCache = [];
+var agPlaudSelected = null;
+ 
+function fetchPlaudForAgenda(){
+  if(!agendaDoc){
+    setStatus('ag-status', 'Select an agenda first.', 'error');
+    return;
+  }
+  setStatus('ag-status', 'Searching Plaud for recent recordings...', 'loading');
+  var t = agendaDoc.title || 'meeting';
+  var prompt = 'List my recent Plaud recordings from the last 21 days, prioritizing any whose title or summary matches "' + t + '". Respond ONLY with a JSON array (no markdown, no preamble) of up to 8 recordings: [{"id":"...","title":"...","date":"..."}]';
+  callClaude(prompt, true).then(function(data){
+    var txt = extractText(data).replace(/```json|```/g, '').trim();
+    var arr = [];
+    try { arr = JSON.parse(txt); } catch(e){ arr = []; }
+    if(!arr.length){
+      setStatus('ag-status', 'No recordings found. Check your Plaud connection.', 'error');
+      return;
+    }
+    agPlaudCache = arr;
+    agPlaudSelected = null;
+    var list = document.getElementById('plaud-list-ag');
+    list.innerHTML = '';
+    arr.forEach(function(m){
+      var item = document.createElement('div');
+      item.className = 'oi';
+      item.innerHTML = '<div class="oi-title">' + esc(m.title) + '</div><div class="oi-date">' + esc(m.date || '') + '</div>';
+      item.addEventListener('click', function(){
+        agPlaudSelected = m.id;
+        var all = list.querySelectorAll('.oi');
+        for(var i=0;i<all.length;i++){ all[i].classList.remove('selected'); }
+        item.classList.add('selected');
+      });
+      list.appendChild(item);
+    });
+    document.getElementById('plaud-picker-ag').style.display = 'block';
+    setStatus('ag-status', 'Select the recording to import from.', 'loading');
+  }).catch(function(){
+    setStatus('ag-status', 'Could not reach Plaud. Try again.', 'error');
+  });
+}
+ 
+function findNextStepsSection(){
+  var target = null;
+  agendaDoc.sections.forEach(function(s){
+    if(!target && s.kind === 'table' && /next steps/i.test(s.title || '')) target = s;
+  });
+  if(!target){
+    target = {id:newSecId(), kind:'table', title:'Next Steps', cols:['Action','Owner','Due Date'], rows:[]};
+    agendaDoc.sections.push(target);
+  }
+  if(!Array.isArray(target.cols) || !target.cols.length) target.cols = ['Action','Owner','Due Date'];
+  if(!Array.isArray(target.rows)) target.rows = [];
+  return target;
+}
+ 
+function importPlaudToAgenda(){
+  if(!agPlaudSelected){
+    setStatus('ag-status', 'Tap a recording first.', 'error');
+    return;
+  }
+  setStatus('ag-status', 'Reading recording and pulling action items...', 'loading');
+  var prompt = 'Fetch the Plaud recording with id "' + agPlaudSelected + '". Use the action items from its AI summary when present; otherwise extract them from the transcript. Respond ONLY with JSON (no markdown): [{"task":"...","owner":"...","due":"..."}]. ChurchOS rule: every task needs an owner; if unclear use "UNASSIGNED".';
+  callClaude(prompt, true).then(function(data){
+    var txt = extractText(data).replace(/```json|```/g, '').trim();
+    var items = [];
+    try { items = JSON.parse(txt); } catch(e){ items = []; }
+    if(!items.length){
+      setStatus('ag-status', 'No clear action items found in that recording.', 'error');
+      return;
+    }
+    var sec = findNextStepsSection();
+    sec.rows = sec.rows.filter(function(row){
+      return row.some(function(v){ return (v || '').trim() !== ''; });
+    });
+    items.forEach(function(it){
+      var row = [];
+      for(var c=0;c<sec.cols.length;c++){
+        if(c === 0) row.push(String(it.task || ''));
+        else if(c === 1) row.push(String(it.owner || 'UNASSIGNED'));
+        else if(c === 2) row.push(String(it.due || ''));
+        else row.push('');
+      }
+      sec.rows.push(row);
+    });
+    if(!sec.rows.length) sec.rows = [sec.cols.map(function(){ return ''; })];
+    renderAgendaSections();
+    saveAgendaDoc();
+    document.getElementById('plaud-picker-ag').style.display = 'none';
+    setStatus('ag-status', 'Imported ' + items.length + ' action items into Next Steps. Review owners and due dates.', 'success');
+  }).catch(function(){
+    setStatus('ag-status', 'Import failed. Try again.', 'error');
+  });
 }
  
 /* ============ DASHBOARD — rituals (key: rituals) + ideal week (key: ideal_week) ============ */
@@ -1698,8 +1807,8 @@ function renderIdealWeek(){
  
 /* ============ OTTER -> ASANA (dashboard) ============ */
 function fetchOtterMeetings(){
-  setStatus('asana-status', 'Fetching recent meetings from Otter...', 'loading');
-  var prompt = 'List my recent Otter meetings from the last 14 days. Respond ONLY with a JSON array (no markdown): [{"id":"...","title":"...","date":"..."}] with up to 8 meetings.';
+  setStatus('asana-status', 'Fetching recent recordings from Plaud...', 'loading');
+  var prompt = 'List my recent Plaud recordings from the last 14 days. Respond ONLY with a JSON array (no markdown): [{"id":"...","title":"...","date":"..."}] with up to 8 recordings.';
   callClaude(prompt, true).then(function(data){
     var txt = extractText(data).replace(/```json|```/g, '').trim();
     var arr = [];
@@ -1707,7 +1816,7 @@ function fetchOtterMeetings(){
     var wrap = document.getElementById('asana-meetings');
     wrap.innerHTML = '';
     if(!arr.length){
-      setStatus('asana-status', 'No recent meetings found. Check Otter connection.', 'error');
+      setStatus('asana-status', 'No recent recordings found. Check Plaud connection.', 'error');
       return;
     }
     arr.forEach(function(m){
@@ -1730,16 +1839,16 @@ function fetchOtterMeetings(){
       mi.appendChild(hdr); mi.appendChild(body);
       wrap.appendChild(mi);
     });
-    setStatus('asana-status', 'Tap a meeting, then extract its action items.', 'success');
+    setStatus('asana-status', 'Tap a recording, then extract its action items.', 'success');
   }).catch(function(){
-    setStatus('asana-status', 'Could not reach Otter. Try again.', 'error');
+    setStatus('asana-status', 'Could not reach Plaud. Try again.', 'error');
   });
 }
  
 function extractActions(meeting, body, btn){
   btn.disabled = true;
   btn.textContent = 'Extracting...';
-  var prompt = 'Fetch the Otter transcript with id "' + meeting.id + '" titled "' + meeting.title + '". Extract action items. Respond ONLY with JSON (no markdown): [{"task":"...","owner":"...","due":"..."}]. ChurchOS rule: every task needs an owner; if unclear use "UNASSIGNED".';
+  var prompt = 'Fetch the Plaud recording with id "' + meeting.id + '" titled "' + meeting.title + '". Use the action items from its AI summary when present; otherwise extract them from the transcript. Respond ONLY with JSON (no markdown): [{"task":"...","owner":"...","due":"..."}]. ChurchOS rule: every task needs an owner; if unclear use "UNASSIGNED".';
   callClaude(prompt, true).then(function(data){
     var txt = extractText(data).replace(/```json|```/g, '').trim();
     var items = [];
@@ -1894,6 +2003,11 @@ function wireButtons(){
     document.getElementById('sec-chooser').classList.remove('open');
   });
   on('btn-export-agenda', 'click', exportAgendaPDF);
+  on('btn-fetch-plaud-agenda', 'click', fetchPlaudForAgenda);
+  on('btn-confirm-plaud-ag', 'click', importPlaudToAgenda);
+  on('btn-cancel-plaud-ag', 'click', function(){
+    document.getElementById('plaud-picker-ag').style.display = 'none';
+  });
   on('btn-clear-agenda', 'click', function(){
     showModal('Clear this agenda?', 'This resets the current agenda to its default sections. Other agendas and metrics values are kept.', {okText:'Clear'}, function(ok){
       if(!ok || !currentAgendaKey) return;
